@@ -1,23 +1,27 @@
-using module ./String.psm1
+using namespace System.Collections.Generic
 
 "Building the solution..."
 $cmdletTemplate = Get-Content res/CmdletTemplate.cs -Raw
-$htmlElements = (Import-PowerShellDataFile res/HtmlElements.psd1).HtmlElements
-
+$cmdletsToExport = [List[string]]::new()
 $invariantCulture = Get-Culture ""
-$htmlElements | ForEach-Object {
+
+(Import-PowerShellDataFile res/HtmlElements.psd1).HtmlElements | ForEach-Object {
 	$replacements = @{
-		CapitalizedTag = Capitalize-String $_.Tag -Culture $invariantCulture
+		CapitalizedTag = [char]::ToUpper($_.Tag[0], $invariantCulture) + $_.Tag.Substring(1)
 		IsVoid = $_.IsVoid.ToString().ToLowerInvariant()
 		Tag = $_.Tag
 	}
 
-	$content = $cmdletTemplate
-	$replacements.Keys | ForEach-Object {
-		$content = $content -replace "{$_}", $replacements.$_
-	}
+	$cmdlet = "New-$($replacements.CapitalizedTag)Element"
+	$cmdletsToExport.Add($cmdlet)
 
-	Set-Content "src/Elements/New-$($replacements.CapitalizedTag)Element.g.cs" $content
+	$content = $cmdletTemplate
+	$replacements.Keys | ForEach-Object { $content = $content -replace "{$_}", $replacements.$_ }
+	Set-Content "src/Elements/$cmdlet.g.cs" $content -NoNewline
 }
 
-# TODO dotnet build --configuration ($Release ? "Release" : "Debug")
+$cmdlets = ($cmdletsToExport | ForEach-Object { "`t`t`"$_`"" }) -join [Environment]::NewLine
+$content = Get-Content Html.psd1 -Raw
+Set-Content Html.psd1 ($content -replace "CmdletsToExport = @\([^)]+\)", "CmdletsToExport = @(`n$cmdlets`n`t)") -NoNewline
+
+dotnet build --configuration ($Release ? "Release" : "Debug")

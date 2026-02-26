@@ -3,5 +3,5 @@
 /.vs/
 /bin/
 /*/obj/
-/src/Elements/
+/src/**/*.g.cs
 /var/
