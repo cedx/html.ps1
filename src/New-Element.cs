@@ -52,12 +52,12 @@ public abstract class NewElementCommand(string tag, bool isVoid = false): Cmdlet
 	protected override void ProcessRecord() {
 		Attributes ??= [];
 		Style ??= [];
+		if (!string.IsNullOrWhiteSpace(Id)) Attributes["id"] = Id;
 
 		var className = string.Join(' ', Class);
-		var style = string.Join("; ", Style.Cast<DictionaryEntry>().Select(entry => $"{entry.Key}: {Convert.ToString(entry.Value)?.Replace("\"", encodedDoubleQuote)}"));
-
-		if (!string.IsNullOrWhiteSpace(Id)) Attributes["id"] = Id;
 		if (!string.IsNullOrWhiteSpace(className)) Attributes["class"] = className;
+
+		var style = string.Join("; ", Style.Cast<DictionaryEntry>().Select(entry => $"{entry.Key}: {Convert.ToString(entry.Value)?.Replace("\"", encodedDoubleQuote)}"));
 		if (!string.IsNullOrWhiteSpace(style)) Attributes["style"] = style;
 
 		var builder = new StringBuilder($"<{tag}");
@@ -73,12 +73,9 @@ public abstract class NewElementCommand(string tag, bool isVoid = false): Cmdlet
 
 		if (isVoid) builder.Append(" />");
 		else {
-			var value = Content is ScriptBlock scriptBlock
-				? scriptBlock.Invoke().Select(psObject => psObject.BaseObject)
-				: (Content is string content ? WebUtility.HtmlEncode(content) : Content);
-
+			var values = Content is ScriptBlock scriptBlock ? scriptBlock.Invoke().Select(psObject => psObject.BaseObject) : (Content is null ? [] : [Content]);
 			builder.Append('>');
-			builder.Append(value);
+			foreach (var value in values) builder.Append(value);
 			builder.Append($"</{tag}>");
 		}
 
