@@ -23,4 +23,6 @@ jobs:
       - name: Install dependencies
         run: ./Invoke.ps1 Install
       - name: Run tests
-        run: ./Invoke.ps1 Test
+        run: |
+          ./Invoke.ps1 Build
+          ./Invoke.ps1 Test
