@@ -2,7 +2,7 @@
 	<PropertyGroup>
 		<Company>Cedric-Belin.fr</Company>
 		<Copyright>© Cédric Belin</Copyright>
-		<Description>TODO</Description>
+		<Description>A simple template engine for rendering HTML documents.</Description>
 		<Product>HTML Template Engine for PowerShell</Product>
 		<Version>0.1.0</Version>
 	</PropertyGroup>
@@ -12,7 +12,7 @@
 		<IncludeSymbols>true</IncludeSymbols>
 		<PackageLicenseExpression>MIT</PackageLicenseExpression>
 		<PackageReadmeFile>ReadMe.md</PackageReadmeFile>
-		<PackageTags>TODO</PackageTags>
+		<PackageTags>html;renderer;template;templating;web</PackageTags>
 		<RepositoryUrl>https://github.com/cedx/html.net.git</RepositoryUrl>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
 	</PropertyGroup>

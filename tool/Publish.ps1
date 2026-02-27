@@ -24,7 +24,6 @@ New-Item $output/bin -ItemType Directory | Out-Null
 Copy-Item Html.psd1 $output
 Copy-Item *.md $output
 Copy-Item $module.RootModule $output/bin
-# TODO ??? $module.RequiredAssemblies | Copy-Item -Destination $output/bin
 
 $output = "var/PSGallery"
 New-Item $output -ItemType Directory | Out-Null

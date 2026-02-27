@@ -6,7 +6,7 @@
 	Author = "Cédric Belin <cedx@outlook.com>"
 	CompanyName = "Cedric-Belin.fr"
 	Copyright = "© Cédric Belin"
-	Description = "TODO"
+	Description = "A simple template engine for rendering HTML documents."
 	GUID = "3c16800c-921e-4c31-9fc3-00052d2f30ba"
 
 	AliasesToExport = @()
@@ -134,7 +134,7 @@
 			LicenseUri = "https://github.com/cedx/html.net/blob/main/License.md"
 			ProjectUri = "https://github.com/cedx/html.net"
 			ReleaseNotes = "https://github.com/cedx/html.net/releases"
-			Tags = "TODO"
+			Tags = "html", "renderer", "template", "templating", "web"
 		}
 	}
 }

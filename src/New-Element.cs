@@ -12,36 +12,36 @@ using System.Text;
 public abstract class NewElementCommand(string tag, bool isVoid = false): Cmdlet {
 
 	/// <summary>
-	/// TODO
+	/// The HTML-encoded string corresponding to a double quote.
 	/// </summary>
 	private static readonly string encodedDoubleQuote = WebUtility.HtmlEncode("\"");
 
 	/// <summary>
-	/// TODO
+	/// The attributes to render.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public Hashtable? Attributes { get; set; }
 
 	/// <summary>
-	/// TODO
+	/// The CSS class names applied to this element.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public string[] Class { get; set; } = [];
 
 	/// <summary>
-	/// TODO
+	/// The inner HTML of this element.
 	/// </summary>
 	[Parameter(Position = 0, ValueFromPipeline = true, ValueFromPipelineByPropertyName = true)]
 	public object? Content { get; set; }
 
 	/// <summary>
-	/// TODO
+	/// The element identifier.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public string Id { get; set; } = "";
 
 	/// <summary>
-	/// TODO
+	/// The CSS styling declarations applied to this element.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public Hashtable? Style { get; set; }
