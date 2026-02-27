@@ -1,8 +1,9 @@
 namespace Belin.Html.Cmdlets;
 
 /// <summary>
-/// Creates a new document type.
+/// Creates a new document type declaration.
 /// </summary>
+[Cmdlet(VerbsCommon.New, "Doctype"), Alias("doctype"), OutputType(typeof(string))]
 public class NewDoctypeCommand: Cmdlet {
 
 	/// <summary>
@@ -14,7 +15,5 @@ public class NewDoctypeCommand: Cmdlet {
 	/// <summary>
 	/// Performs execution of this command.
 	/// </summary>
-	protected override void ProcessRecord() {
-		WriteObject($"<!doctype {Value}>");
-	}
+	protected override void ProcessRecord() => WriteObject($"<!doctype {(string.IsNullOrWhiteSpace(Value) ? "html" : Value)}>");
 }
