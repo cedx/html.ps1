@@ -48,10 +48,10 @@
 		@{ Tag = "header"; IsVoid = $false }
 		@{ Tag = "hgroup"; IsVoid = $false }
 		@{ Tag = "hr"; IsVoid = $true }
-		@{ Tag = "html"; IsVoid = $true }
+		@{ Tag = "html"; IsVoid = $false }
 		@{ Tag = "i"; IsVoid = $false }
 		@{ Tag = "iframe"; IsVoid = $false }
-		@{ Tag = "img"; IsVoid = $false }
+		@{ Tag = "img"; IsVoid = $true }
 		@{ Tag = "input"; IsVoid = $true }
 		@{ Tag = "ins"; IsVoid = $false }
 		@{ Tag = "kbd"; IsVoid = $false }
