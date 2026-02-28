@@ -11,8 +11,8 @@ public class NewHtmlElementCommand(): NewElementCommand("html", isVoid: false) {
 	/// <summary>
 	/// The directionality of the element's text.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public Directionality? Dir { get; set; }
+	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("auto", "ltr", "rtl")]
+	public string? Dir { get; set; }
 
 	/// <summary>
 	/// The element's language.
@@ -26,7 +26,7 @@ public class NewHtmlElementCommand(): NewElementCommand("html", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(Dictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (Dir is not null) attributes["dir"] = Dir.Value.ToString().ToLowerInvariant();
+		if (Dir is not null) attributes["dir"] = Dir;
 		if (Lang is not null) attributes["lang"] = Lang.Name;
 	}
 }
