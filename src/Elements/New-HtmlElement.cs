@@ -11,13 +11,13 @@ public class NewHtmlElementCommand(): NewElementCommand("html", isVoid: false) {
 	/// <summary>
 	/// The directionality of the element's text.
 	/// </summary>
-	[Parameter]
+	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public Directionality? Dir { get; set; }
 
 	/// <summary>
 	/// The element's language.
 	/// </summary>
-	[Parameter]
+	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public CultureInfo? Lang { get; set; }
 
 	/// <summary>
