@@ -20,7 +20,7 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): Cm
 	/// The attributes to render.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public Hashtable? Attributes { get; set; }
+	public Hashtable Attributes { get; set; } = [];
 
 	/// <summary>
 	/// The CSS class names applied to this element.
@@ -41,54 +41,59 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): Cm
 	public string Id { get; set; } = "";
 
 	/// <summary>
+	/// Value indicating whether the element to create is a void element.
+	/// </summary>
+	public bool IsVoid { get; protected set; } = isVoid;
+
+	/// <summary>
 	/// The CSS styling declarations applied to this element.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public Hashtable? Style { get; set; }
-
-	/// <summary>
-	/// Value indicating whether the element to create is a void element.
-	/// </summary>
-	protected bool isVoid = isVoid;
+	public Hashtable Style { get; set; } = [];
 
 	/// <summary>
 	/// The tag name of the element to create.
 	/// </summary>
-	protected string tagName = tagName;
+	public string TagName { get; protected set; } = tagName;
 
 	/// <summary>
 	/// Performs execution of this command.
 	/// </summary>
 	protected override void ProcessRecord() {
-		Attributes ??= [];
-		Style ??= [];
-		if (!string.IsNullOrWhiteSpace(Id)) Attributes["id"] = Id;
+		var attributes = Attributes.Cast<DictionaryEntry>().ToDictionary(entry => entry.Key.ToString() ?? "", entry => entry.Value);
+		RenderAttributes(attributes);
 
-		var className = string.Join(' ', Class);
-		if (!string.IsNullOrWhiteSpace(className)) Attributes["class"] = className;
-
-		var style = string.Join("; ", Style.Cast<DictionaryEntry>().Select(entry => $"{entry.Key}: {Convert.ToString(entry.Value)?.Replace("\"", encodedDoubleQuote)}"));
-		if (!string.IsNullOrWhiteSpace(style)) Attributes["style"] = style;
-
-		var builder = new StringBuilder($"<{tagName}");
-		foreach (var attribute in Attributes.Cast<DictionaryEntry>()) {
-			if (attribute.Value is bool booleanValue) {
-				if (booleanValue) builder.Append($" {attribute.Key}");
+		var builder = new StringBuilder($"<{TagName}");
+		foreach (var (key, value) in attributes) if (value is not null) {
+			if (value is bool rendered) {
+				if (rendered) builder.Append($" {key}");
 			}
 			else {
-				var value = Convert.ToString(attribute.Value)?.Replace("\"", encodedDoubleQuote);
-				if (!string.IsNullOrWhiteSpace(value)) builder.Append($" {attribute.Key}=\"{value}\"");
+				var stringValue = Convert.ToString(value)?.Replace("\"", encodedDoubleQuote);
+				if (!string.IsNullOrWhiteSpace(stringValue)) builder.Append($" {key}=\"{stringValue}\"");
 			}
 		}
 
-		if (isVoid) builder.Append(" />");
+		if (IsVoid) builder.Append(" />");
 		else {
 			var values = Content is ScriptBlock scriptBlock ? scriptBlock.Invoke().Select(psObject => psObject.BaseObject) : (Content is null ? [] : [Content]);
 			builder.Append('>');
 			foreach (var value in values) builder.Append(value);
-			builder.Append($"</{tagName}>");
+			builder.Append($"</{TagName}>");
 		}
 
 		WriteObject(builder.ToString());
+	}
+
+	/// <summary>
+	/// Populates the specified attribute collection with the attributes of this element.
+	/// </summary>
+	/// <param name="attributes">The attribute collection to populate.</param>
+	protected virtual void RenderAttributes(Dictionary<string, object?> attributes) {
+		var className = string.Join(' ', Class);
+		var style = string.Join("; ", Style.Cast<DictionaryEntry>().Select(entry => $"{entry.Key}: {Convert.ToString(entry.Value)?.Replace("\"", encodedDoubleQuote)}"));
+		if (!string.IsNullOrWhiteSpace(Id)) attributes["id"] = Id.Trim();
+		if (!string.IsNullOrWhiteSpace(className)) attributes["class"] = className.Trim();
+		if (!string.IsNullOrWhiteSpace(style)) attributes["style"] = style.Trim();
 	}
 }
