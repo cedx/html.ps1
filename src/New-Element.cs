@@ -7,9 +7,9 @@ using System.Text;
 /// <summary>
 /// Provides the abstract base class for a cmdlet generating an HTML element.
 /// </summary>
-/// <param name="tag">The tag name of the element to create.</param>
+/// <param name="tagName">The tag name of the element to create.</param>
 /// <param name="isVoid">Value indicating whether the element to create is a void element.</param>
-public abstract class NewElementCommand(string tag, bool isVoid = false): Cmdlet {
+public abstract class NewElementCommand(string tagName, bool isVoid = false): Cmdlet {
 
 	/// <summary>
 	/// The HTML-encoded string corresponding to a double quote.
@@ -32,7 +32,7 @@ public abstract class NewElementCommand(string tag, bool isVoid = false): Cmdlet
 	/// The inner HTML of this element.
 	/// </summary>
 	[Parameter(Position = 0, ValueFromPipeline = true, ValueFromPipelineByPropertyName = true)]
-	public object? Content { get; set; }
+	public virtual object? Content { get; set; }
 
 	/// <summary>
 	/// The element identifier.
@@ -45,6 +45,16 @@ public abstract class NewElementCommand(string tag, bool isVoid = false): Cmdlet
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public Hashtable? Style { get; set; }
+
+	/// <summary>
+	/// Value indicating whether the element to create is a void element.
+	/// </summary>
+	protected bool isVoid = isVoid;
+
+	/// <summary>
+	/// The tag name of the element to create.
+	/// </summary>
+	protected string tagName = tagName;
 
 	/// <summary>
 	/// Performs execution of this command.
@@ -60,7 +70,7 @@ public abstract class NewElementCommand(string tag, bool isVoid = false): Cmdlet
 		var style = string.Join("; ", Style.Cast<DictionaryEntry>().Select(entry => $"{entry.Key}: {Convert.ToString(entry.Value)?.Replace("\"", encodedDoubleQuote)}"));
 		if (!string.IsNullOrWhiteSpace(style)) Attributes["style"] = style;
 
-		var builder = new StringBuilder($"<{tag}");
+		var builder = new StringBuilder($"<{tagName}");
 		foreach (var attribute in Attributes.Cast<DictionaryEntry>()) {
 			if (attribute.Value is bool booleanValue) {
 				if (booleanValue) builder.Append($" {attribute.Key}");
@@ -76,7 +86,7 @@ public abstract class NewElementCommand(string tag, bool isVoid = false): Cmdlet
 			var values = Content is ScriptBlock scriptBlock ? scriptBlock.Invoke().Select(psObject => psObject.BaseObject) : (Content is null ? [] : [Content]);
 			builder.Append('>');
 			foreach (var value in values) builder.Append(value);
-			builder.Append($"</{tag}>");
+			builder.Append($"</{tagName}>");
 		}
 
 		WriteObject(builder.ToString());

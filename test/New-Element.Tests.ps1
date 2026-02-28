@@ -24,11 +24,11 @@ Describe "New-Element" {
 	}
 
 	It 'should handle the "id" attribute' {
-		article -Id "my-id" | Should -BeExactly '<article id="my-id"></article>'
+		article -Id foo | Should -BeExactly '<article id="foo"></article>'
 	}
 
 	It 'should handle the "class" attribute' {
-		body -Class "btn", "btn-danger" | Should -BeExactly '<body class="btn btn-danger"></body>'
+		body -Class btn, btn-danger | Should -BeExactly '<body class="btn btn-danger"></body>'
 	}
 
 	It 'should handle the "style" attribute' {

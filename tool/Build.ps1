@@ -3,6 +3,7 @@ using namespace System.Collections.Generic
 "Building the solution..."
 $cmdletTemplate = Get-Content res/CmdletTemplate.cs -Raw
 $cmdletsToExport = [List[string]]::new()
+$cmdletsToExport.Add("New-CustomElement")
 $cmdletsToExport.Add("New-Doctype")
 
 (Import-PowerShellDataFile res/HtmlElements.psd1).HtmlElements | ForEach-Object {

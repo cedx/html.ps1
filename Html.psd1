@@ -14,6 +14,7 @@
 	VariablesToExport = @()
 
 	CmdletsToExport = @(
+		"New-CustomElement"
 		"New-Doctype"
 		"New-AElement"
 		"New-AbbrElement"
