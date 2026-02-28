@@ -7,18 +7,19 @@ $cmdletsToExport.Add("New-CustomElement")
 $cmdletsToExport.Add("New-Doctype")
 
 (Import-PowerShellDataFile res/HtmlElements.psd1).HtmlElements | ForEach-Object {
-	$replacements = @{
+	$parameters = @{
 		Alias = $_.IsConflict ? "$($_.Tag)Tag" : $_.Tag
 		CapitalizedTag = [char]::ToUpperInvariant($_.Tag[0]) + $_.Tag.Substring(1)
 		IsVoid = $_.IsVoid.ToString().ToLowerInvariant()
 		Tag = $_.Tag
 	}
 
-	$cmdlet = "New-$($replacements.CapitalizedTag)Element"
+	$cmdlet = "New-$($parameters.CapitalizedTag)Element"
 	$cmdletsToExport.Add($cmdlet)
+	if (Test-Path "src/Elements/$cmdlet.cs") { return }
 
 	$content = $cmdletTemplate
-	$replacements.Keys | ForEach-Object { $content = $content -replace "{$_}", $replacements.$_ }
+	$parameters.Keys | ForEach-Object { $content = $content -replace "{$_}", $parameters.$_ }
 	Set-Content "src/Elements/$cmdlet.g.cs" $content -NoNewline
 }
 
