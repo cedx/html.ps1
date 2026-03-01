@@ -3,6 +3,7 @@ namespace Belin.Html.Cmdlets;
 using System.Collections;
 using System.Net;
 using System.Text;
+using System.Text.Json;
 
 /// <summary>
 /// Provides the abstract base class for a cmdlet generating an HTML element.
@@ -17,7 +18,7 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 	private static readonly string encodedDoubleQuote = WebUtility.HtmlEncode("\"");
 
 	/// <summary>
-	/// The attributes to render.
+	/// The custom attributes to render.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public Hashtable Attributes { get; set; } = [];
@@ -33,6 +34,12 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 	/// </summary>
 	[Parameter(Position = 0, ValueFromPipeline = true, ValueFromPipelineByPropertyName = true)]
 	public virtual object? Content { get; set; }
+
+	/// <summary>
+	/// The data attributes to render.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true)]
+	public Hashtable Data { get; set; } = [];
 
 	/// <summary>
 	/// The element identifier.
@@ -95,5 +102,6 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 		if (!string.IsNullOrWhiteSpace(Id)) attributes["id"] = Id;
 		if (!string.IsNullOrWhiteSpace(className)) attributes["class"] = className;
 		if (!string.IsNullOrWhiteSpace(style)) attributes["style"] = style;
+		if (Data.Count > 0) foreach (DictionaryEntry entry in Data) attributes[$"data-{JsonNamingPolicy.KebabCaseLower.ConvertName(entry.Key.ToString() ?? "")}"] = entry.Value;
 	}
 }

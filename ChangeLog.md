@@ -1,6 +1,7 @@
 # Changelog
 
 ## Version [0.3.0](https://github.com/cedx/html.net/compare/v0.2.0...v0.3.0)
+- Added support for `data-*` attributes.
 - Added the `New-ScriptElement` cmdlet.
 - Added the `script` alias.
 

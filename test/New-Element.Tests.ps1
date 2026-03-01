@@ -41,6 +41,11 @@ Describe "New-Element" {
 		input -Attributes @{ "data-foo" = '"bar"'; disabled = $false; required = $true } | Should -BeIn $expected
 	}
 
+	It "should handle data attributes" {
+		$expected = '<button data-bs-toggle="tooltip" data-push-url></button>', '<button data-push-url data-bs-toggle="tooltip"></button>'
+		button -Data @{ bsToggle = "tooltip"; pushUrl = $true } | Should -BeIn $expected
+	}
+
 	It "should handle the inner content" {
 		$expected = "<main><div>Foo &gt; Bar <span>Baz &lt; Qux</span></div></main>"
 		main { div { "Foo &gt; Bar"; " "; span "Baz &lt; Qux" } } | Should -BeExactly $expected
