@@ -66,6 +66,12 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 	public CultureInfo? Lang { get; set; }
 
 	/// <summary>
+	/// The event handler attributes to render.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true)]
+	public Hashtable On { get; set; } = [];
+
+	/// <summary>
 	/// The CSS styling declarations applied to this element.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
@@ -118,14 +124,11 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 	protected virtual void RenderAttributes(Dictionary<string, object?> attributes) {
 		if (!string.IsNullOrWhiteSpace(Id)) attributes["id"] = Id;
 		if (Class.Length > 0) attributes["class"] = string.Join(' ', Class);
+		if (Data.Count > 0) foreach (DictionaryEntry entry in Data) attributes[$"data-{JsonNamingPolicy.KebabCaseLower.ConvertName(entry.Key.ToString() ?? "")}"] = entry.Value;
 		if (Dir is not null) attributes["dir"] = Dir;
 		if (Lang is not null) attributes["lang"] = Lang.Name;
+		if (On.Count > 0) foreach (DictionaryEntry entry in On) attributes[$"on{entry.Key.ToString()?.ToLowerInvariant()}"] = entry.Value;
 		if (!string.IsNullOrWhiteSpace(Title)) attributes["title"] = Title;
-
-		if (Data.Count > 0) foreach (DictionaryEntry entry in Data) {
-			var attribute = $"data-{JsonNamingPolicy.KebabCaseLower.ConvertName(entry.Key.ToString() ?? "")}";
-			attributes[attribute] = entry.Value;
-		}
 
 		if (Style.Count > 0) {
 			var rules = Style.Cast<DictionaryEntry>().Select(entry => $"{entry.Key}: {Convert.ToString(entry.Value, CultureInfo.InvariantCulture)?.Replace("\"", encodedDoubleQuote)}");

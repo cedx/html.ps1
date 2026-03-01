@@ -38,6 +38,11 @@ Describe "New-CustomElement" {
 		tag my-element -data @{ bsToggle = "tooltip"; pushUrl = $true } | Should -BeIn $expected
 	}
 
+	It "should handle event handler attributes" {
+		$expected = '<my-element onclick="submit(event)" oncontextmenu="showMenu()"></my-element>', '<my-element oncontextmenu="showMenu()" onclick="submit(event)"></my-element>'
+		tag my-element -on @{ click = "submit(event)"; contextMenu = "showMenu()" } | Should -BeIn $expected
+	}
+
 	It "should handle the inner content" {
 		$expected = "<outer-element><inner-element>Foo &gt; Bar <span>Baz &lt; Qux</span></inner-element></outer-element>"
 		tag outer-element { tag inner-element { "Foo &gt; Bar"; " "; span "Baz &lt; Qux" } } | Should -BeExactly $expected

@@ -1,7 +1,10 @@
 # Changelog
 
+## Version [0.4.0](https://github.com/cedx/html.net/compare/v0.3.0...v0.4.0)
+- Added support for the `on*` event handler attributes.
+
 ## Version [0.3.0](https://github.com/cedx/html.net/compare/v0.2.0...v0.3.0)
-- Added support for `data-*`, `dir`, `lang` and `title` attributes.
+- Added support for the `data-*`, `dir`, `lang` and `title` attributes.
 - Added the `New-AElement`, `New-AreaElement`, `New-ImgElement` and `New-ScriptElement` cmdlets.
 - Added the `a`, `area`, `img` and `script` aliases.
 

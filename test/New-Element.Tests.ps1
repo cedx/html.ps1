@@ -50,6 +50,11 @@ Describe "New-Element" {
 		button -data @{ bsToggle = "tooltip"; pushUrl = $true } | Should -BeIn $expected
 	}
 
+	It "should handle event handler attributes" {
+		$expected = '<button onclick="submit(event)" oncontextmenu="showMenu()"></button>', '<button oncontextmenu="showMenu()" onclick="submit(event)"></button>'
+		button -on @{ click = "submit(event)"; contextMenu = "showMenu()" } | Should -BeIn $expected
+	}
+
 	It "should handle the inner content" {
 		$expected = "<main><div>Foo &gt; Bar <span>Baz &lt; Qux</span></div></main>"
 		main { div { "Foo &gt; Bar"; " "; span "Baz &lt; Qux" } } | Should -BeExactly $expected
