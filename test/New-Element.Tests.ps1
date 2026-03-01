@@ -8,7 +8,7 @@ Describe "New-Element" {
 	}
 
 	It "should create an HTML element from the specified tag name" -ForEach @(
-		@{ Tag = "a"; Expected = "<a></a>" }
+		@{ Tag = "b"; Expected = "<b></b>" }
 		@{ Tag = "html"; Expected = "<html></html>" }
 		@{ Tag = "strong"; Expected = "<strong></strong>" }
 	) {
@@ -23,12 +23,12 @@ Describe "New-Element" {
 		& $tag | Should -BeExactly $expected
 	}
 
-	It 'should handle the "id" attribute' {
-		article -Id foo | Should -BeExactly '<article id="foo"></article>'
-	}
-
 	It 'should handle the "class" attribute' {
 		body -Class btn, btn-danger | Should -BeExactly '<body class="btn btn-danger"></body>'
+	}
+
+	It 'should handle the "id" attribute' {
+		article -Id foo | Should -BeExactly '<article id="foo"></article>'
 	}
 
 	It 'should handle the "style" attribute' {
@@ -36,14 +36,18 @@ Describe "New-Element" {
 		code -Style @{ "font-family" = '"Segoe UI"'; "font-size" = "1rem" } | Should -BeIn $expected
 	}
 
+	It 'should handle the "title" attribute' -ForEach "", 'A "custom" label.' {
+		div -title $_ | Should -BeExactly ($_ ? '<div title="A &quot;custom&quot; label."></div>' : "<div></div>")
+	}
+
 	It "should handle custom attributes" {
 		$expected = '<input data-foo="&quot;bar&quot;" required />', '<input required data-foo="&quot;bar&quot;" />'
-		input -Attributes @{ "data-foo" = '"bar"'; disabled = $false; required = $true } | Should -BeIn $expected
+		input -attributes @{ "data-foo" = '"bar"'; disabled = $false; required = $true } | Should -BeIn $expected
 	}
 
 	It "should handle data attributes" {
 		$expected = '<button data-bs-toggle="tooltip" data-push-url></button>', '<button data-push-url data-bs-toggle="tooltip"></button>'
-		button -Data @{ bsToggle = "tooltip"; pushUrl = $true } | Should -BeIn $expected
+		button -data @{ bsToggle = "tooltip"; pushUrl = $true } | Should -BeIn $expected
 	}
 
 	It "should handle the inner content" {

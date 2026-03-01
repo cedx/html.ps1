@@ -72,6 +72,12 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 	public Hashtable Style { get; set; } = [];
 
 	/// <summary>
+	/// A text representing advisory information related to this element.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true)]
+	public string Title { get; set; } = "";
+
+	/// <summary>
 	/// The tag name of the element to create.
 	/// </summary>
 	public string TagName { get; protected set; } = tagName;
@@ -114,6 +120,7 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 		if (Class.Length > 0) attributes["class"] = string.Join(' ', Class);
 		if (Dir is not null) attributes["dir"] = Dir;
 		if (Lang is not null) attributes["lang"] = Lang.Name;
+		if (!string.IsNullOrWhiteSpace(Title)) attributes["title"] = Title;
 
 		if (Data.Count > 0) foreach (DictionaryEntry entry in Data) {
 			var attribute = $"data-{JsonNamingPolicy.KebabCaseLower.ConvertName(entry.Key.ToString() ?? "")}";
