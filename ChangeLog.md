@@ -2,6 +2,8 @@
 
 ## Version [0.4.0](https://github.com/cedx/html.net/compare/v0.3.0...v0.4.0)
 - Added support for the `on*` event handler attributes.
+- Added the `New-BlockquoteElement` cmdlet.
+- Added the `blockquote` alias.
 - Renamed the `New-Doctype` cmdlet to `New-DocumentType`.
 
 ## Version [0.3.0](https://github.com/cedx/html.net/compare/v0.2.0...v0.3.0)

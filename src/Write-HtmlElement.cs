@@ -108,9 +108,9 @@ public abstract class WriteHtmlElementCommand(string tagName, bool isVoid = fals
 
 		if (IsVoid) builder.Append(" />");
 		else {
-			var values = Content is ScriptBlock scriptBlock ? scriptBlock.Invoke().Select(psObject => psObject.BaseObject) : (Content is null ? [] : [Content]);
+			var output = Content is ScriptBlock scriptBlock ? scriptBlock.Invoke().Select(psObject => psObject.BaseObject) : (Content is not null ? [Content] : []);
 			builder.Append('>');
-			foreach (var value in values) builder.Append(value);
+			foreach (var value in output) builder.Append(value);
 			builder.Append($"</{TagName}>");
 		}
 

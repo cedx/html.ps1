@@ -1,0 +1,23 @@
+namespace Belin.Html.Cmdlets.Elements;
+
+/// <summary>
+/// Creates a new <c>blockquote</c> element.
+/// </summary>
+[Cmdlet(VerbsCommon.New, "BlockquoteElement"), Alias("blockquote"), OutputType(typeof(string))]
+public class NewBlockquoteElementCommand(): WriteHtmlElementCommand("blockquote", isVoid: false) {
+
+	/// <summary>
+	/// A URL that designates a source document or message for the information quoted.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true)]
+	public Uri? Cite { get; set; }
+
+	/// <summary>
+	/// Populates the specified attribute collection with the attributes of this element.
+	/// </summary>
+	/// <param name="attributes">The attribute collection to populate.</param>
+	protected override void RenderAttributes(Dictionary<string, object?> attributes) {
+		base.RenderAttributes(attributes);
+		if (Cite is not null) attributes["cite"] = Cite.ToString();
+	}
+}
