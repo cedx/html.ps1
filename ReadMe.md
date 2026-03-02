@@ -1,5 +1,5 @@
 # HtmlForPS
-A simple [PowerShell](https://learn.microsoft.com/en-us/powershell) template engine for rendering [HTML](https://developer.mozilla.org/docs/Web/HTML) documents.
+A set of [PowerShell](https://learn.microsoft.com/en-us/powershell) cmdlets for rendering [HTML](https://developer.mozilla.org/docs/Web/HTML) documents.
 
 ## Documentation
 - [User guide](https://github.com/cedx/html.net/wiki)
