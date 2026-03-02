@@ -59,4 +59,4 @@ $template = {
 }
 
 $html = $template.Invoke() -join [Environment]::NewLine
-Write-Output $html
+Write-Host $html
