@@ -49,7 +49,7 @@ public class NewImgElementCommand(): NewElementCommandBase("img", isVoid: true) 
 	public string[] SrcSet { get; set; } = [];
 
 	/// <summary>
-	/// The partial URL (starting with <c>#</c>) of an image map associated with this element.
+	/// The partial URL (starting with <c>#</c>) of an image map associated with the element.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public string UseMap { get; set; } = "";
@@ -61,7 +61,7 @@ public class NewImgElementCommand(): NewElementCommandBase("img", isVoid: true) 
 	public int Width { get; set; } = -1;
 
 	/// <summary>
-	/// Populates the specified attribute collection with the attributes of this element.
+	/// Populates the specified attribute collection with the element attributes.
 	/// </summary>
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(Dictionary<string, object?> attributes) {

@@ -37,7 +37,7 @@ public class NewAElementCommand(): NewElementCommandBase("a", isVoid: false) {
 	public string Target { get; set; } = "";
 
 	/// <summary>
-	/// Populates the specified attribute collection with the attributes of this element.
+	/// Populates the specified attribute collection with the element attributes.
 	/// </summary>
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(Dictionary<string, object?> attributes) {

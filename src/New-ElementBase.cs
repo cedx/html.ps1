@@ -25,13 +25,13 @@ public abstract class NewElementCommandBase(string tagName, bool isVoid = false)
 	public Hashtable Attributes { get; set; } = [];
 
 	/// <summary>
-	/// The CSS class names applied to this element.
+	/// The CSS class names applied to the element.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public string[] Class { get; set; } = [];
 
 	/// <summary>
-	/// The inner HTML of this element.
+	/// The inner HTML of the element.
 	/// </summary>
 	[Parameter(Position = 0, ValueFromPipeline = true, ValueFromPipelineByPropertyName = true)]
 	public virtual object? Content { get; set; }
@@ -67,19 +67,19 @@ public abstract class NewElementCommandBase(string tagName, bool isVoid = false)
 	public Hashtable On { get; set; } = [];
 
 	/// <summary>
-	/// The CSS styling declarations applied to this element.
+	/// The CSS styling declarations applied to the element.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public Hashtable Style { get; set; } = [];
 
 	/// <summary>
-	/// Determines the relative ordering of this element for sequential focus navigation.
+	/// Determines the relative ordering of the element for sequential focus navigation.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public int? TabIndex { get; set; }
 
 	/// <summary>
-	/// A text representing advisory information related to this element.
+	/// A text representing advisory information related to the element.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public string Title { get; set; } = "";
@@ -124,7 +124,7 @@ public abstract class NewElementCommandBase(string tagName, bool isVoid = false)
 	}
 
 	/// <summary>
-	/// Populates the specified attribute collection with the attributes of this element.
+	/// Populates the specified attribute collection with the element attributes.
 	/// </summary>
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected virtual void RenderAttributes(Dictionary<string, object?> attributes) {

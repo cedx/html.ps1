@@ -7,7 +7,7 @@ namespace Belin.Html.Cmdlets.Elements;
 public class NewCustomElementCommand(): NewElementCommandBase("", isVoid: false) {
 
 	/// <summary>
-	/// The inner HTML of this element.
+	/// The inner HTML of the element.
 	/// </summary>
 	[Parameter(Position = 1, ValueFromPipeline = true, ValueFromPipelineByPropertyName = true)]
 	public override object? Content { get => base.Content; set => base.Content = value; }
