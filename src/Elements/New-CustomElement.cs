@@ -1,4 +1,4 @@
-namespace Belin.Html.Cmdlets;
+namespace Belin.Html.Cmdlets.Elements;
 
 /// <summary>
 /// Provides the abstract base class for a cmdlet generating an HTML element.
