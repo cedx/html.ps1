@@ -1,0 +1,65 @@
+namespace Belin.Html.Cmdlets.Elements;
+
+/// <summary>
+/// Creates a new <c>audio</c> element.
+/// </summary>
+[Cmdlet(VerbsCommon.New, "AudioElement"), Alias("audio"), OutputType(typeof(string))]
+public class NewAudioElementCommand(): NewElementCommandBase("audio", isVoid: false) {
+
+	/// <summary>
+	/// Value indicating whether playback should start automatically as soon as the audio signal allows.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true)]
+	public SwitchParameter AutoPlay { get; set; }
+
+	/// <summary>
+	/// Value indicating whether to offer controls to allow the user to control audio playback.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true)]
+	public SwitchParameter Controls { get; set; }
+
+	/// <summary>
+	/// Value indicating whether CORS must be used when fetching the resource.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("anonymous", "use-credentials")]
+	public string? CrossOrigin { get; set; }
+
+	/// <summary>
+	/// Value indicating whether the audio player will automatically seek back to the start upon reaching the end of the audio.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true)]
+	public SwitchParameter Loop { get; set; }
+
+	/// <summary>
+	/// Value indicating whether the audio will be initially silenced.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true)]
+	public SwitchParameter Muted { get; set; }
+
+	/// <summary>
+	/// Value providing a hint to the browser about what the author thinks will lead to the best user experience.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("auto", "none", "metadata")]
+	public string? Preload { get; set; }
+
+	/// <summary>
+	/// The URL of the audio to embed.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true)]
+	public Uri? Src { get; set; }
+
+	/// <summary>
+	/// Populates the specified attribute collection with the attributes of this element.
+	/// </summary>
+	/// <param name="attributes">The attribute collection to populate.</param>
+	protected override void RenderAttributes(Dictionary<string, object?> attributes) {
+		base.RenderAttributes(attributes);
+		if (AutoPlay) attributes["autoplay"] = true;
+		if (Controls) attributes["controls"] = true;
+		if (CrossOrigin is not null) attributes["crossorigin"] = CrossOrigin;
+		if (Loop) attributes["loop"] = true;
+		if (Muted) attributes["muted"] = true;
+		if (Preload is not null) attributes["preload"] = Preload;
+		if (Src is not null) attributes["src"] = Src.ToString();
+	}
+}

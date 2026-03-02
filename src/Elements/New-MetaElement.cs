@@ -3,7 +3,7 @@ namespace Belin.Html.Cmdlets.Elements;
 /// <summary>
 /// Creates a new <c>meta</c> element.
 /// </summary>
-[Cmdlet(VerbsCommon.New, "MetaElement"), Alias("meta"), OutputType(typeof(string))]
+[Cmdlet(VerbsCommon.New, "MetaElement", DefaultParameterSetName = nameof(Name)), Alias("meta"), OutputType(typeof(string))]
 public class NewMetaElementCommand(): NewElementCommandBase("meta", isVoid: true) {
 
 	/// <summary>

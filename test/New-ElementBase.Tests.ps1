@@ -27,8 +27,16 @@ Describe "Write-HtmlElement" {
 		body -class btn, btn-danger | Should -BeExactly '<body class="btn btn-danger"></body>'
 	}
 
+	It 'should support the "dir" attribute' -ForEach auto, ltr, rtl {
+		html -dir $_ | Should -BeExactly "<html dir=`"$_`"></html>"
+	}
+
 	It 'should handle the "id" attribute' {
 		article -id foo | Should -BeExactly '<article id="foo"></article>'
+	}
+
+	It 'should support the "lang" attribute' -ForEach "fr-FR", "en-US" {
+		html -lang $_ | Should -BeExactly "<html lang=`"$_`"></html>"
 	}
 
 	It 'should handle the "style" attribute' {

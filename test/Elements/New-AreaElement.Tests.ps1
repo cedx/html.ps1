@@ -7,7 +7,7 @@ Describe "New-AreaElement" {
 		Import-Module "$PSScriptRoot/../../Html.psd1"
 	}
 
-	It 'should support the "shape" and "coords" attribute' {
+	It 'should support the "shape" and "coords" attributes' {
 		$area = area -href Index.html -shape circle -coords 100, 200, 64.7
 		$area | Should -BeLikeExactly "<area *"
 		$area | Should -BeLikeExactly '* href="Index.html"*'
