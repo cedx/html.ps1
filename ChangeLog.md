@@ -1,8 +1,8 @@
 # Changelog
 
 ## Version [0.7.0](https://github.com/cedx/html.net/compare/v0.6.0...v0.7.0)
-- Added the `New-DetailsElement`, `New-DialogElement` and `New-EmbedElement` cmdlets.
-- Added the `details`, `dialog` and `embed` aliases.
+- Added the `New-DetailsElement`, `New-DialogElement`, `New-EmbedElement` and `New-FieldsetElement` cmdlets.
+- Added the `details`, `dialog`, `embed` and `fieldset` aliases.
 
 ## Version [0.6.0](https://github.com/cedx/html.net/compare/v0.5.0...v0.6.0)
 - Added the `Html` prefix to the nouns of all cmdlets.

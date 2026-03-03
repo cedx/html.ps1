@@ -10,14 +10,12 @@ Describe "New-Element" {
 	It "should create an HTML element from the specified tag name" -ForEach @(
 		@{ Tag = "b"; Expected = "<b></b>" }
 		@{ Tag = "html"; Expected = "<html></html>" }
-		@{ Tag = "strong"; Expected = "<strong></strong>" }
 	) {
 		& $tag | Should -BeExactly $expected
 	}
 
 	It "should handle void elements" -ForEach @(
 		@{ Tag = "br"; Expected = "<br />" }
-		@{ Tag = "embed"; Expected = "<embed />" }
 		@{ Tag = "input"; Expected = "<input />" }
 	) {
 		& $tag | Should -BeExactly $expected

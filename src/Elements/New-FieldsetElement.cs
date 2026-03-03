@@ -1,0 +1,37 @@
+namespace Belin.Html.Cmdlets.Elements;
+
+/// <summary>
+/// Creates a new <c>fieldset</c> element.
+/// </summary>
+[Cmdlet(VerbsCommon.New, "HtmlFieldsetElement"), Alias("fieldset"), OutputType(typeof(string))]
+public class NewFieldsetElementCommand(): NewElementCommand("fieldset", isVoid: false) {
+
+	/// <summary>
+	/// Value indicating whether all form controls that are descendants of the element, are disabled.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true)]
+	public SwitchParameter Disabled { get; set; }
+
+	/// <summary>
+	/// The value of the <c>id</c> attribute of a <c>form</c> element you want the element to be part of.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true)]
+	public string Form { get; set; } = "";
+
+	/// <summary>
+	/// The name associated with the group.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true)]
+	public string Name { get; set; } = "";
+
+	/// <summary>
+	/// Populates the specified attribute collection with the element attributes.
+	/// </summary>
+	/// <param name="attributes">The attribute collection to populate.</param>
+	protected override void RenderAttributes(Dictionary<string, object?> attributes) {
+		base.RenderAttributes(attributes);
+		if (Disabled) attributes["disabled"] = true;
+		if (!string.IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
+		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
+	}
+}
