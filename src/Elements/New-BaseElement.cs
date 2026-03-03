@@ -3,7 +3,7 @@ namespace Belin.Html.Cmdlets.Elements;
 /// <summary>
 /// Creates a new <c>base</c> element.
 /// </summary>
-[Cmdlet(VerbsCommon.New, "BaseElement"), Alias("base"), OutputType(typeof(string))]
+[Cmdlet(VerbsCommon.New, "HtmlBaseElement"), Alias("base"), OutputType(typeof(string))]
 public class NewBaseElementCommand(): NewElementCommand("base", isVoid: true) {
 
 	/// <summary>

@@ -3,7 +3,7 @@ namespace Belin.Html.Cmdlets;
 /// <summary>
 /// Creates a new document type declaration.
 /// </summary>
-[Cmdlet(VerbsCommon.New, "DocumentType"), Alias("doctype"), OutputType(typeof(string))]
+[Cmdlet(VerbsCommon.New, "HtmlDocumentType"), Alias("doctype"), OutputType(typeof(string))]
 public class NewDocumentTypeCommand: Cmdlet {
 
 	/// <summary>

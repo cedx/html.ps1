@@ -3,7 +3,7 @@ namespace Belin.Html.Cmdlets.Elements;
 /// <summary>
 /// Creates a new <c>data</c> element.
 /// </summary>
-[Cmdlet(VerbsCommon.New, "DataElement"), Alias("dataTag"), OutputType(typeof(string))]
+[Cmdlet(VerbsCommon.New, "HtmlDataElement"), Alias("dataTag"), OutputType(typeof(string))]
 public class NewDataElementCommand(): NewElementCommand("data", isVoid: false) {
 
 	/// <summary>

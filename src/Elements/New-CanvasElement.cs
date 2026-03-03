@@ -3,7 +3,7 @@ namespace Belin.Html.Cmdlets.Elements;
 /// <summary>
 /// Creates a new <c>canvas</c> element.
 /// </summary>
-[Cmdlet(VerbsCommon.New, "CanvasElement"), Alias("canvas"), OutputType(typeof(string))]
+[Cmdlet(VerbsCommon.New, "HtmlCanvasElement"), Alias("canvas"), OutputType(typeof(string))]
 public class NewCanvasElementCommand(): NewElementCommand("canvas", isVoid: false) {
 
 	/// <summary>

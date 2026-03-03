@@ -3,7 +3,7 @@ namespace Belin.Html.Cmdlets.Elements;
 /// <summary>
 /// Creates a new <c>colgroup</c> element.
 /// </summary>
-[Cmdlet(VerbsCommon.New, "ColgroupElement"), Alias("colgroup"), OutputType(typeof(string))]
+[Cmdlet(VerbsCommon.New, "HtmlColgroupElement"), Alias("colgroup"), OutputType(typeof(string))]
 public class NewColgroupElementCommand(): NewElementCommand("colgroup", isVoid: false) {
 
 	/// <summary>

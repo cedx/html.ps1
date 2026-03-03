@@ -3,7 +3,7 @@ namespace Belin.Html.Cmdlets.Elements;
 /// <summary>
 /// Creates a new <c>blockquote</c> element.
 /// </summary>
-[Cmdlet(VerbsCommon.New, "BlockquoteElement"), Alias("blockquote"), OutputType(typeof(string))]
+[Cmdlet(VerbsCommon.New, "HtmlBlockquoteElement"), Alias("blockquote"), OutputType(typeof(string))]
 public class NewBlockquoteElementCommand(): NewElementCommand("blockquote", isVoid: false) {
 
 	/// <summary>

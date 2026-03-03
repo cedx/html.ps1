@@ -3,7 +3,7 @@ namespace Belin.Html.Cmdlets.Elements;
 /// <summary>
 /// Creates a new <c>video</c> element.
 /// </summary>
-[Cmdlet(VerbsCommon.New, "VideoElement"), Alias("video"), OutputType(typeof(string))]
+[Cmdlet(VerbsCommon.New, "HtmlVideoElement"), Alias("video"), OutputType(typeof(string))]
 public class NewVideoElementCommand(): NewElementCommand("video", isVoid: false) {
 
 	/// <summary>

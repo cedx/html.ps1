@@ -5,7 +5,7 @@ using System.Globalization;
 /// <summary>
 /// Creates a new <c>area</c> element.
 /// </summary>
-[Cmdlet(VerbsCommon.New, "AreaElement"), Alias("area"), OutputType(typeof(string))]
+[Cmdlet(VerbsCommon.New, "HtmlAreaElement"), Alias("area"), OutputType(typeof(string))]
 public class NewAreaElementCommand(): NewElementCommand("area", isVoid: true) {
 
 	/// <summary>

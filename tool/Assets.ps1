@@ -3,8 +3,8 @@ using namespace System.Collections.Generic
 "Deploying the assets..."
 $cmdletTemplate = Get-Content share/CmdletTemplate.tpl -Raw
 $cmdletsToExport = [List[string]]::new([string[]] @(
-	"New-CustomElement"
-	"New-DocumentType"
+	"New-HtmlCustomElement"
+	"New-HtmlDocumentType"
 ))
 
 New-Item src/Generated -Force -ItemType Directory | Out-Null
@@ -16,13 +16,13 @@ New-Item src/Generated -Force -ItemType Directory | Out-Null
 		Tag = $_.Tag
 	}
 
-	$cmdlet = "New-$($parameters.CapitalizedTag)Element"
-	$cmdletsToExport.Add($cmdlet)
-	if (Test-Path "src/Elements/$cmdlet.cs") { return }
+	$cmdletsToExport.Add("New-Html$($parameters.CapitalizedTag)Element")
+	$fileName = "New-$($parameters.CapitalizedTag)Element"
+	if (Test-Path "src/Elements/$fileName.cs") { return }
 
 	$content = $cmdletTemplate
 	$parameters.Keys | ForEach-Object { $content = $content -replace "{$_}", $parameters.$_ }
-	Set-Content "src/Generated/$cmdlet.g.cs" $content -NoNewline
+	Set-Content "src/Generated/$fileName.g.cs" $content -NoNewline
 }
 
 $cmdlets = ($cmdletsToExport | ForEach-Object { "`t`t`"$_`"" }) -join [Environment]::NewLine

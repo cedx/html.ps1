@@ -3,7 +3,7 @@ namespace Belin.Html.Cmdlets.Elements;
 /// <summary>
 /// Creates a new <c>audio</c> element.
 /// </summary>
-[Cmdlet(VerbsCommon.New, "AudioElement"), Alias("audio"), OutputType(typeof(string))]
+[Cmdlet(VerbsCommon.New, "HtmlAudioElement"), Alias("audio"), OutputType(typeof(string))]
 public class NewAudioElementCommand(): NewElementCommand("audio", isVoid: false) {
 
 	/// <summary>

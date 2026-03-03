@@ -5,7 +5,7 @@ using System.Globalization;
 /// <summary>
 /// Creates a new <c>track</c> element.
 /// </summary>
-[Cmdlet(VerbsCommon.New, "TrackElement"), Alias("track"), OutputType(typeof(string))]
+[Cmdlet(VerbsCommon.New, "HtmlTrackElement"), Alias("track"), OutputType(typeof(string))]
 public class NewTrackElementCommand(): NewElementCommand("track", isVoid: true) {
 
 	/// <summary>

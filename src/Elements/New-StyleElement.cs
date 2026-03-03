@@ -3,7 +3,7 @@ namespace Belin.Html.Cmdlets.Elements;
 /// <summary>
 /// Creates a new <c>style</c> element.
 /// </summary>
-[Cmdlet(VerbsCommon.New, "StyleElement"), Alias("style"), OutputType(typeof(string))]
+[Cmdlet(VerbsCommon.New, "HtmlStyleElement"), Alias("style"), OutputType(typeof(string))]
 public class NewStyleElementCommand(): NewElementCommand("style", isVoid: false) {
 
 	/// <summary>

@@ -3,7 +3,7 @@ namespace Belin.Html.Cmdlets.Elements;
 /// <summary>
 /// Creates a new <c>col</c> element.
 /// </summary>
-[Cmdlet(VerbsCommon.New, "ColElement"), Alias("col"), OutputType(typeof(string))]
+[Cmdlet(VerbsCommon.New, "HtmlColElement"), Alias("col"), OutputType(typeof(string))]
 public class NewColElementCommand(): NewElementCommand("col", isVoid: true) {
 
 	/// <summary>

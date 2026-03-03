@@ -3,7 +3,7 @@ namespace Belin.Html.Cmdlets.Elements;
 /// <summary>
 /// Creates a new <c>img</c> element.
 /// </summary>
-[Cmdlet(VerbsCommon.New, "ImgElement"), Alias("img"), OutputType(typeof(string))]
+[Cmdlet(VerbsCommon.New, "HtmlImgElement"), Alias("img"), OutputType(typeof(string))]
 public class NewImgElementCommand(): NewElementCommand("img", isVoid: true) {
 
 	/// <summary>
