@@ -1,16 +1,21 @@
 namespace Belin.Html.Cmdlets.Elements;
 
 using System.Globalization;
-using System.Xml;
 
 /// <summary>
-/// Creates a new <c>time</c> element.
+/// Creates a new <c>del</c> element.
 /// </summary>
-[Cmdlet(VerbsCommon.New, "HtmlTimeElement"), Alias("time"), OutputType(typeof(string))]
-public class NewTimeElementCommand(): NewElementCommand("time", isVoid: false) {
+[Cmdlet(VerbsCommon.New, "HtmlDelElement"), Alias("delTag"), OutputType(typeof(string))]
+public class NewDelElementCommand(): NewElementCommand("del", isVoid: false) {
 
 	/// <summary>
-	/// Value indicating the time and/or date of the element.
+	/// A URI for a resource that explains the change (for example, meeting minutes).
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true)]
+	public Uri? Cite { get; set; }
+
+	/// <summary>
+	/// Value indicating the time and date of the change.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public object? DateTime { get; set; }
@@ -21,19 +26,18 @@ public class NewTimeElementCommand(): NewElementCommand("time", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(Dictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
+		if (Cite is not null) attributes["cite"] = Cite.ToString();
 
 		if (DateTime is not null) {
 			try {
 				attributes["datetime"] = (DateTime is PSObject psObject ? psObject.BaseObject : DateTime) switch {
 					DateOnly value => value.ToString("o", CultureInfo.InvariantCulture),
 					DateTime value => value.ToString("o", CultureInfo.InvariantCulture),
-					TimeOnly value => value.ToString("o", CultureInfo.InvariantCulture),
-					TimeSpan value => XmlConvert.ToString(value),
 					_ => throw new NotSupportedException("The specified date/time value is not supported.")
 				};
 			}
 			catch (NotSupportedException e) {
-				ThrowTerminatingError(new ErrorRecord(e, "New-TimeElement:NotSupportedException", ErrorCategory.InvalidArgument, null));
+				ThrowTerminatingError(new ErrorRecord(e, "New-DelElement:NotSupportedException", ErrorCategory.InvalidArgument, null));
 			}
 		}
 	}
