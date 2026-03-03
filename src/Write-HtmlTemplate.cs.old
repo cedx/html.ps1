@@ -1,0 +1,58 @@
+namespace Belin.Html.Cmdlets;
+
+using System.Collections;
+using System.Text;
+using static System.IO.Path;
+
+/// <summary>
+/// Renders a template file to an HTML string.
+/// </summary>
+[Cmdlet(VerbsCommunications.Write, "HtmlTemplate", DefaultParameterSetName = nameof(Path)), Alias("include"), OutputType(typeof(string))]
+public class WriteHtmlTemplateCommand: PSCmdlet {
+
+	/// <summary>
+	/// A script block representing the HTML template to render.
+	/// </summary>
+	[Parameter(Mandatory = true, ParameterSetName = nameof(Content), Position = 0, ValueFromPipeline = true)]
+	public required ScriptBlock Content { get; set; }
+
+	/// <summary>
+	/// A list of variables to define in the template's scope.
+	/// </summary>
+	[Parameter(Position = 1)]
+	public Hashtable Context { get; set; } = [];
+
+	/// <summary>
+	/// The path of the HTML template to render.
+	/// </summary>
+	[Parameter(Mandatory = true, ParameterSetName = nameof(Path), Position = 0, ValueFromPipeline = true)]
+	public required string Path { get; set; }
+
+	/// <summary>
+	/// Performs execution of this command.
+	/// </summary>
+	protected override void ProcessRecord() {
+		var file = new FileInfo(GetExtension(Path).Equals(".ps1", StringComparison.InvariantCultureIgnoreCase) ? Path : $"{Path}.ps1");
+		if (!file.Exists) {
+			var exception = new FileNotFoundException("The specified template file does not exist.");
+			ThrowTerminatingError(new ErrorRecord(exception, "Write-HtmlTemplate:FileNotFoundException", ErrorCategory.ObjectNotFound, null));
+		}
+
+		// if (!IsPathFullyQualified(Path)) {
+		// 	Console.WriteLine($"MyInvocation.PSScriptRoot: {MyInvocation.PSScriptRoot}"); // TODO
+		// 	Console.WriteLine($"MyInvocation.ScriptName: {MyInvocation.ScriptName}"); // TODO
+		// 	Console.WriteLine($"SessionState.PSVariable: {SessionState.PSVariable.GetValue("PSScriptRoot")}"); // TODO
+		// 	Path = Join(SessionState.PSVariable.GetValue("PSScriptRoot").ToString(), Path);
+		// }
+
+		var context = Context.Cast<DictionaryEntry>().Select(entry => new PSVariable(entry.Key.ToString(), entry.Value, ScopedItemOptions.Constant));
+
+		var output = ScriptBlock.Create(File.ReadAllText(Path))
+			.InvokeWithContext(functionsToDefine: new Hashtable(), variablesToDefine: [.. context])
+			.Select(psObject => psObject.BaseObject);
+
+		var builder = new StringBuilder();
+		foreach (var value in output) builder.Append(value);
+		WriteObject(builder.ToString());
+	}
+}
