@@ -40,7 +40,7 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 	/// The data attributes to render.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public Hashtable Data { get; set; } = [];
+	public Hashtable DataSet { get; set; } = [];
 
 	/// <summary>
 	/// The directionality of the element's text.
@@ -130,11 +130,11 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 	protected virtual void RenderAttributes(Dictionary<string, object?> attributes) {
 		if (!string.IsNullOrWhiteSpace(Id)) attributes["id"] = Id;
 		if (Class.Length > 0) attributes["class"] = string.Join(' ', Class);
-		if (Data.Count > 0) foreach (DictionaryEntry entry in Data) attributes[$"data-{JsonNamingPolicy.KebabCaseLower.ConvertName(entry.Key.ToString() ?? "")}"] = entry.Value;
+		if (DataSet.Count > 0) foreach (DictionaryEntry entry in DataSet) attributes[$"data-{JsonNamingPolicy.KebabCaseLower.ConvertName(entry.Key.ToString() ?? "")}"] = entry.Value;
 		if (Dir is not null) attributes["dir"] = Dir;
 		if (Lang is not null) attributes["lang"] = Lang.Name;
 		if (On.Count > 0) foreach (DictionaryEntry entry in On) attributes[$"on{entry.Key.ToString()?.ToLowerInvariant()}"] = entry.Value;
-		if (TabIndex is not null) attributes["tabindex"] = TabIndex.Value.ToString(CultureInfo.InvariantCulture);
+		if (TabIndex is not null) attributes["tabindex"] = TabIndex.Value;
 		if (!string.IsNullOrWhiteSpace(Title)) attributes["title"] = Title;
 
 		if (Style.Count > 0) {
