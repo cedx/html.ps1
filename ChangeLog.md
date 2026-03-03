@@ -1,8 +1,8 @@
 # Changelog
 
 ## Version [0.5.0](https://github.com/cedx/html.net/compare/v0.4.0...v0.5.0)
-- Added the `New-ColGroupElement`, `New-DataElement` cmdlets.
-- Added the `colgroup`, `data` aliases.
+- Added the `New-ColGroupElement`, `New-DataElement` and `New-StyleElement` cmdlets.
+- Added the `colgroup`, `dataTag` and `style` aliases.
 
 ## Version [0.4.0](https://github.com/cedx/html.net/compare/v0.3.0...v0.4.0)
 - Added support for the `on*` and `tabindex` attributes.
