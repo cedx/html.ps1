@@ -1,0 +1,40 @@
+namespace Belin.Html.Cmdlets.Elements;
+
+using System.Globalization;
+using System.Xml;
+
+/// <summary>
+/// Creates a new <c>time</c> element.
+/// </summary>
+[Cmdlet(VerbsCommon.New, "HtmlTimeElement"), Alias("time"), OutputType(typeof(string))]
+public class NewTimeElementCommand(): NewElementCommand("time", isVoid: false) {
+
+	/// <summary>
+	/// Value indicating the time and/or date of the element.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true)]
+	public object? DateTime { get; set; }
+
+	/// <summary>
+	/// Populates the specified attribute collection with the element attributes.
+	/// </summary>
+	/// <param name="attributes">The attribute collection to populate.</param>
+	protected override void RenderAttributes(Dictionary<string, object?> attributes) {
+		base.RenderAttributes(attributes);
+
+		if (DateTime is not null) {
+			try {
+				attributes["datetime"] = (DateTime is PSObject psObject ? psObject.BaseObject : DateTime) switch {
+					DateOnly value => value.ToString("o", CultureInfo.InvariantCulture),
+					DateTime value => value.ToString("o", CultureInfo.InvariantCulture),
+					TimeOnly value => value.ToString("o", CultureInfo.InvariantCulture),
+					TimeSpan value => XmlConvert.ToString(value),
+					_ => throw new NotSupportedException("The specified date/time value is not supported.")
+				};
+			}
+			catch (NotSupportedException e) {
+				ThrowTerminatingError(new ErrorRecord(e, "New-HtmlTimeElement:NotSupportedException", ErrorCategory.InvalidArgument, null));
+			}
+		}
+	}
+}
