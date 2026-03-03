@@ -13,7 +13,7 @@ public class NewFieldsetElementCommand(): NewElementCommand("fieldset", isVoid: 
 	public SwitchParameter Disabled { get; set; }
 
 	/// <summary>
-	/// The value of the <c>id</c> attribute of a <c>form</c> element you want the element to be part of.
+	/// The identifier of a <c>form</c> element you want the element to be part of.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public string Form { get; set; } = "";

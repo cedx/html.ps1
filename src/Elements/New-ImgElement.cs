@@ -13,7 +13,7 @@ public class NewImgElementCommand(): NewElementCommand("img", isVoid: true) {
 	public string? Alt { get; set; }
 
 	/// <summary>
-	/// The intrinsic height of the image, in pixels.
+	/// The intrinsic height of the image, in CSS pixels.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
 	public int Height { get; set; } = -1;
@@ -55,7 +55,7 @@ public class NewImgElementCommand(): NewElementCommand("img", isVoid: true) {
 	public string UseMap { get; set; } = "";
 
 	/// <summary>
-	/// The intrinsic width of the image, in pixels.
+	/// The intrinsic width of the image, in CSS pixels.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
 	public int Width { get; set; } = -1;
