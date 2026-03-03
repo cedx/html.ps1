@@ -1,5 +1,7 @@
 # Changelog
 
+## Version [0.8.0](https://github.com/cedx/html.net/compare/v0.7.0...v0.8.0)
+
 ## Version [0.7.0](https://github.com/cedx/html.net/compare/v0.6.0...v0.7.0)
 - Added the `New-DetailsElement`, `New-DialogElement`, `New-EmbedElement`, `New-FieldsetElement` and `New-InsElement` cmdlets.
 - Added the `details`, `dialog`, `embed`, `fieldset` and `ins` aliases.
