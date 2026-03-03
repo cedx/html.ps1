@@ -1,6 +1,5 @@
 namespace Belin.Html.Cmdlets.Elements;
 
-using System.Globalization;
 using System.Xml;
 
 /// <summary>
@@ -25,9 +24,9 @@ public class NewTimeElementCommand(): NewElementCommand("time", isVoid: false) {
 		if (DateTime is not null) {
 			try {
 				attributes["datetime"] = (DateTime is PSObject psObject ? psObject.BaseObject : DateTime) switch {
-					DateOnly value => value.ToString("o", CultureInfo.InvariantCulture),
-					DateTime value => value.ToString("o", CultureInfo.InvariantCulture),
-					TimeOnly value => value.ToString("o", CultureInfo.InvariantCulture),
+					DateOnly value => value.ToString("o"),
+					DateTime value => value.ToString("o"),
+					TimeOnly value => value.ToString("o"),
 					TimeSpan value => XmlConvert.ToString(value),
 					_ => throw new NotSupportedException("The specified date/time value is not supported.")
 				};
