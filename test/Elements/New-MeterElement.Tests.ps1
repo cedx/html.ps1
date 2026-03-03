@@ -1,0 +1,17 @@
+<#
+.SYNOPSIS
+	Tests the features of the `New-MeterElement` cmdlet.
+#>
+Describe "New-MeterElement" {
+	BeforeAll {
+		Import-Module "$PSScriptRoot/../../Html.psd1"
+	}
+
+	It 'should support the "min" and "max" attributes' {
+		meter -min -100 -max 200 | Should -BeIn '<meter min="-100" max="200"></meter>', '<meter max="200" min="-100"></meter>'
+	}
+
+	It 'should support the "low" and "high" attributes' {
+		meter -low 50 -high 150 | Should -BeIn '<meter low="50" high="150"></meter>', '<meter high="150" low="50"></meter>'
+	}
+}

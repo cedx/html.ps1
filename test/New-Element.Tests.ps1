@@ -57,7 +57,7 @@ Describe "New-Element" {
 
 	It "should handle data attributes" {
 		$expected = '<button data-bs-toggle="tooltip" data-push-url></button>', '<button data-push-url data-bs-toggle="tooltip"></button>'
-		button -data @{ bsToggle = "tooltip"; pushUrl = $true } | Should -BeIn $expected
+		button -dataset @{ bsToggle = "tooltip"; pushUrl = $true } | Should -BeIn $expected
 	}
 
 	It "should handle event handler attributes" {

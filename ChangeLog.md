@@ -1,6 +1,9 @@
 # Changelog
 
 ## Version [0.8.0](https://github.com/cedx/html.net/compare/v0.7.0...v0.8.0)
+- Added the `New-LabelElement`, `New-LiElement`, `New-MapElement`, `New-MeterElement` and `New-ObjectElement` cmdlets.
+- Added the `label`, `li`, `map`, `meter` and `object` aliases.
+- Renamed the `-Data` common parameter to `-DataSet`.
 
 ## Version [0.7.0](https://github.com/cedx/html.net/compare/v0.6.0...v0.7.0)
 - Added the `New-DetailsElement`, `New-DialogElement`, `New-EmbedElement`, `New-FieldsetElement` and `New-InsElement` cmdlets.
