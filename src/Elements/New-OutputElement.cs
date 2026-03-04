@@ -1,0 +1,37 @@
+namespace Belin.Html.Cmdlets.Elements;
+
+/// <summary>
+/// Creates a new <c>output</c> element.
+/// </summary>
+[Cmdlet(VerbsCommon.New, "HtmlOutputElement"), Alias("output"), OutputType(typeof(string))]
+public class NewOutputElementCommand(): NewElementCommand("output", isVoid: false) {
+
+	/// <summary>
+	/// A list of other elements' identifiers, indicating that those elements contributed input values to the calculation.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true)]
+	public string[] For { get; set; } = [];
+
+	/// <summary>
+	/// The identifier of a <c>form</c> element you want the element to be part of.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true)]
+	public string Form { get; set; } = "";
+
+	/// <summary>
+	/// The element's name.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true)]
+	public string Name { get; set; } = "";
+
+	/// <summary>
+	/// Populates the specified attribute collection with the element attributes.
+	/// </summary>
+	/// <param name="attributes">The attribute collection to populate.</param>
+	protected override void RenderAttributes(Dictionary<string, object?> attributes) {
+		base.RenderAttributes(attributes);
+		if (For.Length > 0) attributes["for"] = string.Join(' ', For);
+		if (!string.IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
+		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
+	}
+}
