@@ -38,8 +38,8 @@ Describe "New-Element" {
 	}
 
 	It 'should handle the "style" attribute' {
-		$expected = '<code style="font-family: &quot;Segoe UI&quot;; font-size: 1rem"></code>', '<code style="font-size: 1rem; font-family: &quot;Segoe UI&quot;"></code>'
-		code -style @{ "font-family" = '"Segoe UI"'; "font-size" = "1rem" } | Should -BeIn $expected
+		$expected = '<code style="font-family: &quot;Segoe UI&quot;; font-size: 1rem"></code>'
+		code -style ([ordered]@{ "font-family" = '"Segoe UI"'; "font-size" = "1rem" }) | Should -BeExactly $expected
 	}
 
 	It 'should handle the "tabindex" attribute' -ForEach -1, 0 {

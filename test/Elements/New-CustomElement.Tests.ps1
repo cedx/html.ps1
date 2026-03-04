@@ -24,8 +24,8 @@ Describe "New-CustomElement" {
 	}
 
 	It 'should handle the "style" attribute' {
-		$expected = '<my-element style="font-family: &quot;Segoe UI&quot;; font-size: 1rem"></my-element>', '<my-element style="font-size: 1rem; font-family: &quot;Segoe UI&quot;"></my-element>'
-		tag my-element -style @{ "font-family" = '"Segoe UI"'; "font-size" = "1rem" } | Should -BeIn $expected
+		$expected = '<my-element style="font-family: &quot;Segoe UI&quot;; font-size: 1rem"></my-element>'
+		tag my-element -style ([ordered]@{ "font-family" = '"Segoe UI"'; "font-size" = "1rem" }) | Should -BeExactly $expected
 	}
 
 	It 'should handle the "tabindex" attribute' -ForEach -1, 0 {

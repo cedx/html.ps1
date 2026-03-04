@@ -3,6 +3,7 @@
 ## Version [0.10.0](https://github.com/cedx/html.net/compare/v0.9.0...v0.10.0)
 - Added the `New-QElement`, `New-SlotElement` and `New-SourceElement` cmdlets.
 - Added the `q`, `slot` and `source` aliases.
+- The common parameter `-Style` is now an `OrderedHashtable`, which allows the declaration order to be preserved.
 
 ## Version [0.9.0](https://github.com/cedx/html.net/compare/v0.8.0...v0.9.0)
 - Added the `New-OlElement`, `New-OptgroupElement`, `New-OptionElement`, `New-OutputElement` and `New-ProgressElement` cmdlets.
@@ -11,7 +12,7 @@
 ## Version [0.8.0](https://github.com/cedx/html.net/compare/v0.7.0...v0.8.0)
 - Added the `New-LabelElement`, `New-LiElement`, `New-MapElement`, `New-MeterElement` and `New-ObjectElement` cmdlets.
 - Added the `label`, `li`, `map`, `meter` and `object` aliases.
-- Renamed the `-Data` common parameter to `-DataSet`.
+- Renamed the common parameter `-Data` to `-DataSet`.
 
 ## Version [0.7.0](https://github.com/cedx/html.net/compare/v0.6.0...v0.7.0)
 - Added the `New-DetailsElement`, `New-DialogElement`, `New-EmbedElement`, `New-FieldsetElement` and `New-InsElement` cmdlets.

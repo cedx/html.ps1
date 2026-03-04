@@ -70,7 +70,7 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 	/// The CSS styling declarations applied to the element.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public Hashtable Style { get; set; } = [];
+	public OrderedHashtable Style { get; set; } = [];
 
 	/// <summary>
 	/// Determines the relative ordering of the element for sequential focus navigation.
