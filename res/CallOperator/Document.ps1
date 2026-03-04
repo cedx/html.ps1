@@ -1,3 +1,5 @@
+param ([string] $Title, [int] $Year)
+
 doctype
 html -dir ltr -lang $PSCulture {
 	& "$PSScriptRoot/Head.ps1"
@@ -11,7 +13,7 @@ html -dir ltr -lang $PSCulture {
 			}
 
 			article -class container-xl {
-				h1 "My Title"
+				h1 $Title
 				div -class alert, alert-success "Welcome to my website!"
 			}
 		}

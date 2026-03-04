@@ -2,7 +2,7 @@ head {
 	meta -charset utf-8
 	base -href /Base/
 
-	title "My Title"
+	title $Title
 
 	meta -name color-scheme -content light
 	meta -name viewport -content "initial-scale=1, width=device-width"
