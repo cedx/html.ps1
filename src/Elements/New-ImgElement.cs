@@ -9,7 +9,7 @@ using System.Globalization;
 public class NewImgElementCommand(): NewElementCommand("img", isVoid: true) {
 
 	/// <summary>
-	/// A text that can replace the image in the page.
+	/// A text to display on browsers that do not display images.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public string? Alt { get; set; }

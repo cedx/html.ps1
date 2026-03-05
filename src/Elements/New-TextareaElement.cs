@@ -7,12 +7,6 @@ namespace Belin.Html.Cmdlets.Elements;
 public class NewTextareaElementCommand(): NewElementCommand("textarea", isVoid: false) {
 
 	/// <summary>
-	/// Value indicating whether the element should have input focus when the page loads.
-	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public SwitchParameter AutoFocus { get; set; }
-
-	/// <summary>
 	/// Value indicating whether to prevent the user from interacting with the element.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
@@ -36,7 +30,6 @@ public class NewTextareaElementCommand(): NewElementCommand("textarea", isVoid: 
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (AutoFocus) attributes["autofocus"] = true;
 		if (Disabled) attributes["disabled"] = true;
 		if (!string.IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
 		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;

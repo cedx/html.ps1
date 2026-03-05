@@ -25,6 +25,18 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 	public Hashtable Attributes { get; set; } = [];
 
 	/// <summary>
+	/// Value indicating whether inputted text is automatically capitalized.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("characters", "none", "off", "on", "sentences", "words")]
+	public string? AutoCapitalize { get; set; }
+
+	/// <summary>
+	/// Value indicating whether the element should have input focus when the page loads.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true)]
+	public SwitchParameter AutoFocus { get; set; }
+
+	/// <summary>
 	/// The CSS class names applied to the element.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
@@ -131,6 +143,8 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 		var kebabCase = JsonNamingPolicy.KebabCaseLower.ConvertName;
 
 		if (!string.IsNullOrWhiteSpace(Id)) attributes["id"] = Id;
+		if (AutoCapitalize is not null) attributes["autocapitalize"] = AutoCapitalize;
+		if (AutoFocus) attributes["autofocus"] = true;
 		if (Class.Length > 0) attributes["class"] = string.Join(' ', Class);
 		foreach (DictionaryEntry entry in DataSet) attributes[$"data-{kebabCase(entry.Key.ToString() ?? "")}"] = entry.Value;
 		if (Dir is not null) attributes["dir"] = Dir;

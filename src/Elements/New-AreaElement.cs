@@ -9,7 +9,7 @@ using System.Globalization;
 public class NewAreaElementCommand(): NewElementCommand("area", isVoid: true) {
 
 	/// <summary>
-	/// A text string alternative to display on browsers that do not display images.
+	/// A text to display on browsers that do not display images.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public string? Alt { get; set; }
