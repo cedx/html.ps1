@@ -25,7 +25,7 @@ Describe "New-CustomElement" {
 
 	It 'should handle the "style" attribute' {
 		$expected = '<my-element style="font-family: &quot;Segoe UI&quot;; font-size: 1rem"></my-element>'
-		tag my-element -style ([ordered]@{ "font-family" = '"Segoe UI"'; "font-size" = "1rem" }) | Should -BeExactly $expected
+		tag my-element -style ([ordered]@{ FontFamily = '"Segoe UI"'; FontSize = "1rem" }) | Should -BeExactly $expected
 	}
 
 	It 'should handle the "tabindex" attribute' -ForEach -1, 0 {
@@ -48,7 +48,7 @@ Describe "New-CustomElement" {
 
 	It "should handle event handler attributes" {
 		$expected = '<my-element onclick="submit(event)" oncontextmenu="showMenu()"></my-element>', '<my-element oncontextmenu="showMenu()" onclick="submit(event)"></my-element>'
-		tag my-element -on @{ click = "submit(event)"; contextMenu = "showMenu()" } | Should -BeIn $expected
+		tag my-element -on @{ Click = "submit(event)"; ContextMenu = "showMenu()" } | Should -BeIn $expected
 	}
 
 	It "should handle the inner content" {

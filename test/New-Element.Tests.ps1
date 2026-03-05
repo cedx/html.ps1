@@ -39,7 +39,7 @@ Describe "New-Element" {
 
 	It 'should handle the "style" attribute' {
 		$expected = '<code style="font-family: &quot;Segoe UI&quot;; font-size: 1rem"></code>'
-		code -style ([ordered]@{ "font-family" = '"Segoe UI"'; "font-size" = "1rem" }) | Should -BeExactly $expected
+		code -style ([ordered]@{ FontFamily = '"Segoe UI"'; FontSize = "1rem" }) | Should -BeExactly $expected
 	}
 
 	It 'should handle the "tabindex" attribute' -ForEach -1, 0 {
@@ -62,7 +62,7 @@ Describe "New-Element" {
 
 	It "should handle event handler attributes" {
 		$expected = '<button onclick="submit(event)" oncontextmenu="showMenu()"></button>', '<button oncontextmenu="showMenu()" onclick="submit(event)"></button>'
-		button -on @{ click = "submit(event)"; contextMenu = "showMenu()" } | Should -BeIn $expected
+		button -on @{ Click = "submit(event)"; ContextMenu = "showMenu()" } | Should -BeIn $expected
 	}
 
 	It "should handle the inner content" {

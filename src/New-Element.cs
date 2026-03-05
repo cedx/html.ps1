@@ -128,18 +128,18 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 	/// </summary>
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected virtual void RenderAttributes(IDictionary<string, object?> attributes) {
+		var kebabCase = JsonNamingPolicy.KebabCaseLower.ConvertName;
+
 		if (!string.IsNullOrWhiteSpace(Id)) attributes["id"] = Id;
 		if (Class.Length > 0) attributes["class"] = string.Join(' ', Class);
-		if (DataSet.Count > 0) foreach (DictionaryEntry entry in DataSet) attributes[$"data-{JsonNamingPolicy.KebabCaseLower.ConvertName(entry.Key.ToString() ?? "")}"] = entry.Value;
+		foreach (DictionaryEntry entry in DataSet) attributes[$"data-{kebabCase(entry.Key.ToString() ?? "")}"] = entry.Value;
 		if (Dir is not null) attributes["dir"] = Dir;
 		if (Lang is not null) attributes["lang"] = Lang.Name;
-		if (On.Count > 0) foreach (DictionaryEntry entry in On) attributes[$"on{entry.Key.ToString()?.ToLowerInvariant()}"] = entry.Value;
+		foreach (DictionaryEntry entry in On) attributes[$"on{entry.Key.ToString()?.ToLowerInvariant()}"] = entry.Value;
 		if (TabIndex is not null) attributes["tabindex"] = TabIndex.Value.ToString(CultureInfo.InvariantCulture);
 		if (!string.IsNullOrWhiteSpace(Title)) attributes["title"] = Title;
 
-		if (Style.Count > 0) {
-			var rules = Style.Cast<DictionaryEntry>().Select(entry => $"{entry.Key}: {Convert.ToString(entry.Value, CultureInfo.InvariantCulture)?.Replace("\"", encodedDoubleQuote)}");
-			attributes["style"] = string.Join("; ", rules);
-		}
+		if (Style.Count > 0) attributes["style"] = string.Join("; ", Style.Cast<DictionaryEntry>()
+			.Select(entry => $"{kebabCase(entry.Key.ToString() ?? "")}: {Convert.ToString(entry.Value, CultureInfo.InvariantCulture)?.Replace("\"", encodedDoubleQuote)}"));
 	}
 }
