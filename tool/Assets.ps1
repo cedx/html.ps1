@@ -25,6 +25,7 @@ New-Item src/Generated -Force -ItemType Directory | Out-Null
 	Set-Content "src/Generated/$fileName.g.cs" $content -NoNewline
 }
 
+$cmdletsToExport.Sort()
 $cmdlets = ($cmdletsToExport | ForEach-Object { "`t`t`"$_`"" }) -join [Environment]::NewLine
 $content = (Get-Content Html.psd1 -Raw) -replace "CmdletsToExport = @\([^)]+\)", "CmdletsToExport = @(`n$cmdlets`n`t)"
 Set-Content Html.psd1 $content -NoNewline
