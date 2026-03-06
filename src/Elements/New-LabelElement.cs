@@ -10,7 +10,7 @@ public class NewLabelElementCommand(): NewElementCommand("label", isVoid: false)
 	/// The identifier of the labelable form control in the same document.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string For { get; set; } = "";
+	public string? For { get; set; }
 
 	/// <summary>
 	/// Populates the specified attribute collection with the element attributes.

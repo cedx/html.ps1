@@ -10,7 +10,7 @@ public class NewMapElementCommand(): NewElementCommand("map", isVoid: false) {
 	/// The map name so that it can be referenced.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string Name { get; set; } = "";
+	public string? Name { get; set; }
 
 	/// <summary>
 	/// Populates the specified attribute collection with the element attributes.

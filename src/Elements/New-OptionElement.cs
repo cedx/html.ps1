@@ -16,7 +16,7 @@ public class NewOptionElementCommand(): NewElementCommand("option", isVoid: fals
 	/// The label indicating the meaning of the option.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string Label { get; set; } = "";
+	public string? Label { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the option is initially selected.

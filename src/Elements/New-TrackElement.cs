@@ -24,7 +24,7 @@ public class NewTrackElementCommand(): NewElementCommand("track", isVoid: true) 
 	/// A user-readable title of the text track which is used by the browser when listing available text tracks.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string Label { get; set; } = "";
+	public string? Label { get; set; }
 
 	/// <summary>
 	/// The address of the track (<c>.vtt</c> file).

@@ -11,7 +11,7 @@ public class NewInputElementCommand(): NewElementCommand("input", isVoid: true) 
 	/// Valid for the <c>file</c> input type only.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string Accept { get; set; } = "";
+	public string? Accept { get; set; }
 
 	/// <summary>
 	/// A text to display on browsers that do not display images.
@@ -30,13 +30,13 @@ public class NewInputElementCommand(): NewElementCommand("input", isVoid: true) 
 	/// The identifier of a <c>form</c> element to associate with the element.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string Form { get; set; } = "";
+	public string? Form { get; set; }
 
 	/// <summary>
 	/// The name of the control.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string Name { get; set; } = "";
+	public string? Name { get; set; }
 
 	/// <summary>
 	/// The type of control to render.

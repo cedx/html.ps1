@@ -28,7 +28,7 @@ public class NewScriptElementCommand(): NewElementCommand("script", isVoid: fals
 	/// A base64-encoded cryptographic hash of the resource (file) to fetch.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string Integrity { get; set; } = "";
+	public string? Integrity { get; set; }
 
 	/// <summary>
 	/// The URI of an external script.
@@ -40,7 +40,7 @@ public class NewScriptElementCommand(): NewElementCommand("script", isVoid: fals
 	/// The type of script represented.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string Type { get; set; } = "";
+	public string? Type { get; set; }
 
 	/// <summary>
 	/// Populates the specified attribute collection with the element attributes.

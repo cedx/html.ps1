@@ -18,7 +18,7 @@ public class NewSourceElementCommand(): NewElementCommand("source", isVoid: true
 	/// The media query for the resource's intended media.
 	/// </summary>
 	[Parameter(ParameterSetName = nameof(SrcSet), ValueFromPipelineByPropertyName = true)]
-	public string Media { get; set; } = "";
+	public string? Media { get; set; }
 
 	/// <summary>
 	/// A list of source sizes that describe the final rendered width of the image.
@@ -42,7 +42,7 @@ public class NewSourceElementCommand(): NewElementCommand("source", isVoid: true
 	/// The media type to use, optionally including a <c>codecs</c> parameter.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string Type { get; set; } = "";
+	public string? Type { get; set; }
 
 	/// <summary>
 	/// The intrinsic width of the image, in CSS pixels.

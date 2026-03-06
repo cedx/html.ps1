@@ -10,7 +10,7 @@ public class NewDetailsElementCommand(): NewElementCommand("details", isVoid: fa
 	/// The group name allowing multiple <c>details</c> elements to be connected, with only one open at a time.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string Name { get; set; } = "";
+	public string? Name { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the details are currently visible.

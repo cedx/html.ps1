@@ -10,7 +10,7 @@ public class NewLinkElementCommand(): NewElementCommand("link", isVoid: true) {
 	/// Specifies the type of content being loaded by the <c>link</c>.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string As { get; set; } = "";
+	public string? As { get; set; }
 
 	/// <summary>
 	/// Value indicating whether CORS must be used when fetching the resource.
@@ -28,13 +28,13 @@ public class NewLinkElementCommand(): NewElementCommand("link", isVoid: true) {
 	/// A base64-encoded cryptographic hash of the resource (file) to fetch.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string Integrity { get; set; } = "";
+	public string? Integrity { get; set; }
 
 	/// <summary>
 	/// The media that the linked resource applies to.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string Media { get; set; } = "";
+	public string? Media { get; set; }
 
 	/// <summary>
 	/// The relationship of the linked resource to the current document.
@@ -52,7 +52,7 @@ public class NewLinkElementCommand(): NewElementCommand("link", isVoid: true) {
 	/// The media type of the content linked to.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string Type { get; set; } = "";
+	public string? Type { get; set; }
 
 	/// <summary>
 	/// Populates the specified attribute collection with the element attributes.

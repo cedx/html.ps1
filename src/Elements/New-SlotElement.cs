@@ -10,7 +10,7 @@ public class NewSlotElementCommand(): NewElementCommand("slot", isVoid: false) {
 	/// The slot's name.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string Name { get; set; } = "";
+	public string? Name { get; set; }
 
 	/// <summary>
 	/// Populates the specified attribute collection with the element attributes.

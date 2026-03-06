@@ -24,7 +24,7 @@ public class NewAreaElementCommand(): NewElementCommand("area", isVoid: true) {
 	/// The suggested filename when the browser treats the linked URL as a download.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string Download { get; set; } = "";
+	public string? Download { get; set; }
 
 	/// <summary>
 	/// The hyperlink target for the area.
@@ -54,7 +54,7 @@ public class NewAreaElementCommand(): NewElementCommand("area", isVoid: true) {
 	/// The browsing context to show the results of navigation.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string Target { get; set; } = "";
+	public string? Target { get; set; }
 
 	/// <summary>
 	/// Populates the specified attribute collection with the element attributes.

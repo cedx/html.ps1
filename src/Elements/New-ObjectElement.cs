@@ -18,7 +18,7 @@ public class NewObjectElementCommand(): NewElementCommand("object", isVoid: fals
 	/// The identifier of a <c>form</c> element to associate with the element.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string Form { get; set; } = "";
+	public string? Form { get; set; }
 
 	/// <summary>
 	/// The height of the display resource, in CSS pixels.
@@ -30,7 +30,7 @@ public class NewObjectElementCommand(): NewElementCommand("object", isVoid: fals
 	/// The name of valid browsing context (HTML 5), or the name of the control (HTML 4).
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string Name { get; set; } = "";
+	public string? Name { get; set; }
 
 	/// <summary>
 	/// The media type to use, optionally including a <c>codecs</c> parameter.
@@ -52,6 +52,7 @@ public class NewObjectElementCommand(): NewElementCommand("object", isVoid: fals
 		base.RenderAttributes(attributes);
 		attributes["data"] = Data.ToString();
 		attributes["type"] = Type;
+		if (!string.IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
 		if (Height >= 0) attributes["height"] = Height.ToString(CultureInfo.InvariantCulture);
 		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
 		if (Width >= 0) attributes["width"] = Width.ToString(CultureInfo.InvariantCulture);

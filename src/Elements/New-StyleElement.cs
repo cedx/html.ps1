@@ -10,7 +10,7 @@ public class NewStyleElementCommand(): NewElementCommand("style", isVoid: false)
 	/// Defines which media the style should be applied to.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string Media { get; set; } = "";
+	public string? Media { get; set; }
 
 	/// <summary>
 	/// Populates the specified attribute collection with the element attributes.

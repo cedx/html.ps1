@@ -54,7 +54,7 @@ public class NewImgElementCommand(): NewElementCommand("img", isVoid: true) {
 	/// The partial URL (starting with <c>#</c>) of an image map associated with the element.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string UseMap { get; set; } = "";
+	public string? UseMap { get; set; }
 
 	/// <summary>
 	/// The intrinsic width of the image, in CSS pixels.

@@ -12,7 +12,7 @@ public class NewThElementCommand(): NewElementCommand("th", isVoid: false) {
 	/// A short, abbreviated description of the header cell's content provided as an alternative label to use for the header cell when referencing the cell in other contexts.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string Abbr { get; set; } = "";
+	public string? Abbr { get; set; }
 
 	/// <summary>
 	/// An integer indicating how many columns the header cell spans or extends.

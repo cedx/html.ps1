@@ -64,7 +64,7 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 	/// The element identifier.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string Id { get; set; } = "";
+	public string? Id { get; set; }
 
 	/// <summary>
 	/// The element's language.
@@ -94,7 +94,7 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 	/// A text representing advisory information related to the element.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string Title { get; set; } = "";
+	public string? Title { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the element to create is a void element.

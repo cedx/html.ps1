@@ -16,13 +16,13 @@ public class NewFieldsetElementCommand(): NewElementCommand("fieldset", isVoid: 
 	/// The identifier of a <c>form</c> element to associate with the element.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string Form { get; set; } = "";
+	public string? Form { get; set; }
 
 	/// <summary>
 	/// The name associated with the group.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string Name { get; set; } = "";
+	public string? Name { get; set; }
 
 	/// <summary>
 	/// Populates the specified attribute collection with the element attributes.

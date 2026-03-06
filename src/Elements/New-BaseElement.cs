@@ -16,7 +16,7 @@ public class NewBaseElementCommand(): NewElementCommand("base", isVoid: true) {
 	/// The default browsing context to show the results of navigation from elements without explicit <c>target</c> attribute.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
-	public string Target { get; set; } = "";
+	public string? Target { get; set; }
 
 	/// <summary>
 	/// Populates the specified attribute collection with the element attributes.
