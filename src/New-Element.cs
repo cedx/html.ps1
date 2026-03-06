@@ -110,7 +110,7 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 	/// Performs execution of this command.
 	/// </summary>
 	protected override void ProcessRecord() {
-		var attributes = Attributes.Cast<DictionaryEntry>().ToDictionary(entry => entry.Key.ToString() ?? "", entry => entry.Value);
+		var attributes = Attributes.Cast<DictionaryEntry>().ToDictionary(entry => entry.Key.ToString() ?? "", entry => entry.Value, StringComparer.OrdinalIgnoreCase);
 		RenderAttributes(attributes);
 
 		var builder = new StringBuilder($"<{TagName}");
