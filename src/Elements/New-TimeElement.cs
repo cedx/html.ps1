@@ -9,7 +9,7 @@ using System.Xml;
 public class NewTimeElementCommand(): NewElementCommand("time", isVoid: false) {
 
 	/// <summary>
-	/// Value indicating the time and/or date of the element.
+	/// The time and/or date of the element.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public object? DateTime { get; set; }

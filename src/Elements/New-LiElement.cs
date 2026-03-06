@@ -9,7 +9,7 @@ using System.Globalization;
 public class NewLiElementCommand(): NewElementCommand("li", isVoid: false) {
 
 	/// <summary>
-	/// Value indicating the current ordinal value of the list item as defined by the <c>ol</c> element.
+	/// The ordinal value of the list item as defined by the <c>ol</c> element.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public int? Value { get; set; }

@@ -33,7 +33,7 @@ public class NewMeterElementCommand(): NewElementCommand("meter", isVoid: false)
 	public double? Min { get; set; }
 
 	/// <summary>
-	/// Value indicating the optimal numeric value.
+	/// The optimal numeric value.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public double? Optimum { get; set; }

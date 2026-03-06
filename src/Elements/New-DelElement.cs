@@ -13,7 +13,7 @@ public class NewDelElementCommand(): NewElementCommand("del", isVoid: false) {
 	public Uri? Cite { get; set; }
 
 	/// <summary>
-	/// Value indicating the time and date of the change.
+	/// The date and time of the change.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public object? DateTime { get; set; }
