@@ -1,5 +1,7 @@
 # Changelog
 
+## Version [1.0.0](https://github.com/cedx/html.net/compare/v0.10.0...v1.0.0)
+
 ## Version [0.10.0](https://github.com/cedx/html.net/compare/v0.9.0...v0.10.0)
 - Added the `New-ButtonElement`, `New-QElement`, `New-SelectElement`, `New-SlotElement` and `New-SourceElement` cmdlets.
 - Added the `button`, `q`, `selectTag`, `slot` and `source` aliases.

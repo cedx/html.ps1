@@ -1,5 +1,5 @@
 @{
-	ModuleVersion = "0.10.0"
+	ModuleVersion = "1.0.0"
 	PowerShellVersion = "7.5"
 	RootModule = "bin/Belin.Html.Cmdlets.dll"
 
