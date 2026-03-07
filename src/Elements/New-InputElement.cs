@@ -89,7 +89,7 @@ public class NewInputElementCommand(): NewElementCommand("input", isVoid: true) 
 	public SwitchParameter FormNoValidate { get; set; }
 
 	/// <summary>
-	/// The browsing context to show the response from submitting the form.
+	/// The browsing context to show the response after submitting the form.
 	/// Valid for the <c>image</c> and <c>submit</c> input types only.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]

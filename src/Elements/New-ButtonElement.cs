@@ -57,7 +57,7 @@ public class NewButtonElementCommand(): NewElementCommand("button", isVoid: fals
 	public SwitchParameter FormNoValidate { get; set; }
 
 	/// <summary>
-	/// The browsing context to show the response from submitting the form.
+	/// The browsing context to show the response after submitting the form.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
 	public string? FormTarget { get; set; }
