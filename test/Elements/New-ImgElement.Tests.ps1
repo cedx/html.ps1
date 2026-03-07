@@ -26,4 +26,8 @@ Describe "New-ImgElement" {
 		img -src Image.webp -height 200 | Should -BeIn '<img height="200" src="Image.webp" />', '<img src="Image.webp" height="200" />'
 		img -src Image.webp -width 460 | Should -BeIn '<img width="460" src="Image.webp" />', '<img src="Image.webp" width="460" />'
 	}
+
+	It 'should support the "loading" attribute' -ForEach eager, lazy {
+		img -src Image.webp -loading $_ | Should -BeIn "<img loading=""$_"" src=""Image.webp"" />", "<img src=""Image.webp"" loading=""$_"" />"
+	}
 }

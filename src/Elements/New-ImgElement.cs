@@ -27,7 +27,7 @@ public class NewImgElementCommand(): NewElementCommand("img", isVoid: true) {
 	public SwitchParameter IsMap { get; set; }
 
 	/// <summary>
-	/// A text that can replace the image in the page.
+	/// Value indicating how the browser should load the image.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("eager", "lazy")]
 	public string? Loading { get; set; }

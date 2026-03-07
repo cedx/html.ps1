@@ -97,6 +97,12 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 	public CultureInfo? Lang { get; set; }
 
 	/// <summary>
+	/// Value indicating whether the element is a popover element.
+	/// </summary>
+	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("auto", "hint", "manual")]
+	public string? Popover { get; set; }
+
+	/// <summary>
 	/// The event handler attributes to render.
 	/// </summary>
 	[Parameter(ValueFromPipelineByPropertyName = true)]
@@ -190,6 +196,7 @@ public abstract class NewElementCommand(string tagName, bool isVoid = false): PS
 		if (InputMode is not null) attributes["inputmode"] = InputMode;
 		if (Lang is not null) attributes["lang"] = Lang.Name;
 		foreach (DictionaryEntry entry in On) attributes[$"on{entry.Key.ToString()?.ToLowerInvariant()}"] = entry.Value;
+		if (Popover is not null) attributes["popover"] = Popover;
 		if (SpellCheck is not null) attributes["spellcheck"] = SpellCheck;
 		if (TabIndex is not null) attributes["tabindex"] = TabIndex.Value.ToString(CultureInfo.InvariantCulture);
 		if (!string.IsNullOrWhiteSpace(Title)) attributes["title"] = Title;
