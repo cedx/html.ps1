@@ -2,7 +2,7 @@
 A set of [PowerShell](https://learn.microsoft.com/en-us/powershell) cmdlets for rendering [HTML](https://developer.mozilla.org/docs/Web/HTML) documents.
 
 ## Documentation
-- [User guide](https://github.com/cedx/html.net/wiki)
+- [User guide](https://github.com/cedx/html.net/tree/main/docs)
 - [Examples](https://github.com/cedx/html.net/tree/main/example)
 
 ## Development
