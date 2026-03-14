@@ -1,7 +1,7 @@
 param (
 	# The inner content.
 	[Parameter(Mandatory, Position = 0)]
-	[object] $Content,
+	[string] $Content,
 
 	# The document title.
 	[Parameter(Mandatory)]
