@@ -13,6 +13,6 @@ Describe "New-AreaElement" {
 		$area | Should -BeLikeExactly '* href="Index.html"*'
 		$area | Should -BeLikeExactly '* shape="circle"*'
 		$area | Should -BeLikeExactly '* coords="100,200,64.7"*'
-		$area | Should -BeLikeExactly "* />"
+		$area | Should -BeLikeExactly "*>"
 	}
 }

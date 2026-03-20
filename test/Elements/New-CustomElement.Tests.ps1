@@ -12,7 +12,7 @@ Describe "New-CustomElement" {
 	}
 
 	It "should handle void elements" {
-		tag my-element -Void | Should -BeExactly "<my-element />"
+		tag my-element -Void | Should -BeExactly "<my-element>"
 	}
 
 	It 'should handle the "id" attribute' {
@@ -37,7 +37,7 @@ Describe "New-CustomElement" {
 	}
 
 	It "should handle custom attributes" {
-		$expected = '<my-element data-foo="&quot;bar&quot;" required />', '<my-element required data-foo="&quot;bar&quot;" />'
+		$expected = '<my-element data-foo="&quot;bar&quot;" required>', '<my-element required data-foo="&quot;bar&quot;">'
 		tag my-element -attributes @{ "data-foo" = '"bar"'; disabled = $false; required = $true } -Void | Should -BeIn $expected
 	}
 

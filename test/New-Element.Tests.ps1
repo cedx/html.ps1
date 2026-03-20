@@ -15,8 +15,8 @@ Describe "New-Element" {
 	}
 
 	It "should handle void elements" -ForEach @(
-		@{ Tag = "br"; Expected = "<br />" }
-		@{ Tag = "input"; Expected = "<input />" }
+		@{ Tag = "br"; Expected = "<br>" }
+		@{ Tag = "input"; Expected = "<input>" }
 	) {
 		& $tag | Should -BeExactly $expected
 	}
@@ -51,7 +51,7 @@ Describe "New-Element" {
 	}
 
 	It "should handle custom attributes" {
-		$expected = '<input data-foo="&quot;bar&quot;" required />', '<input required data-foo="&quot;bar&quot;" />'
+		$expected = '<input data-foo="&quot;bar&quot;" required>', '<input required data-foo="&quot;bar&quot;">'
 		input -attributes @{ "data-foo" = '"bar"'; disabled = $false; required = $true } | Should -BeIn $expected
 	}
 
