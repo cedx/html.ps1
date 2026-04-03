@@ -15,12 +15,12 @@ pwsh --version
 From a command prompt, run:
 
 ```powershell
-Install-PSResource -Name Html -Repository PSGallery
+Install-PSResource Belin.Html
 ```
 
 ### 2. Import it
 Now in your [PowerShell](https://learn.microsoft.com/en-us/powershell) code, you can use:
 
 ```powershell
-Import-Module -Name Html
+Import-Module Belin.Html
 ```
