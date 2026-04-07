@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [1.0.1](https://github.com/cedx/html.net/compare/v1.0.0...v1.0.1)
+- Fixed a packaging issue.
+
 ## Version [1.0.0](https://github.com/cedx/html.net/compare/v0.10.0...v1.0.0)
 - Added the `New-FormElement`, `New-IframeElement`, `New-InputElement`, `New-TemplateElement` and `New-TextareaElement` cmdlets.
 - Added the `form`, `iframe`, `input`, `template` and `textarea` aliases.
