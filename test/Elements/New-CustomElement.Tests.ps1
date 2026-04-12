@@ -21,6 +21,7 @@ Describe "New-CustomElement" {
 
 	It 'should handle the "class" attribute' {
 		tag my-element -class btn, btn-danger | Should -BeExactly '<my-element class="btn btn-danger"></my-element>'
+		tag my-element -class "btn btn-info", btn-sm | Should -BeExactly '<my-element class="btn btn-info btn-sm"></my-element>'
 	}
 
 	It 'should handle the "style" attribute' {

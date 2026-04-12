@@ -23,6 +23,7 @@ Describe "New-Element" {
 
 	It 'should handle the "class" attribute' {
 		body -class btn, btn-danger | Should -BeExactly '<body class="btn btn-danger"></body>'
+		body -class "btn btn-info", btn-sm | Should -BeExactly '<body class="btn btn-info btn-sm"></body>'
 	}
 
 	It 'should support the "dir" attribute' -ForEach auto, ltr, rtl {
