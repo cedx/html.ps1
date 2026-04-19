@@ -1,9 +1,5 @@
-param (
-	# The view data.
-	[Parameter(Mandatory, Position = 0)]
-	[hashtable] $Data
-)
+param ([hashtable] $data)
 
 footer -class text-center {
-	"Copyright &copy; $($Data.Year) - All rights reserved."
+	"Copyright &copy; $($data.Year) - All rights reserved."
 }

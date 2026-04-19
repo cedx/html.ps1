@@ -1,18 +1,10 @@
-param (
-	# The inner content.
-	[Parameter(Mandatory, Position = 0)]
-	[string] $Content,
-
-	# The view data.
-	[Parameter(Mandatory, Position = 1)]
-	[hashtable] $Data
-)
+param ([string] $content, [hashtable] $data)
 
 doctype
 html -lang $PSCulture {
 	head {
 		meta -charset utf-8
-		title $Data.Title
+		title $data.Title
 
 		meta -name color-scheme -content light
 		meta -name viewport -content "initial-scale=1, width=device-width"
@@ -32,7 +24,7 @@ html -lang $PSCulture {
 
 		main {
 			noscript { p "This application requires $(b JavaScript) to be enabled in your browser." }
-			article -class container-xl { $Content }
+			article -class container-xl { $content }
 		}
 
 		& "$PSScriptRoot/_Footer.ps1" @{ Year = (Get-Date).Year }

@@ -1,8 +1,4 @@
-param (
-	# The view data.
-	[Parameter(Mandatory, Position = 0)]
-	[hashtable] $Data
-)
+param ([hashtable] $data)
 
-h1 $Data.Heading
+h1 $data.Heading
 div -class alert, alert-success "Welcome to my website!"

@@ -9,8 +9,8 @@
 	Description = "PowerShell cmdlets for rendering HTML documents."
 	GUID = "3c16800c-921e-4c31-9fc3-00052d2f30ba"
 
-	AliasesToExport = @()
-	FunctionsToExport = @()
+	AliasesToExport = , "doctype"
+	FunctionsToExport = "New-HtmlDocumentType", "Write-HtmlView"
 	VariablesToExport = @()
 
 	CmdletsToExport = @(
@@ -45,7 +45,6 @@
 		"New-HtmlDialogElement"
 		"New-HtmlDivElement"
 		"New-HtmlDlElement"
-		"New-HtmlDocumentType"
 		"New-HtmlDtElement"
 		"New-HtmlEmbedElement"
 		"New-HtmlEmElement"
@@ -128,8 +127,11 @@
 		"New-HtmlVarElement"
 		"New-HtmlVideoElement"
 		"New-HtmlWbrElement"
-		"Out-HtmlFile"
-		"Out-HtmlString"
+	)
+
+	NestedModules = @(
+		"src/New-DocumentType.psm1"
+		"src/Write-View.psm1"
 	)
 
 	PrivateData = @{
