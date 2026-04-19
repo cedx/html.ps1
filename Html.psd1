@@ -128,6 +128,7 @@
 		"New-HtmlVarElement"
 		"New-HtmlVideoElement"
 		"New-HtmlWbrElement"
+		"Out-HtmlFile"
 		"Out-HtmlString"
 	)
 

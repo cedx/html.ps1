@@ -3,10 +3,10 @@ namespace Belin.Html;
 using System.Text;
 
 /// <summary>
-/// Outputs input objects as an HTML string.
+/// Sends output to a HTML file.
 /// </summary>
-[Cmdlet(VerbsData.Out, "HtmlString"), OutputType(typeof(string))]
-public class OutStringCommand: Cmdlet {
+[Cmdlet(VerbsData.Out, "HtmlFile"), OutputType(typeof(void))]
+public class OutFileCommand: Cmdlet {
 
 	/// <summary>
 	/// The string builder used to concatenate the input objects.
@@ -14,7 +14,13 @@ public class OutStringCommand: Cmdlet {
 	private readonly StringBuilder builder = new();
 
 	/// <summary>
-	/// The object to be written to a string.
+	/// The path to the output file.
+	/// </summary>
+	[Parameter(Mandatory = true, Position = 0)]
+	public required string FilePath { get; set; }
+
+	/// <summary>
+	/// The object to be written to the file.
 	/// </summary>
 	[Parameter(Mandatory = true, ValueFromPipeline = true)]
 	public required object InputObject { get; set; }
@@ -35,7 +41,7 @@ public class OutStringCommand: Cmdlet {
 	/// </summary>
 	protected override void EndProcessing() {
 		if (!NoNewLine) builder.AppendLine();
-		WriteObject(builder.ToString());
+		File.WriteAllText(FilePath, builder.ToString());
 	}
 
 	/// <summary>

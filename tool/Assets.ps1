@@ -5,7 +5,7 @@ $cmdletTemplate = Get-Content share/Cmdlet.Template.cs -Raw
 $cmdletsToExport = [List[string]]::new([string[]] @(
 	"New-HtmlCustomElement"
 	"New-HtmlDocumentType"
-	# TODO "Out-HtmlFile"
+	"Out-HtmlFile"
 	"Out-HtmlString"
 	# TODO "Use-HtmlLayout"
 ))
