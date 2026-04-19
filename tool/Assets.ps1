@@ -2,13 +2,7 @@ using namespace System.Collections.Generic
 
 "Deploying the assets..."
 $cmdletTemplate = Get-Content share/Cmdlet.Template.cs -Raw
-$cmdletsToExport = [List[string]]::new([string[]] @(
-	"New-HtmlCustomElement"
-	"New-HtmlDocumentType"
-	"Out-HtmlFile"
-	"Out-HtmlString"
-	# TODO "Use-HtmlLayout"
-))
+$cmdletsToExport = [List[string]]::new([string[]] @("New-HtmlCustomElement"))
 
 New-Item src/Generated -Force -ItemType Directory | Out-Null
 foreach ($element in (Import-PowerShellDataFile share/HtmlElements.psd1).Elements) {
