@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-	Tests the features of the `New-Element` cmdlets.
+	Tests the features of the `New-Element` cmdlet.
 #>
 Describe "New-Element" {
 	BeforeAll {
