@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [1.2.0](https://github.com/cedx/html.net/compare/v1.1.0...v1.2.0)
+- Added the `Out-String` cmdlet.
+
 ## Version [1.1.0](https://github.com/cedx/html.net/compare/v1.0.1...v1.1.0)
 - Added support for `[switch]` parameters in attribute values.
 - The `New-DelElement`, `New-InsElement` and `New-TimeElement` cmdlets now use a non-terminating error.
