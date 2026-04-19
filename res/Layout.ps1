@@ -3,20 +3,16 @@ param (
 	[Parameter(Mandatory, Position = 0)]
 	[string] $Content,
 
-	# The document title.
-	[Parameter(Mandatory)]
-	[string] $Title,
-
-	# The year shown in the footer.
-	[ValidateRange("Positive")]
-	[int] $Year = (Get-Date).Year
+	# The view data.
+	[Parameter(Mandatory, Position = 1)]
+	[hashtable] $Data
 )
 
 doctype
 html -lang $PSCulture {
 	head {
 		meta -charset utf-8
-		title $Title
+		title $Data.Title
 
 		meta -name color-scheme -content light
 		meta -name viewport -content "initial-scale=1, width=device-width"
@@ -39,6 +35,6 @@ html -lang $PSCulture {
 			article -class container-xl { $Content }
 		}
 
-		& "$PSScriptRoot/_Footer.ps1"
+		& "$PSScriptRoot/_Footer.ps1" @{ Year = (Get-Date).Year }
 	}
 }
