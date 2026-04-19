@@ -73,5 +73,8 @@ Describe "New-Element" {
 	It "should handle the inner content" {
 		$expected = "<main><div>Foo &gt; Bar <span>Baz &lt; Qux</span></div></main>"
 		main { div { "Foo &gt; Bar"; " "; span "Baz &lt; Qux" } } | Should -BeExactly $expected
+
+		$expected = '<head><meta charset="utf-8"></head>'
+		head { meta -charset utf-8 } | Should -BeExactly $expected
 	}
 }
