@@ -7,10 +7,12 @@ Describe "Use-Layout" {
 		Import-Module "$PSScriptRoot/../Html.psd1"
 	}
 
-	It "should render the specified content inside the given HTML layout" {
-		$html = Write-HtmlView "$PSScriptRoot/../res/Content.WithLayout.ps1" -Data @{ Heading = "My Application" }
+	It "should render the specified HTML content inside the given layout" {
+		$data = @{ AppName = "My Application"; Title = "The headline"; Year = 2025 }
+		$html = layout "$PSScriptRoot/../res/Layout.ps1" (& "$PSScriptRoot/../res/Content.ps1" $data) -Data $data
 		$html | Should -BeLikeExactly '<!doctype html><html lang="*"><head>*<title>My Application</title>*'
-		$html | Should -BeLikeExactly '*<h1>My Application</h1><div class="alert alert-success">Welcome to my website!</div>*'
-		$html | Should -BeLikeExactly "*<footer class=""text-center"">Copyright &copy; $((Get-Date).Year) - All rights reserved.</footer></body></html>"
+		$html | Should -BeLikeExactly '*<header>*<div class="ms-2">My Application</div>*</header>*'
+		$html | Should -BeLikeExactly '*<h1>The headline</h1><div class="alert alert-success">Welcome to my website!</div>*'
+		$html | Should -BeLikeExactly '*<footer class="text-center">Copyright &copy; 2025 - All rights reserved.</footer></body></html>'
 	}
 }

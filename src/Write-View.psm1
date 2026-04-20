@@ -1,5 +1,3 @@
-using namespace System.IO
-
 <#
 .SYNOPSIS
 	Renders the specified view file as an HTML string.

@@ -4,7 +4,7 @@ doctype
 html -lang $PSCulture {
 	head {
 		meta -charset utf-8
-		title $data.Title
+		title $data.AppName
 
 		meta -name color-scheme -content light
 		meta -name viewport -content "initial-scale=1, width=device-width"
@@ -20,13 +20,13 @@ html -lang $PSCulture {
 	}
 
 	body {
-		& "$PSScriptRoot/_Header.ps1"
+		& "$PSScriptRoot/Header.ps1" @{ AppName = $data.AppName }
 
 		main {
 			noscript { p "This application requires $(b JavaScript) to be enabled in your browser." }
 			article -class container-xl { $content }
 		}
 
-		& "$PSScriptRoot/_Footer.ps1" @{ Year = (Get-Date).Year }
+		& "$PSScriptRoot/Footer.ps1" @{ Year = $data.Year }
 	}
 }

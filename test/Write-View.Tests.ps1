@@ -7,14 +7,11 @@ Describe "Write-View" {
 		Import-Module "$PSScriptRoot/../Html.psd1"
 	}
 
-	It "should render the specified view file to an HTML string" {
-		$html = Write-HtmlView "$PSScriptRoot/../res/Header.ps1" -Data @{ AppName = "My Application" }
-		$html | Should -BeLikeExactly '<header>*<div class="ms-2">My Application</div>*</header>'
-
-		$html = Write-HtmlView "$PSScriptRoot/../res/Content.WithoutLayout.ps1" -Data @{ Title = "The headline" }
-		$html | Should -BeExactly '<h1>The headline</h1><div class="alert alert-success">Welcome to my website!</div>'
-
-		$html = Write-HtmlView "$PSScriptRoot/../res/Footer.ps1" -Data @{ Year = 1974 }
-		$html | Should -BeExactly '<footer class="text-center">Copyright &copy; 1974 - All rights reserved.</footer>'
+	It "should render the specified view file as an HTML string" -ForEach @(
+		@{ View = "Header"; Data = @{ AppName = "My Application" }; Expected = '<header>*<div class="ms-2">My Application</div>*</header>' }
+		@{ View = "Content"; Data = @{ Title = "The headline" }; Expected = '<h1>The headline</h1><div class="alert alert-success">Welcome to my website!</div>' }
+		@{ View = "Footer"; Data = @{ Year = 2025 }; Expected = '<footer class="text-center">Copyright &copy; 2025 - All rights reserved.</footer>' }
+	) {
+		Write-HtmlView "$PSScriptRoot/../res/$view.ps1" -Data $data | Should -BeLikeExactly $expected
 	}
 }
