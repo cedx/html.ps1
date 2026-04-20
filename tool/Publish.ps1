@@ -11,10 +11,11 @@ git tag "v$version"
 git push origin "v$version"
 
 $output = "var/PSModule"
-New-Item $output/bin -ItemType Directory | Out-Null
+New-Item $output/bin, $output/src -ItemType Directory | Out-Null
 Copy-Item Html.psd1 $output/Belin.Html.psd1
 Copy-Item *.md $output
-Copy-Item $module.RootModule $output/bin
+Copy-Item src/*.psm1 $output/src -Recurse
+$module.RootModule | Copy-Item -Destination $output/bin
 
 $output = "var/PSGallery"
 New-Item $output -ItemType Directory | Out-Null
