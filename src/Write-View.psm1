@@ -18,7 +18,6 @@ function Write-HtmlView {
 		[string] $Path,
 
 		# The view data.
-		[Parameter(Position = 1)]
 		[hashtable] $Data
 	)
 

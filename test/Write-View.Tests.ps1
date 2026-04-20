@@ -8,7 +8,7 @@ Describe "Write-View" {
 	}
 
 	It "should render the specified view file to an HTML string" {
-		$html = Write-HtmlView "$PSScriptRoot/../res/Content.WithoutLayout.ps1" @{ Heading = "My Application" }
+		$html = Write-HtmlView "$PSScriptRoot/../res/Content.WithoutLayout.ps1" -Data @{ Heading = "My Application" }
 		$html | Should -BeExactly '<h1>My Application</h1><div class="alert alert-success">Welcome to my website!</div>'
 	}
 }
