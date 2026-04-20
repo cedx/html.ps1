@@ -3,7 +3,7 @@
 		<Company>Cedric-Belin.fr</Company>
 		<Copyright>© Cédric Belin</Copyright>
 		<Description>PowerShell cmdlets for rendering HTML documents.</Description>
-		<Product>HtmlForPS</Product>
+		<Product>HTML Renderer for PS</Product>
 		<Version>1.2.0</Version>
 	</PropertyGroup>
 
