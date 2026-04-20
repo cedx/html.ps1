@@ -1,4 +1,4 @@
-namespace Belin.Html.Elements;
+namespace Belin.Html;
 
 /// <summary>
 /// Creates a new custom element.
