@@ -19,18 +19,10 @@ function Write-HtmlView {
 
 		# The view data.
 		[Parameter(Position = 1)]
-		[hashtable] $Data,
-
-		# The path to the layout file to apply to the view.
-		# If the layout path is relative, it will be resolved with respect to the view path.
-		[ValidateScript({ Test-Path $_ -IsValid }, ErrorMessage = "The specified layout path is invalid.")]
-		[string] $LayoutPath
+		[hashtable] $Data
 	)
 
 	process {
-		$content = $Data ? (& $Path $Data) : (& $Path) | Out-String -NoNewline
-		if (-not $LayoutPath) { return $content }
-		if (-not [Path]::IsPathFullyQualified($LayoutPath)) { $LayoutPath = Join-Path (Split-Path $Path -Resolve) $LayoutPath }
-		$Data ? (& $LayoutPath $content $Data) : (& $LayoutPath $content) | Out-String -NoNewline
+		$Data ? (& $Path $Data) : (& $Path) | Out-String -NoNewline
 	}
 }
