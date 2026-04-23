@@ -1,3 +1,5 @@
+using module ./Cmdlets.psm1
+
 if ($Release) { & "$PSScriptRoot/Default.ps1" }
 else {
 	"The ""-Release"" switch must be set!"
@@ -7,8 +9,7 @@ else {
 "Publishing the package..."
 $module = Import-PowerShellDataFile Html.psd1
 $version = $module.ModuleVersion
-git tag "v$version"
-git push origin "v$version"
+New-GitTag "v$version"
 
 $output = "var/PSModule"
 New-Item $output/bin, $output/src -ItemType Directory | Out-Null

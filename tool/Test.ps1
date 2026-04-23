@@ -1,8 +1,5 @@
+using module ./Cmdlets.psm1
 & "$PSScriptRoot/Build.ps1"
 
 "Running the test suite..."
-pwsh -Command {
-	Import-Module Pester
-	Invoke-Pester test
-	exit $LASTEXITCODE
-}
+Invoke-PowerShellTest test -EnableExit
