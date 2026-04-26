@@ -8,7 +8,7 @@ using namespace System.Text.Json
 .OUTPUTS
 	The converted name.
 #>
-function Format-KebabCaseLower {
+function Format-KebabCase {
 	[CmdletBinding()]
 	[OutputType([string])]
 	param (
