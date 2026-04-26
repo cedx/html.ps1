@@ -1,9 +1,11 @@
+using module ../New-Element.psm1
+
 <#
 .SYNOPSIS
 	Creates a new `style` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlStyleElement"), Alias("style"), OutputType(typeof(string))]
-function New-HtmlStyleElementCommand(): NewElementCommand("style", isVoid: false) {
+function New-HtmlStyleElement: NewElementCommand("style", isVoid: false) {
 
 	<#
 	.SYNOPSIS
@@ -19,6 +21,6 @@ function New-HtmlStyleElementCommand(): NewElementCommand("style", isVoid: false
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (!string.IsNullOrWhiteSpace(Media)) attributes["media"] = Media;
+		if (-not [string]::IsNullOrWhiteSpace(Media)) attributes["media"] = Media;
 	}
 }

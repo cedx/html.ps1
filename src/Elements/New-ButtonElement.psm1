@@ -1,11 +1,12 @@
-using System.Net.Mime;
+using namespace System.Net.Mime
+using module ../New-Element.psm1
 
 <#
 .SYNOPSIS
 	Creates a new `button` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlButtonElement"), Alias("button"), OutputType(typeof(string))]
-function New-HtmlButtonElementCommand(): NewElementCommand("button", isVoid: false) {
+function New-HtmlButtonElement: NewElementCommand("button", isVoid: false) {
 
 	<#
 	.SYNOPSIS
@@ -116,17 +117,17 @@ function New-HtmlButtonElementCommand(): NewElementCommand("button", isVoid: fal
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (!string.IsNullOrWhiteSpace(Command)) attributes["command"] = Command;
-		if (!string.IsNullOrWhiteSpace(CommandFor)) attributes["commandfor"] = CommandFor;
+		if (-not [string]::IsNullOrWhiteSpace(Command)) attributes["command"] = Command;
+		if (-not [string]::IsNullOrWhiteSpace(CommandFor)) attributes["commandfor"] = CommandFor;
 		if (Disabled) attributes["disabled"] = true;
-		if (!string.IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
+		if (-not [string]::IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
 		if (FormAction is not null) attributes["formaction"] = FormAction.ToString();
 		if (FormEnctype is not null) attributes["formenctype"] = FormEnctype;
 		if (FormMethod is not null) attributes["formmethod"] = FormMethod;
 		if (FormNoValidate) attributes["formnovalidate"] = true;
-		if (!string.IsNullOrWhiteSpace(FormTarget)) attributes["formtarget"] = FormTarget;
-		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
-		if (!string.IsNullOrWhiteSpace(PopoverTarget)) attributes["popovertarget"] = PopoverTarget;
+		if (-not [string]::IsNullOrWhiteSpace(FormTarget)) attributes["formtarget"] = FormTarget;
+		if (-not [string]::IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
+		if (-not [string]::IsNullOrWhiteSpace(PopoverTarget)) attributes["popovertarget"] = PopoverTarget;
 		if (PopoverTargetAction is not null) attributes["popovertargetaction"] = PopoverTargetAction;
 		if (Type is not null) attributes["type"] = Type;
 		if (Value is not null) attributes["value"] = Value;

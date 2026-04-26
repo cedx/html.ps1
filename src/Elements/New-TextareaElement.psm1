@@ -1,18 +1,18 @@
-using System.Globalization;
+using module ../New-Element.psm1
 
 <#
 .SYNOPSIS
 	Creates a new `textarea` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlTextareaElement"), Alias("textarea"), OutputType(typeof(string))]
-function New-HtmlTextareaElementCommand(): NewElementCommand("textarea", isVoid: false) {
+function New-HtmlTextareaElement: NewElementCommand("textarea", isVoid: false) {
 
 	<#
 	.SYNOPSIS
 		A hint for a user agent's autocomplete feature.
 	#>
 	[Parameter(ValueFromPipelineByPropertyName)]
-	[string[]] $AutoComplete = [];
+	[string[]] $AutoComplete = @(),
 
 	<#
 	.SYNOPSIS
@@ -116,17 +116,17 @@ function New-HtmlTextareaElementCommand(): NewElementCommand("textarea", isVoid:
 		base.RenderAttributes(attributes);
 		if (AutoComplete.Length > 0) attributes["autocomplete"] = string.Join(' ', AutoComplete).Trim();
 		if (AutoCorrect is not null) attributes["autocorrect"] = AutoCorrect;
-		if (Cols > 0) attributes["cols"] = Cols.ToString(CultureInfo.InvariantCulture);
-		if (!string.IsNullOrWhiteSpace(DirName)) attributes["dirname"] = DirName;
+		if (Cols > 0) attributes["cols"] = Cols
+		if (-not [string]::IsNullOrWhiteSpace(DirName)) attributes["dirname"] = DirName;
 		if (Disabled) attributes["disabled"] = true;
-		if (!string.IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
-		if (MaxLength >= 0) attributes["maxlength"] = MaxLength.ToString(CultureInfo.InvariantCulture);
-		if (MinLength >= 0) attributes["minlength"] = MinLength.ToString(CultureInfo.InvariantCulture);
-		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
-		if (!string.IsNullOrWhiteSpace(Placeholder)) attributes["placeholder"] = Placeholder;
+		if (-not [string]::IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
+		if (MaxLength >= 0) attributes["maxlength"] = MaxLength
+		if (MinLength >= 0) attributes["minlength"] = MinLength
+		if (-not [string]::IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
+		if (-not [string]::IsNullOrWhiteSpace(Placeholder)) attributes["placeholder"] = Placeholder;
 		if (ReadOnly) attributes["readonly"] = true;
 		if (Required) attributes["required"] = true;
-		if (Rows > 0) attributes["rows"] = Rows.ToString(CultureInfo.InvariantCulture);
+		if (Rows > 0) attributes["rows"] = Rows
 		if (Wrap is not null) attributes["wrap"] = Wrap;
 	}
 }

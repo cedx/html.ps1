@@ -1,11 +1,11 @@
-using System.Globalization;
+using module ../New-Element.psm1
 
 <#
 .SYNOPSIS
 	Creates a new `th` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlThElement"), Alias("th"), OutputType(typeof(string))]
-function New-HtmlThElementCommand(): NewElementCommand("th", isVoid: false) {
+function New-HtmlThElement: NewElementCommand("th", isVoid: false) {
 
 	<#
 	.SYNOPSIS
@@ -26,7 +26,7 @@ function New-HtmlThElementCommand(): NewElementCommand("th", isVoid: false) {
 		A list of strings corresponding to the `id` attributes of the `th` elements that provide the headers for this header cell.
 	#>
 	[Parameter(ValueFromPipelineByPropertyName)]
-	[string[]] $Headers = [];
+	[string[]] $Headers = @(),
 
 	<#
 	.SYNOPSIS
@@ -50,10 +50,10 @@ function New-HtmlThElementCommand(): NewElementCommand("th", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (!string.IsNullOrWhiteSpace(Abbr)) attributes["abbr"] = Abbr;
-		if (ColSpan >= 0) attributes["colspan"] = ColSpan.ToString(CultureInfo.InvariantCulture);
+		if (-not [string]::IsNullOrWhiteSpace(Abbr)) attributes["abbr"] = Abbr;
+		if (ColSpan >= 0) attributes["colspan"] = ColSpan
 		if (Headers.Length > 0) attributes["headers"] = string.Join(' ', Headers).Trim();
-		if (RowSpan >= 0) attributes["rowspan"] = RowSpan.ToString(CultureInfo.InvariantCulture);
+		if (RowSpan >= 0) attributes["rowspan"] = RowSpan
 		if (Scope is not null) attributes["scope"] = Scope;
 	}
 }

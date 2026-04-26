@@ -1,11 +1,11 @@
-using System.Globalization;
+using module ../New-Element.psm1
 
 <#
 .SYNOPSIS
 	Creates a new `track` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlTrackElement"), Alias("track"), OutputType(typeof(string))]
-function New-HtmlTrackElementCommand(): NewElementCommand("track", isVoid: true) {
+function New-HtmlTrackElement: NewElementCommand("track", isVoid: true) {
 
 	<#
 	.SYNOPSIS
@@ -33,7 +33,7 @@ function New-HtmlTrackElementCommand(): NewElementCommand("track", isVoid: true)
 	.SYNOPSIS
 		The address of the track (`.vtt` file).
 	#>
-	[Parameter(Mandatory = true, ValueFromPipelineByPropertyName)]
+	[Parameter(Mandatory, ValueFromPipelineByPropertyName)]
 	required Uri Src
 
 	<#
@@ -53,7 +53,7 @@ function New-HtmlTrackElementCommand(): NewElementCommand("track", isVoid: true)
 		attributes["src"] = Src.ToString();
 		if (Default) attributes["default"] = true;
 		if (Kind is not null) attributes["kind"] = Kind;
-		if (!string.IsNullOrWhiteSpace(Label)) attributes["label"] = Label;
+		if (-not [string]::IsNullOrWhiteSpace(Label)) attributes["label"] = Label;
 		if (SrcLang is not null) attributes["srclang"] = SrcLang.Name;
 	}
 }

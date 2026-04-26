@@ -1,9 +1,11 @@
+using module ../New-Element.psm1
+
 <#
 .SYNOPSIS
 	Creates a new `del` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlDelElement"), Alias("delTag"), OutputType(typeof(string))]
-function New-HtmlDelElementCommand(): NewElementCommand("del", isVoid: false) {
+function New-HtmlDelElement: NewElementCommand("del", isVoid: false) {
 
 	<#
 	.SYNOPSIS

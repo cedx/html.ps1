@@ -1,15 +1,17 @@
+using module ../New-Element.psm1
+
 <#
 .SYNOPSIS
 	Creates a new `data` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlDataElement"), Alias("dataTag"), OutputType(typeof(string))]
-function New-HtmlDataElementCommand(): NewElementCommand("data", isVoid: false) {
+function New-HtmlDataElement: NewElementCommand("data", isVoid: false) {
 
 	<#
 	.SYNOPSIS
 		The machine-readable translation of the content of the element.
 	#>
-	[Parameter(Mandatory = true, ValueFromPipelineByPropertyName)]
+	[Parameter(Mandatory, ValueFromPipelineByPropertyName)]
 	required string Value
 
 	<#

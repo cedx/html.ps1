@@ -1,17 +1,17 @@
-using System.Globalization;
+using module ../New-Element.psm1
 
 <#
 .SYNOPSIS
 	Creates a new `object` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlObjectElement"), Alias("object"), OutputType(typeof(string))]
-function New-HtmlObjectElementCommand(): NewElementCommand("object", isVoid: false) {
+function New-HtmlObjectElement: NewElementCommand("object", isVoid: false) {
 
 	<#
 	.SYNOPSIS
 		The URL of the resource being embedded.
 	#>
-	[Parameter(Mandatory = true, ValueFromPipelineByPropertyName)]
+	[Parameter(Mandatory, ValueFromPipelineByPropertyName)]
 	required Uri Data
 
 	<#
@@ -39,7 +39,7 @@ function New-HtmlObjectElementCommand(): NewElementCommand("object", isVoid: fal
 	.SYNOPSIS
 		The media type to use, optionally including a `codecs` parameter.
 	#>
-	[Parameter(Mandatory = true, ValueFromPipelineByPropertyName)]
+	[Parameter(Mandatory, ValueFromPipelineByPropertyName)]
 	required string Type
 
 	<#
@@ -58,9 +58,9 @@ function New-HtmlObjectElementCommand(): NewElementCommand("object", isVoid: fal
 		base.RenderAttributes(attributes);
 		attributes["data"] = Data.ToString();
 		attributes["type"] = Type;
-		if (!string.IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
-		if (Height >= 0) attributes["height"] = Height.ToString(CultureInfo.InvariantCulture);
-		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
-		if (Width >= 0) attributes["width"] = Width.ToString(CultureInfo.InvariantCulture);
+		if (-not [string]::IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
+		if (Height >= 0) attributes["height"] = Height
+		if (-not [string]::IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
+		if (Width >= 0) attributes["width"] = Width
 	}
 }

@@ -1,9 +1,11 @@
+using module ../New-Element.psm1
+
 <#
 .SYNOPSIS
 	Creates a new `option` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlOptionElement"), Alias("option"), OutputType(typeof(string))]
-function New-HtmlOptionElementCommand(): NewElementCommand("option", isVoid: false) {
+function New-HtmlOptionElement: NewElementCommand("option", isVoid: false) {
 
 	<#
 	.SYNOPSIS
@@ -41,7 +43,7 @@ function New-HtmlOptionElementCommand(): NewElementCommand("option", isVoid: fal
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
 		if (Disabled) attributes["disabled"] = true;
-		if (!string.IsNullOrWhiteSpace(Label)) attributes["label"] = Label;
+		if (-not [string]::IsNullOrWhiteSpace(Label)) attributes["label"] = Label;
 		if (Selected) attributes["selected"] = true;
 		if (Value is not null) attributes["value"] = Value;
 	}

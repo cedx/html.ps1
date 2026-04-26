@@ -1,11 +1,11 @@
-using System.Globalization;
+using module ../New-Element.psm1
 
 <#
 .SYNOPSIS
 	Creates a new `iframe` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlIframeElement"), Alias("iframe"), OutputType(typeof(string))]
-function New-HtmlIframeElementCommand(): NewElementCommand("iframe", isVoid: false) {
+function New-HtmlIframeElement: NewElementCommand("iframe", isVoid: false) {
 
 	<#
 	.SYNOPSIS
@@ -52,13 +52,13 @@ function New-HtmlIframeElementCommand(): NewElementCommand("iframe", isVoid: fal
 		The restrictions applied to the content embedded in the frame.
 	#>
 	[Parameter(ValueFromPipelineByPropertyName)]
-	[string[]] $Sandbox = [];
+	[string[]] $Sandbox = @(),
 
 	<#
 	.SYNOPSIS
 		The URL of the page to embed.
 	#>
-	[Parameter(Mandatory = true, ValueFromPipelineByPropertyName)]
+	[Parameter(Mandatory, ValueFromPipelineByPropertyName)]
 	required Uri Src
 
 	<#
@@ -76,12 +76,12 @@ function New-HtmlIframeElementCommand(): NewElementCommand("iframe", isVoid: fal
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
 		attributes["src"] = Src.ToString();
-		if (!string.IsNullOrWhiteSpace(Allow)) attributes["allow"] = Allow;
-		if (Height >= 0) attributes["height"] = Height.ToString(CultureInfo.InvariantCulture);
+		if (-not [string]::IsNullOrWhiteSpace(Allow)) attributes["allow"] = Allow;
+		if (Height >= 0) attributes["height"] = Height
 		if (Loading is not null) attributes["loading"] = Loading;
-		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
+		if (-not [string]::IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
 		if (ReferrerPolicy is not null) attributes["referrerpolicy"] = ReferrerPolicy;
 		if (Sandbox.Length > 0) attributes["sandbox"] = string.Join(' ', Sandbox).Trim();
-		if (Width >= 0) attributes["width"] = Width.ToString(CultureInfo.InvariantCulture);
+		if (Width >= 0) attributes["width"] = Width
 	}
 }

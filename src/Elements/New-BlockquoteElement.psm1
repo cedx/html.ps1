@@ -1,9 +1,11 @@
+using module ../New-Element.psm1
+
 <#
 .SYNOPSIS
 	Creates a new `blockquote` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlBlockquoteElement"), Alias("blockquote"), OutputType(typeof(string))]
-function New-HtmlBlockquoteElementCommand(): NewElementCommand("blockquote", isVoid: false) {
+function New-HtmlBlockquoteElement: NewElementCommand("blockquote", isVoid: false) {
 
 	<#
 	.SYNOPSIS

@@ -1,9 +1,11 @@
+using module ../New-Element.psm1
+
 <#
 .SYNOPSIS
 	Creates a new `fieldset` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlFieldsetElement"), Alias("fieldset"), OutputType(typeof(string))]
-function New-HtmlFieldsetElementCommand(): NewElementCommand("fieldset", isVoid: false) {
+function New-HtmlFieldsetElement: NewElementCommand("fieldset", isVoid: false) {
 
 	<#
 	.SYNOPSIS
@@ -34,7 +36,7 @@ function New-HtmlFieldsetElementCommand(): NewElementCommand("fieldset", isVoid:
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
 		if (Disabled) attributes["disabled"] = true;
-		if (!string.IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
-		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
+		if (-not [string]::IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
+		if (-not [string]::IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
 	}
 }

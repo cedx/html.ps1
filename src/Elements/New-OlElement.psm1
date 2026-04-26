@@ -1,11 +1,11 @@
-using System.Globalization;
+using module ../New-Element.psm1
 
 <#
 .SYNOPSIS
 	Creates a new `ol` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlOlElement"), Alias("ol"), OutputType(typeof(string))]
-function New-HtmlOlElementCommand(): NewElementCommand("ol", isVoid: false) {
+function New-HtmlOlElement: NewElementCommand("ol", isVoid: false) {
 
 	<#
 	.SYNOPSIS
@@ -37,7 +37,7 @@ function New-HtmlOlElementCommand(): NewElementCommand("ol", isVoid: false) {
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
 		if (Reversed) attributes["reversed"] = true;
-		if (Start is not null) attributes["start"] = Start.Value.ToString(CultureInfo.InvariantCulture);
+		if (Start is not null) attributes["start"] = Start.Value
 		if (Type is not null) attributes["type"] = Type;
 	}
 }

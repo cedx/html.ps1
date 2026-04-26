@@ -1,9 +1,11 @@
+using module ../New-Element.psm1
+
 <#
 .SYNOPSIS
 	Creates a new `dialog` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlDialogElement"), Alias("dialog"), OutputType(typeof(string))]
-function New-HtmlDialogElementCommand(): NewElementCommand("dialog", isVoid: false) {
+function New-HtmlDialogElement: NewElementCommand("dialog", isVoid: false) {
 
 	<#
 	.SYNOPSIS

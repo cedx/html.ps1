@@ -1,15 +1,17 @@
+using module ../New-Element.psm1
+
 <#
 .SYNOPSIS
 	Creates a new `base` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlBaseElement"), Alias("base"), OutputType(typeof(string))]
-function New-HtmlBaseElementCommand(): NewElementCommand("base", isVoid: true) {
+function New-HtmlBaseElement: NewElementCommand("base", isVoid: true) {
 
 	<#
 	.SYNOPSIS
 		The base URL to be used throughout the document for relative URLs.
 	#>
-	[Parameter(Mandatory = true, ValueFromPipelineByPropertyName)]
+	[Parameter(Mandatory, ValueFromPipelineByPropertyName)]
 	[uri] $Href
 
 	<#
@@ -27,6 +29,6 @@ function New-HtmlBaseElementCommand(): NewElementCommand("base", isVoid: true) {
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
 		attributes["href"] = Href.ToString();
-		if (!string.IsNullOrWhiteSpace(Target)) attributes["target"] = Target;
+		if (-not [string]::IsNullOrWhiteSpace(Target)) attributes["target"] = Target;
 	}
 }

@@ -1,18 +1,18 @@
-using System.Globalization;
+using module ../New-Element.psm1
 
 <#
 .SYNOPSIS
 	Creates a new `select` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlSelectElement"), Alias("selectTag"), OutputType(typeof(string))]
-function New-HtmlSelectElementCommand(): NewElementCommand("select", isVoid: false) {
+function New-HtmlSelectElement: NewElementCommand("select", isVoid: false) {
 
 	<#
 	.SYNOPSIS
 		A hint for a user agent's autocomplete feature.
 	#>
 	[Parameter(ValueFromPipelineByPropertyName)]
-	[string[]] $AutoComplete = [];
+	[string[]] $AutoComplete = @(),
 
 	<#
 	.SYNOPSIS
@@ -65,10 +65,10 @@ function New-HtmlSelectElementCommand(): NewElementCommand("select", isVoid: fal
 		base.RenderAttributes(attributes);
 		if (AutoComplete.Length > 0) attributes["autocomplete"] = string.Join(' ', AutoComplete).Trim();
 		if (Disabled) attributes["disabled"] = true;
-		if (!string.IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
+		if (-not [string]::IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
 		if (Multiple) attributes["multiple"] = true;
-		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
+		if (-not [string]::IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
 		if (Required) attributes["required"] = true;
-		if (Size >= 0) attributes["size"] = Size.ToString(CultureInfo.InvariantCulture);
+		if (Size >= 0) attributes["size"] = Size
 	}
 }

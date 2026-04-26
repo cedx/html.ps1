@@ -1,11 +1,11 @@
-using System.Globalization;
+using module ../New-Element.psm1
 
 <#
 .SYNOPSIS
 	Creates a new `embed` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlEmbedElement"), Alias("embed"), OutputType(typeof(string))]
-function New-HtmlEmbedElementCommand(): NewElementCommand("embed", isVoid: true) {
+function New-HtmlEmbedElement: NewElementCommand("embed", isVoid: true) {
 
 	<#
 	.SYNOPSIS
@@ -18,14 +18,14 @@ function New-HtmlEmbedElementCommand(): NewElementCommand("embed", isVoid: true)
 	.SYNOPSIS
 		The URL of the resource being embedded.
 	#>
-	[Parameter(Mandatory = true, ValueFromPipelineByPropertyName)]
+	[Parameter(Mandatory, ValueFromPipelineByPropertyName)]
 	required Uri Src
 
 	<#
 	.SYNOPSIS
 		The media type to use, optionally including a `codecs` parameter.
 	#>
-	[Parameter(Mandatory = true, ValueFromPipelineByPropertyName)]
+	[Parameter(Mandatory, ValueFromPipelineByPropertyName)]
 	required string Type
 
 	<#
@@ -44,7 +44,7 @@ function New-HtmlEmbedElementCommand(): NewElementCommand("embed", isVoid: true)
 		base.RenderAttributes(attributes);
 		attributes["src"] = Src.ToString();
 		attributes["type"] = Type;
-		if (Height >= 0) attributes["height"] = Height.ToString(CultureInfo.InvariantCulture);
-		if (Width >= 0) attributes["width"] = Width.ToString(CultureInfo.InvariantCulture);
+		if (Height >= 0) attributes["height"] = Height
+		if (Width >= 0) attributes["width"] = Width
 	}
 }

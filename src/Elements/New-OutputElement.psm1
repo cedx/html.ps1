@@ -1,16 +1,18 @@
+using module ../New-Element.psm1
+
 <#
 .SYNOPSIS
 	Creates a new `output` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlOutputElement"), Alias("output"), OutputType(typeof(string))]
-function New-HtmlOutputElementCommand(): NewElementCommand("output", isVoid: false) {
+function New-HtmlOutputElement: NewElementCommand("output", isVoid: false) {
 
 	<#
 	.SYNOPSIS
 		A list of other elements' identifiers, indicating that those elements contributed input values to the calculation.
 	#>
 	[Parameter(ValueFromPipelineByPropertyName)]
-	[string[]] $For = [];
+	[string[]] $For = @(),
 
 	<#
 	.SYNOPSIS
@@ -34,7 +36,7 @@ function New-HtmlOutputElementCommand(): NewElementCommand("output", isVoid: fal
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
 		if (For.Length > 0) attributes["for"] = string.Join(' ', For).Trim();
-		if (!string.IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
-		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
+		if (-not [string]::IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
+		if (-not [string]::IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
 	}
 }

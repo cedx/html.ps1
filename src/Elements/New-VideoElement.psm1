@@ -1,11 +1,11 @@
-using System.Globalization;
+using module ../New-Element.psm1
 
 <#
 .SYNOPSIS
 	Creates a new `video` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlVideoElement"), Alias("video"), OutputType(typeof(string))]
-function New-HtmlVideoElementCommand(): NewElementCommand("video", isVoid: false) {
+function New-HtmlVideoElement: NewElementCommand("video", isVoid: false) {
 
 	<#
 	.SYNOPSIS
@@ -112,13 +112,13 @@ function New-HtmlVideoElementCommand(): NewElementCommand("video", isVoid: false
 		if (CrossOrigin is not null) attributes["crossorigin"] = CrossOrigin;
 		if (DisablePictureInPicture) attributes["disablepictureinpicture"] = true;
 		if (DisableRemotePlayback) attributes["disableremoteplayback"] = true;
-		if (Height >= 0) attributes["height"] = Height.ToString(CultureInfo.InvariantCulture);
+		if (Height >= 0) attributes["height"] = Height
 		if (Loop) attributes["loop"] = true;
 		if (Muted) attributes["muted"] = true;
 		if (PlaysInline) attributes["playsinline"] = true;
 		if (Poster is not null) attributes["poster"] = Poster.ToString();
 		if (Preload is not null) attributes["preload"] = Preload;
 		if (Src is not null) attributes["src"] = Src.ToString();
-		if (Width >= 0) attributes["width"] = Width.ToString(CultureInfo.InvariantCulture);
+		if (Width >= 0) attributes["width"] = Width
 	}
 }

@@ -1,11 +1,12 @@
-using System.Net.Mime;
+using namespace System.Net.Mime
+using module ../New-Element.psm1
 
 <#
 .SYNOPSIS
 	Creates a new `form` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlFormElement"), Alias("form"), OutputType(typeof(string))]
-function New-HtmlFormElementCommand(): NewElementCommand("form", isVoid: false) {
+function New-HtmlFormElement: NewElementCommand("form", isVoid: false) {
 
 	<#
 	.SYNOPSIS
@@ -57,7 +58,7 @@ function New-HtmlFormElementCommand(): NewElementCommand("form", isVoid: false) 
 		The annotations and what kinds of links the form creates.
 	#>
 	[Parameter(ValueFromPipelineByPropertyName)]
-	[string[]] $Rel = [];
+	[string[]] $Rel = @(),
 
 	<#
 	.SYNOPSIS
@@ -77,9 +78,9 @@ function New-HtmlFormElementCommand(): NewElementCommand("form", isVoid: false) 
 		if (AutoComplete is not null) attributes["autocomplete"] = AutoComplete;
 		if (Enctype is not null) attributes["enctype"] = Enctype;
 		if (Method is not null) attributes["method"] = Method;
-		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
+		if (-not [string]::IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
 		if (NoValidate) attributes["novalidate"] = true;
 		if (Rel.Length > 0) attributes["rel"] = string.Join(' ', Rel).Trim();
-		if (!string.IsNullOrWhiteSpace(Target)) attributes["target"] = Target;
+		if (-not [string]::IsNullOrWhiteSpace(Target)) attributes["target"] = Target;
 	}
 }

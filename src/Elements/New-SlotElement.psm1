@@ -1,9 +1,11 @@
+using module ../New-Element.psm1
+
 <#
 .SYNOPSIS
 	Creates a new `slot` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlSlotElement"), Alias("slot"), OutputType(typeof(string))]
-function New-HtmlSlotElementCommand(): NewElementCommand("slot", isVoid: false) {
+function New-HtmlSlotElement: NewElementCommand("slot", isVoid: false) {
 
 	<#
 	.SYNOPSIS
@@ -19,6 +21,6 @@ function New-HtmlSlotElementCommand(): NewElementCommand("slot", isVoid: false) 
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
+		if (-not [string]::IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
 	}
 }

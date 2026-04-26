@@ -1,11 +1,11 @@
-using System.Globalization;
+using module ../New-Element.psm1
 
 <#
 .SYNOPSIS
 	Creates a new `meter` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlMeterElement"), Alias("meter"), OutputType(typeof(string))]
-function New-HtmlMeterElementCommand(): NewElementCommand("meter", isVoid: false) {
+function New-HtmlMeterElement: NewElementCommand("meter", isVoid: false) {
 
 	<#
 	.SYNOPSIS
@@ -56,11 +56,11 @@ function New-HtmlMeterElementCommand(): NewElementCommand("meter", isVoid: false
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (High is not null) attributes["high"] = High.Value.ToString(CultureInfo.InvariantCulture);
-		if (Low is not null) attributes["low"] = Low.Value.ToString(CultureInfo.InvariantCulture);
-		if (Max is not null) attributes["max"] = Max.Value.ToString(CultureInfo.InvariantCulture);
-		if (Min is not null) attributes["min"] = Min.Value.ToString(CultureInfo.InvariantCulture);
-		if (Optimum is not null) attributes["optimum"] = Optimum.Value.ToString(CultureInfo.InvariantCulture);
-		if (Value is not null) attributes["value"] = Value.Value.ToString(CultureInfo.InvariantCulture);
+		if (High is not null) attributes["high"] = High.Value
+		if (Low is not null) attributes["low"] = Low.Value
+		if (Max is not null) attributes["max"] = Max.Value
+		if (Min is not null) attributes["min"] = Min.Value
+		if (Optimum is not null) attributes["optimum"] = Optimum.Value
+		if (Value is not null) attributes["value"] = Value.Value
 	}
 }

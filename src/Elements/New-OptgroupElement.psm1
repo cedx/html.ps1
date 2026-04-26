@@ -1,9 +1,11 @@
+using module ../New-Element.psm1
+
 <#
 .SYNOPSIS
 	Creates a new `optgroup` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlOptgroupElement"), Alias("optgroup"), OutputType(typeof(string))]
-function New-HtmlOptgroupElementCommand(): NewElementCommand("optgroup", isVoid: false) {
+function New-HtmlOptgroupElement: NewElementCommand("optgroup", isVoid: false) {
 
 	<#
 	.SYNOPSIS

@@ -1,9 +1,11 @@
+using module ../New-Element.psm1
+
 <#
 .SYNOPSIS
 	Creates a new `script` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlScriptElement"), Alias("script"), OutputType(typeof(string))]
-function New-HtmlScriptElementCommand(): NewElementCommand("script", isVoid: false) {
+function New-HtmlScriptElement: NewElementCommand("script", isVoid: false) {
 
 	<#
 	.SYNOPSIS
@@ -59,7 +61,7 @@ function New-HtmlScriptElementCommand(): NewElementCommand("script", isVoid: fal
 		if (Async) attributes["async"] = true;
 		if (CrossOrigin is not null) attributes["crossorigin"] = CrossOrigin;
 		if (Defer) attributes["defer"] = true;
-		if (!string.IsNullOrWhiteSpace(Integrity)) attributes["integrity"] = Integrity;
-		if (!string.IsNullOrWhiteSpace(Type)) attributes["type"] = Type;
+		if (-not [string]::IsNullOrWhiteSpace(Integrity)) attributes["integrity"] = Integrity;
+		if (-not [string]::IsNullOrWhiteSpace(Type)) attributes["type"] = Type;
 	}
 }

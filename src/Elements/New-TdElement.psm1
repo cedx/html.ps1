@@ -1,11 +1,11 @@
-using System.Globalization;
+using module ../New-Element.psm1
 
 <#
 .SYNOPSIS
 	Creates a new `th` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlTdElement"), Alias("td"), OutputType(typeof(string))]
-function New-HtmlTdElementCommand(): NewElementCommand("td", isVoid: false) {
+function New-HtmlTdElement: NewElementCommand("td", isVoid: false) {
 
 	<#
 	.SYNOPSIS
@@ -19,7 +19,7 @@ function New-HtmlTdElementCommand(): NewElementCommand("td", isVoid: false) {
 		A list of strings corresponding to the `id` attributes of the `th` elements that provide the headers for this header cell.
 	#>
 	[Parameter(ValueFromPipelineByPropertyName)]
-	[string[]] $Headers = [];
+	[string[]] $Headers = @(),
 
 	<#
 	.SYNOPSIS
@@ -35,8 +35,8 @@ function New-HtmlTdElementCommand(): NewElementCommand("td", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (ColSpan >= 0) attributes["colspan"] = ColSpan.ToString(CultureInfo.InvariantCulture);
+		if (ColSpan >= 0) attributes["colspan"] = ColSpan
 		if (Headers.Length > 0) attributes["headers"] = string.Join(' ', Headers).Trim();
-		if (RowSpan >= 0) attributes["rowspan"] = RowSpan.ToString(CultureInfo.InvariantCulture);
+		if (RowSpan >= 0) attributes["rowspan"] = RowSpan
 	}
 }

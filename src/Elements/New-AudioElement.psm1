@@ -1,9 +1,11 @@
+using module ../New-Element.psm1
+
 <#
 .SYNOPSIS
 	Creates a new `audio` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlAudioElement"), Alias("audio"), OutputType(typeof(string))]
-function New-HtmlAudioElementCommand(): NewElementCommand("audio", isVoid: false) {
+function New-HtmlAudioElement: NewElementCommand("audio", isVoid: false) {
 
 	<#
 	.SYNOPSIS

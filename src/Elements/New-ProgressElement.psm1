@@ -1,11 +1,11 @@
-using System.Globalization;
+using module ../New-Element.psm1
 
 <#
 .SYNOPSIS
 	Creates a new `progress` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlProgressElement"), Alias("progress"), OutputType(typeof(string))]
-function New-HtmlProgressElementCommand(): NewElementCommand("progress", isVoid: false) {
+function New-HtmlProgressElement: NewElementCommand("progress", isVoid: false) {
 
 	<#
 	.SYNOPSIS
@@ -28,7 +28,7 @@ function New-HtmlProgressElementCommand(): NewElementCommand("progress", isVoid:
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (Max is not null) attributes["max"] = Max.Value.ToString(CultureInfo.InvariantCulture);
-		if (Value is not null) attributes["value"] = Value.Value.ToString(CultureInfo.InvariantCulture);
+		if (Max is not null) attributes["max"] = Max.Value
+		if (Value is not null) attributes["value"] = Value.Value
 	}
 }

@@ -1,9 +1,11 @@
+using module ../New-Element.psm1
+
 <#
 .SYNOPSIS
 	Creates a new `template` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlTemplateElement"), Alias("template"), OutputType(typeof(string))]
-function New-HtmlTemplateElementCommand(): NewElementCommand("template", isVoid: false) {
+function New-HtmlTemplateElement: NewElementCommand("template", isVoid: false) {
 
 	<#
 	.SYNOPSIS

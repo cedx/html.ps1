@@ -1,9 +1,11 @@
+using module ../New-Element.psm1
+
 <#
 .SYNOPSIS
 	Creates a new `link` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlLinkElement"), Alias("link"), OutputType(typeof(string))]
-function New-HtmlLinkElementCommand(): NewElementCommand("link", isVoid: true) {
+function New-HtmlLinkElement: NewElementCommand("link", isVoid: true) {
 
 	<#
 	.SYNOPSIS
@@ -24,7 +26,7 @@ function New-HtmlLinkElementCommand(): NewElementCommand("link", isVoid: true) {
 	.SYNOPSIS
 		The URL of the linked resource.
 	#>
-	[Parameter(Mandatory = true, ValueFromPipelineByPropertyName)]
+	[Parameter(Mandatory, ValueFromPipelineByPropertyName)]
 	[uri] $Href
 
 	<#
@@ -45,7 +47,7 @@ function New-HtmlLinkElementCommand(): NewElementCommand("link", isVoid: true) {
 	.SYNOPSIS
 		The relationship of the linked resource to the current document.
 	#>
-	[Parameter(Mandatory = true, ValueFromPipelineByPropertyName)]
+	[Parameter(Mandatory, ValueFromPipelineByPropertyName)]
 	required [string[]] $Rel
 
 	<#
@@ -53,7 +55,7 @@ function New-HtmlLinkElementCommand(): NewElementCommand("link", isVoid: true) {
 		The sizes of the icons for visual media contained in the resource.
 	#>
 	[Parameter(ValueFromPipelineByPropertyName)]
-	[string[]] $Sizes = [];
+	[string[]] $Sizes = @(),
 
 	<#
 	.SYNOPSIS
@@ -71,11 +73,11 @@ function New-HtmlLinkElementCommand(): NewElementCommand("link", isVoid: true) {
 		base.RenderAttributes(attributes);
 		attributes["rel"] = string.Join(' ', Rel).Trim();
 		attributes["href"] = Href.ToString();
-		if (!string.IsNullOrWhiteSpace(As)) attributes["as"] = As;
+		if (-not [string]::IsNullOrWhiteSpace(As)) attributes["as"] = As;
 		if (CrossOrigin is not null) attributes["crossorigin"] = CrossOrigin;
-		if (!string.IsNullOrWhiteSpace(Integrity)) attributes["integrity"] = Integrity;
-		if (!string.IsNullOrWhiteSpace(Media)) attributes["media"] = Media;
+		if (-not [string]::IsNullOrWhiteSpace(Integrity)) attributes["integrity"] = Integrity;
+		if (-not [string]::IsNullOrWhiteSpace(Media)) attributes["media"] = Media;
 		if (Sizes.Length > 0) attributes["sizes"] = string.Join(' ', Sizes).Trim();
-		if (!string.IsNullOrWhiteSpace(Type)) attributes["type"] = Type;
+		if (-not [string]::IsNullOrWhiteSpace(Type)) attributes["type"] = Type;
 	}
 }

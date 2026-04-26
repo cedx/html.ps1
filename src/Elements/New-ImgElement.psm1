@@ -1,11 +1,11 @@
-using System.Globalization;
+using module ../New-Element.psm1
 
 <#
 .SYNOPSIS
 	Creates a new `img` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlImgElement"), Alias("img"), OutputType(typeof(string))]
-function New-HtmlImgElementCommand(): NewElementCommand("img", isVoid: true) {
+function New-HtmlImgElement: NewElementCommand("img", isVoid: true) {
 
 	<#
 	.SYNOPSIS
@@ -41,13 +41,13 @@ function New-HtmlImgElementCommand(): NewElementCommand("img", isVoid: true) {
 		The intended display sizes of the image.
 	#>
 	[Parameter(ValueFromPipelineByPropertyName)]
-	[string[]] $Sizes = [];
+	[string[]] $Sizes = @(),
 
 	<#
 	.SYNOPSIS
 		The image URL.
 	#>
-	[Parameter(Mandatory = true, ValueFromPipelineByPropertyName)]
+	[Parameter(Mandatory, ValueFromPipelineByPropertyName)]
 	required Uri Src
 
 	<#
@@ -55,7 +55,7 @@ function New-HtmlImgElementCommand(): NewElementCommand("img", isVoid: true) {
 		The possible image sources for the user agent to use.
 	#>
 	[Parameter(ValueFromPipelineByPropertyName)]
-	[string[]] $SrcSet = [];
+	[string[]] $SrcSet = @(),
 
 	<#
 	.SYNOPSIS
@@ -80,12 +80,12 @@ function New-HtmlImgElementCommand(): NewElementCommand("img", isVoid: true) {
 		base.RenderAttributes(attributes);
 		attributes["src"] = Src.ToString();
 		if (Alt is not null) attributes["alt"] = Alt;
-		if (Height >= 0) attributes["height"] = Height.ToString(CultureInfo.InvariantCulture);
+		if (Height >= 0) attributes["height"] = Height
 		if (IsMap) attributes["ismap"] = true;
 		if (Loading is not null) attributes["loading"] = Loading;
 		if (Sizes.Length > 0) attributes["sizes"] = string.Join(", ", Sizes);
 		if (SrcSet.Length > 0) attributes["srcset"] = string.Join(", ", SrcSet);
-		if (!string.IsNullOrWhiteSpace(UseMap)) attributes["usemap"] = UseMap.StartsWith('#') ? UseMap : $"#{UseMap}";
-		if (Width >= 0) attributes["width"] = Width.ToString(CultureInfo.InvariantCulture);
+		if (-not [string]::IsNullOrWhiteSpace(UseMap)) attributes["usemap"] = UseMap.StartsWith('#') ? UseMap : $"#{UseMap}";
+		if (Width >= 0) attributes["width"] = Width
 	}
 }

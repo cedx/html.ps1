@@ -1,9 +1,11 @@
+using module ../New-Element.psm1
+
 <#
 .SYNOPSIS
 	Creates a new `q` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlQElement"), Alias("q"), OutputType(typeof(string))]
-function New-HtmlQElementCommand(): NewElementCommand("q", isVoid: false) {
+function New-HtmlQElement: NewElementCommand("q", isVoid: false) {
 
 	<#
 	.SYNOPSIS

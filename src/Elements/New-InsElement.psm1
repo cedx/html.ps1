@@ -1,9 +1,11 @@
+using module ../New-Element.psm1
+
 <#
 .SYNOPSIS
 	Creates a new `ins` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlInsElement"), Alias("ins"), OutputType(typeof(string))]
-function New-HtmlInsElementCommand(): NewElementCommand("ins", isVoid: false) {
+function New-HtmlInsElement: NewElementCommand("ins", isVoid: false) {
 
 	<#
 	.SYNOPSIS

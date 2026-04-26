@@ -1,11 +1,11 @@
-using System.Globalization;
+using module ../New-Element.psm1
 
 <#
 .SYNOPSIS
 	Creates a new `canvas` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlCanvasElement"), Alias("canvas"), OutputType(typeof(string))]
-function New-HtmlCanvasElementCommand(): NewElementCommand("canvas", isVoid: false) {
+function New-HtmlCanvasElement: NewElementCommand("canvas", isVoid: false) {
 
 	<#
 	.SYNOPSIS
@@ -28,7 +28,7 @@ function New-HtmlCanvasElementCommand(): NewElementCommand("canvas", isVoid: fal
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (Height >= 0) attributes["height"] = Height.ToString(CultureInfo.InvariantCulture);
-		if (Width >= 0) attributes["width"] = Width.ToString(CultureInfo.InvariantCulture);
+		if (Height >= 0) attributes["height"] = Height
+		if (Width >= 0) attributes["width"] = Width
 	}
 }

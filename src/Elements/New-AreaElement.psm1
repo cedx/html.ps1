@@ -1,11 +1,11 @@
-using System.Globalization;
+using module ../New-Element.psm1
 
 <#
 .SYNOPSIS
 	Creates a new `area` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlAreaElement"), Alias("area"), OutputType(typeof(string))]
-function New-HtmlAreaElementCommand(): NewElementCommand("area", isVoid: true) {
+function New-HtmlAreaElement: NewElementCommand("area", isVoid: true) {
 
 	<#
 	.SYNOPSIS
@@ -32,7 +32,7 @@ function New-HtmlAreaElementCommand(): NewElementCommand("area", isVoid: true) {
 	.SYNOPSIS
 		The hyperlink target for the area.
 	#>
-	[Parameter(Mandatory = true, ValueFromPipelineByPropertyName)]
+	[Parameter(Mandatory, ValueFromPipelineByPropertyName)]
 	[uri] $Href
 
 	<#
@@ -40,14 +40,14 @@ function New-HtmlAreaElementCommand(): NewElementCommand("area", isVoid: true) {
 		A list of URLs. When the link is followed, the browser will send `POST` requests with the body `PING` to the URLs.
 	#>
 	[Parameter(ValueFromPipelineByPropertyName)]
-	[uri[]] $Ping = [];
+	[uri[]] $Ping = @(),
 
 	<#
 	.SYNOPSIS
 		The relationship of the linked URL.
 	#>
 	[Parameter(ValueFromPipelineByPropertyName)]
-	[string[]] $Rel = [];
+	[string[]] $Rel = @(),
 
 	<#
 	.SYNOPSIS
@@ -79,9 +79,9 @@ function New-HtmlAreaElementCommand(): NewElementCommand("area", isVoid: true) {
 		}
 
 		if (Alt is not null) attributes["alt"] = Alt;
-		if (!string.IsNullOrWhiteSpace(Download)) attributes["download"] = Download;
+		if (-not [string]::IsNullOrWhiteSpace(Download)) attributes["download"] = Download;
 		if (Ping.Length > 0) attributes["ping"] = string.Join(' ', Ping.Select(url => url.ToString())).Trim();
 		if (Rel.Length > 0) attributes["rel"] = string.Join(' ', Rel).Trim();
-		if (!string.IsNullOrWhiteSpace(Target)) attributes["target"] = Target;
+		if (-not [string]::IsNullOrWhiteSpace(Target)) attributes["target"] = Target;
 	}
 }

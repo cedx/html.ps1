@@ -1,11 +1,11 @@
-using System.Globalization;
+using module ../New-Element.psm1
 
 <#
 .SYNOPSIS
 	Creates a new `col` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlColElement"), Alias("col"), OutputType(typeof(string))]
-function New-HtmlColElementCommand(): NewElementCommand("col", isVoid: true) {
+function New-HtmlColElement: NewElementCommand("col", isVoid: true) {
 
 	<#
 	.SYNOPSIS
@@ -21,6 +21,6 @@ function New-HtmlColElementCommand(): NewElementCommand("col", isVoid: true) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (Span > 0) attributes["span"] = Span.ToString(CultureInfo.InvariantCulture);
+		if (Span > 0) attributes["span"] = Span
 	}
 }

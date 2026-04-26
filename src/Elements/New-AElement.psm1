@@ -1,56 +1,53 @@
+using module ../New-Element.psm1
+
 <#
 .SYNOPSIS
 	Creates a new `a` element.
+.INPUTS
+	The inner HTML of the `a` element.
+.OUTPUTS
+	The newly created `a` element.
 #>
-[Cmdlet(VerbsCommon.New, "HtmlAElement"), Alias("a"), OutputType(typeof(string))]
-function New-HtmlAElementCommand(): NewElementCommand("a", isVoid: false) {
+function New-HtmlAElement {
+	[Alias("a")]
+	[CmdletBinding()]
+	[OutputType([string])]
+	param (
+		# The custom attributes to render.
+		[Parameter(ValueFromPipelineByPropertyName)]
+		[hashtable] $Attributes = @{},
 
-	<#
-	.SYNOPSIS
-		The suggested filename when the browser treats the linked URL as a download.
-	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
-	[string] $Download
+		# The suggested filename when the browser treats the linked URL as a download.
+		[Parameter(ValueFromPipelineByPropertyName)]
+		[string] $Download,
 
-	<#
-	.SYNOPSIS
-		The URL that the hyperlink points to.
-	#>
-	[Parameter(Mandatory = true, ValueFromPipelineByPropertyName)]
-	[uri] $Href
+		# The URL that the hyperlink points to.
+		[Parameter(Mandatory, ValueFromPipelineByPropertyName)]
+		[uri] $Href,
 
-	<#
-	.SYNOPSIS
-		A list of URLs. When the link is followed, the browser will send `POST` requests with the body `PING` to the URLs.
-	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
-	[uri[]] $Ping = [];
+		# A list of URLs. When the link is followed, the browser will send `POST` requests with the body `PING` to the URLs.
+		[Parameter(ValueFromPipelineByPropertyName)]
+		[uri[]] $Ping = @(),
 
-	<#
-	.SYNOPSIS
-		The relationship of the linked URL.
-	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
-	[string[]] $Rel = [];
+		# The relationship of the linked URL.
+		[Parameter(ValueFromPipelineByPropertyName)]
+		[string[]] $Rel = @(),
 
-	<#
-	.SYNOPSIS
-		The browsing context to show the results of navigation.
-	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
-	[string] $Target
+		# The browsing context to show the results of navigation.
+		[Parameter(ValueFromPipelineByPropertyName)]
+		[string] $Target
+	)
 
-	<#
-	.SYNOPSIS
-		Populates the specified attribute collection with the element attributes.
-	#>
-	/// <param name="attributes">The attribute collection to populate.</param>
-	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
-		base.RenderAttributes(attributes);
-		attributes["href"] = Href.ToString();
-		if (!string.IsNullOrWhiteSpace(Download)) attributes["download"] = Download;
-		if (Ping.Length > 0) attributes["ping"] = string.Join(' ', Ping.Select(url => url.ToString())).Trim();
-		if (Rel.Length > 0) attributes["rel"] = string.Join(' ', Rel).Trim();
-		if (!string.IsNullOrWhiteSpace(Target)) attributes["target"] = Target;
+	process {
+		$attributesToRender = $Attributes.Clone()
+		$attributesToRender.href = $Href
+		if ($Download) { $attributesToRender.download = $Download }
+		if ($Ping) { $attributesToRender.ping = ($Ping -join " ").Trim() }
+		if ($Rel) { $attributesToRender.rel = ($Rel -join " ").Trim() }
+		if ($Target) { $attributesToRender.target = $Target }
+
+		$parameters = $PSBoundParameters.Clone()
+		$MyInvocation.MyCommand.Parameters.Keys.ForEach{ $parameters.Remove($_) }
+		New-Element -Attributes $attributesToRender @parameters
 	}
 }

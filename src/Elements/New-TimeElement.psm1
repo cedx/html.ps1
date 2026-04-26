@@ -1,11 +1,12 @@
-using System.Xml;
+using namespace System.Xml
+using module ../New-Element.psm1
 
 <#
 .SYNOPSIS
 	Creates a new `time` element.
 #>
 [Cmdlet(VerbsCommon.New, "HtmlTimeElement"), Alias("time"), OutputType(typeof(string))]
-function New-HtmlTimeElementCommand(): NewElementCommand("time", isVoid: false) {
+function New-HtmlTimeElement: NewElementCommand("time", isVoid: false) {
 
 	<#
 	.SYNOPSIS
