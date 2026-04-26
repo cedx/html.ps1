@@ -5,16 +5,16 @@ $cmdlets = [pscustomobject]@{
 	Aliases = [List[string]]::new([string[]] @(
 		"doctype" # New-HtmlDocumentType
 		# "layout" # Use-HtmlLayout
-		# "tag" # New-HtmlCustomElement
+		"tag" # New-HtmlCustomElement
 	))
 	Functions = [List[string]]::new([string[]] @(
-		# "New-HtmlCustomElement"
+		"New-HtmlCustomElement"
 		"New-HtmlDocumentType"
 		# "Use-HtmlLayout"
 		# "Write-HtmlView"
 	))
 	Modules = [List[string]]::new([string[]] @(
-		# "src/New-CustomElement.psm1"
+		"src/New-CustomElement.psm1"
 		"src/New-DocumentType.psm1"
 		# "src/Use-Layout.psm1"
 		# "src/Write-View.psm1"
