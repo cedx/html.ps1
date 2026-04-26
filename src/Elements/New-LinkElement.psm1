@@ -1,0 +1,81 @@
+<#
+.SYNOPSIS
+	Creates a new `link` element.
+#>
+[Cmdlet(VerbsCommon.New, "HtmlLinkElement"), Alias("link"), OutputType(typeof(string))]
+function New-HtmlLinkElementCommand(): NewElementCommand("link", isVoid: true) {
+
+	<#
+	.SYNOPSIS
+		Specifies the type of content being loaded by the `link`.
+	#>
+	[Parameter(ValueFromPipelineByPropertyName)]
+	[string] $As
+
+	<#
+	.SYNOPSIS
+		Value indicating whether CORS must be used when fetching the resource.
+	#>
+	[Parameter(ValueFromPipelineByPropertyName)]
+		[ValidateSet("anonymous", "use-credentials")]
+	[string] $CrossOrigin
+
+	<#
+	.SYNOPSIS
+		The URL of the linked resource.
+	#>
+	[Parameter(Mandatory = true, ValueFromPipelineByPropertyName)]
+	[uri] $Href
+
+	<#
+	.SYNOPSIS
+		A base64-encoded cryptographic hash of the resource (file) to fetch.
+	#>
+	[Parameter(ValueFromPipelineByPropertyName)]
+	[string] $Integrity
+
+	<#
+	.SYNOPSIS
+		The media that the linked resource applies to.
+	#>
+	[Parameter(ValueFromPipelineByPropertyName)]
+	[string] $Media
+
+	<#
+	.SYNOPSIS
+		The relationship of the linked resource to the current document.
+	#>
+	[Parameter(Mandatory = true, ValueFromPipelineByPropertyName)]
+	required [string[]] $Rel
+
+	<#
+	.SYNOPSIS
+		The sizes of the icons for visual media contained in the resource.
+	#>
+	[Parameter(ValueFromPipelineByPropertyName)]
+	[string[]] $Sizes = [];
+
+	<#
+	.SYNOPSIS
+		The media type of the content linked to.
+	#>
+	[Parameter(ValueFromPipelineByPropertyName)]
+	[string] $Type
+
+	<#
+	.SYNOPSIS
+		Populates the specified attribute collection with the element attributes.
+	#>
+	/// <param name="attributes">The attribute collection to populate.</param>
+	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
+		base.RenderAttributes(attributes);
+		attributes["rel"] = string.Join(' ', Rel).Trim();
+		attributes["href"] = Href.ToString();
+		if (!string.IsNullOrWhiteSpace(As)) attributes["as"] = As;
+		if (CrossOrigin is not null) attributes["crossorigin"] = CrossOrigin;
+		if (!string.IsNullOrWhiteSpace(Integrity)) attributes["integrity"] = Integrity;
+		if (!string.IsNullOrWhiteSpace(Media)) attributes["media"] = Media;
+		if (Sizes.Length > 0) attributes["sizes"] = string.Join(' ', Sizes).Trim();
+		if (!string.IsNullOrWhiteSpace(Type)) attributes["type"] = Type;
+	}
+}
