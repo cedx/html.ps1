@@ -1,4 +1,4 @@
-using module ../New-Element.psm1
+using module ../Write-Element.psm1
 
 <#
 .SYNOPSIS
@@ -46,6 +46,6 @@ function New-HtmlAElement {
 		if ($Target) { $attributesToRender.target = $Target }
 
 		$MyInvocation.MyCommand.Parameters.Keys.ForEach{ $PSBoundParameters.Remove($_) | Out-Null }
-		New-HtmlElement -TagName a -Attributes $attributesToRender -Content $Content @PSBoundParameters
+		Write-HtmlElement -TagName a -Attributes $attributesToRender -Content $Content @PSBoundParameters
 	}
 }

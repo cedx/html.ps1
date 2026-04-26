@@ -15,7 +15,7 @@ $EncodedDoubleQuote = [WebUtility]::HtmlEncode('"')
 .OUTPUTS
 	The newly created HTML element.
 #>
-function New-HtmlElement {
+function Write-HtmlElement {
 	[CmdletBinding()]
 	[OutputType([string])]
 	param (

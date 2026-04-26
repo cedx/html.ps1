@@ -57,7 +57,7 @@
 - Added the `a`, `area`, `img` and `script` aliases.
 
 ## Version [0.2.0](https://github.com/cedx/html.ps1/compare/v0.1.0...v0.2.0)
-- Added the `New-BaseElement`, `New-HtmlElement`, `New-LinkElement` and `New-MetaElement` cmdlets.
+- Added the `New-BaseElement`, `Write-HtmlElement`, `New-LinkElement` and `New-MetaElement` cmdlets.
 - Added the `base`, `html`, `link` and `meta` aliases.
 
 ## Version 0.1.0

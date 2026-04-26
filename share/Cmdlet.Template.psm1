@@ -23,6 +23,6 @@ function New-Html{CapitalizedTag}Element {
 		# TODO handle void elements !!! they don't have content !
 		$attributesToRender = $Attributes.Clone()
 		$MyInvocation.MyCommand.Parameters.Keys.ForEach{ $PSBoundParameters.Remove($_) | Out-Null }
-		New-HtmlElement -TagName {Tag} -Attributes $attributesToRender -Content $Content -Void:{IsVoid} @PSBoundParameters
+		Write-HtmlElement -TagName {Tag} -Attributes $attributesToRender -Content $Content -Void:{IsVoid} @PSBoundParameters
 	}
 }
