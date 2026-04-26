@@ -155,7 +155,9 @@ public abstract class WriteElementCommand(string tagName, bool isVoid = false): 
 		var attributes = Attributes.Cast<DictionaryEntry>().ToDictionary(entry => entry.Key.ToString() ?? "", entry => entry.Value, StringComparer.OrdinalIgnoreCase);
 		RenderAttributes(attributes);
 
-		var builder = new StringBuilder($"<{TagName}");
+		var tag = TagName.ToLowerInvariant();
+		var builder = new StringBuilder($"<{tag}");
+
 		foreach (var (key, value) in attributes.Where(attribute => attribute.Value is not null)) {
 			if (value is bool booleanValue) {
 				if (booleanValue) builder.Append($" {key}");
@@ -174,7 +176,7 @@ public abstract class WriteElementCommand(string tagName, bool isVoid = false): 
 			var output = Content is ScriptBlock scriptBlock ? scriptBlock.Invoke().Select(psObject => psObject.BaseObject) : (Content is not null ? [Content] : []);
 			builder.Append('>');
 			foreach (var value in output) builder.Append(value);
-			builder.Append($"</{TagName}>");
+			builder.Append($"</{tag}>");
 		}
 
 		WriteObject(builder.ToString());

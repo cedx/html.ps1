@@ -1,4 +1,5 @@
 @{
+	# DefaultCommandPrefix = "Html"
 	ModuleVersion = "2.0.0"
 	PowerShellVersion = "7.6"
 	RootModule = "bin/Belin.Html.dll"
@@ -137,9 +138,9 @@
 
 	PrivateData = @{
 		PSData = @{
-			LicenseUri = "https://github.com/cedx/html.net/blob/main/License.md"
-			ProjectUri = "https://github.com/cedx/html.net"
-			ReleaseNotes = "https://github.com/cedx/html.net/releases"
+			LicenseUri = "https://github.com/cedx/html.ps1/blob/main/License.md"
+			ProjectUri = "https://github.com/cedx/html.ps1"
+			ReleaseNotes = "https://github.com/cedx/html.ps1/releases"
 			Tags = "html", "renderer", "template", "templating", "web"
 		}
 	}

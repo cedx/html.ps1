@@ -1,8 +1,8 @@
 <#
 .SYNOPSIS
-	Tests the features of the `New-Element` cmdlet.
+	Tests the features of the `Write-Element` cmdlet.
 #>
-Describe "New-Element" {
+Describe "Write-Element" {
 	BeforeAll {
 		Import-Module "$PSScriptRoot/../Html.psd1"
 	}
