@@ -1,5 +1,9 @@
 # Changelog
 
+## Version [2.0.0](https://github.com/cedx/html.ps1/compare/v1.2.0...v2.0.0)
+- Breaking change: ported the source code to [PowerShell](https://learn.microsoft.com/en-us/powershell).
+- Breaking change: renamed the `-DataSet` parameter to `-Data`.
+
 ## Version [1.2.0](https://github.com/cedx/html.ps1/compare/v1.1.0...v1.2.0)
 - Added the `Use-Layout` and `Write-View` cmdlets.
 
