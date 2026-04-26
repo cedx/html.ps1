@@ -10,6 +10,7 @@ else {
 $module = Import-PowerShellDataFile Html.psd1
 $version = $module.ModuleVersion
 New-GitTag "v$version"
+# TODO Publish-PSGalleryModule
 
 $output = "var/PSModule"
 New-Item $output/bin, $output/src -ItemType Directory | Out-Null
