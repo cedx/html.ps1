@@ -3,7 +3,7 @@
 		<Company>Cedric-Belin.fr</Company>
 		<Copyright>© Cédric Belin</Copyright>
 		<Description>PowerShell cmdlets for rendering HTML documents.</Description>
-		<Product>HTML Renderer for PS</Product>
+		<Product>HTML Renderer for PowerShell</Product>
 		<Version>1.2.0</Version>
 	</PropertyGroup>
 
@@ -19,7 +19,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="System.Management.Automation" Version="7.6.*" PrivateAssets="all" />
+		<PackageReference Include="System.Management.Automation" Version="7.6.0" PrivateAssets="all" />
 	</ItemGroup>
 
 	<ItemGroup>

@@ -1,4 +1,4 @@
-# HTML Renderer for PS
+# HTML Renderer for PowerShell
 [PowerShell](https://learn.microsoft.com/en-us/powershell) cmdlets for rendering [HTML](https://developer.mozilla.org/docs/Web/HTML) documents.
 
 ## Documentation
@@ -10,4 +10,4 @@
 - [Submit an issue](https://github.com/cedx/html.net/issues)
 
 ## License
-[HTML Renderer for PS](https://github.com/cedx/html.net) is distributed under the MIT License.
+[HTML Renderer for PowerShell](https://github.com/cedx/html.net) is distributed under the MIT License.
