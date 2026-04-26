@@ -1,5 +1,9 @@
 # Changelog
 
+## Version [2.0.0](https://github.com/cedx/html.ps1/compare/v1.2.0...v2.0.0)
+- Breaking change: removed the `ValueFromPipelineByPropertyName` attribute from all cmdlet parameters.
+- Breaking change: removed the `-Void` parameter of the `New-CustomElement` cmdlet.
+
 ## Version [1.2.0](https://github.com/cedx/html.ps1/compare/v1.1.0...v1.2.0)
 - Added the `Use-Layout` and `Write-View` cmdlets.
 
