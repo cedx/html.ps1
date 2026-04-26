@@ -9,13 +9,13 @@ public class NewDetailsElementCommand(): WriteElementCommand("details", isVoid: 
 	/// <summary>
 	/// The group name allowing multiple <c>details</c> elements to be connected, with only one open at a time.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Name { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the details are currently visible.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter Open { get; set; }
 
 	/// <summary>

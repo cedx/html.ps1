@@ -11,85 +11,85 @@ public class NewTextareaElementCommand(): WriteElementCommand("textarea", isVoid
 	/// <summary>
 	/// A hint for a user agent's autocomplete feature.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string[] AutoComplete { get; set; } = [];
 
 	/// <summary>
 	/// Value indicating whether automatic spelling correction and processing of text is enabled.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("off", "on")]
+	[Parameter, ValidateSet("off", "on")]
 	public string? AutoCorrect { get; set; }
 
 	/// <summary>
 	/// The visible width of the text control, in average character widths.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.Positive)]
+	[Parameter, ValidateRange(ValidateRangeKind.Positive)]
 	public int Cols { get; set; }
 
 	/// <summary>
 	/// The field name to use for sending the element's directionality in form submission.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? DirName { get; set; }
 
 	/// <summary>
 	/// Value indicating whether to prevent the user from interacting with the element.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter Disabled { get; set; }
 
 	/// <summary>
 	/// The identifier of a <c>form</c> element to associate with the element.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Form { get; set; }
 
 	/// <summary>
 	/// The maximum string length that the user can enter.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
+	[Parameter, ValidateRange(ValidateRangeKind.NonNegative)]
 	public int MaxLength { get; set; } = -1;
 
 	/// <summary>
 	/// The minimum string length required that the user should enter.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
+	[Parameter, ValidateRange(ValidateRangeKind.NonNegative)]
 	public int MinLength { get; set; } = -1;
 
 	/// <summary>
 	/// The name of the control.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Name { get; set; }
 
 	/// <summary>
 	/// A hint to the user of what can be entered in the control.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Placeholder { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the user cannot modify the value of the control.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter ReadOnly { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the user must fill in a value before submitting a form.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter Required { get; set; }
 
 	/// <summary>
 	/// The number of visible text lines for the control.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.Positive)]
+	[Parameter, ValidateRange(ValidateRangeKind.Positive)]
 	public int Rows { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the control should wrap the value for form submission.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("hard", "soft")]
+	[Parameter, ValidateSet("hard", "soft")]
 	public string? Wrap { get; set; }
 
 	/// <summary>

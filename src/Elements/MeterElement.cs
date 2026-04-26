@@ -11,37 +11,37 @@ public class NewMeterElementCommand(): WriteElementCommand("meter", isVoid: fals
 	/// <summary>
 	/// The lower numeric bound of the high end of the measured range.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public double? High { get; set; }
 
 	/// <summary>
 	/// The upper numeric bound of the low end of the measured range.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public double? Low { get; set; }
 
 	/// <summary>
 	/// The upper numeric bound of the measured range.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public double? Max { get; set; }
 
 	/// <summary>
 	/// The lower numeric bound of the measured range.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public double? Min { get; set; }
 
 	/// <summary>
 	/// The optimal numeric value.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public double? Optimum { get; set; }
 
 	/// <summary>
 	/// The current numeric value.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public double? Value { get; set; }
 
 	/// <summary>

@@ -9,7 +9,7 @@ public class NewDataElementCommand(): WriteElementCommand("data", isVoid: false)
 	/// <summary>
 	/// The machine-readable translation of the content of the element.
 	/// </summary>
-	[Parameter(Mandatory = true, ValueFromPipelineByPropertyName = true)]
+	[Parameter(Mandatory = true)]
 	public required string Value { get; set; }
 
 	/// <summary>

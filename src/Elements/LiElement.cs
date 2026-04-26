@@ -11,7 +11,7 @@ public class NewLiElementCommand(): WriteElementCommand("li", isVoid: false) {
 	/// <summary>
 	/// The ordinal value of the list item as defined by the <c>ol</c> element.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public int? Value { get; set; }
 
 	/// <summary>

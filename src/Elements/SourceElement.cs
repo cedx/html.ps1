@@ -11,43 +11,43 @@ public class NewSourceElementCommand(): WriteElementCommand("source", isVoid: tr
 	/// <summary>
 	/// The intrinsic height of the image, in CSS pixels.
 	/// </summary>
-	[Parameter(ParameterSetName = nameof(SrcSet), ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
+	[Parameter(ParameterSetName = nameof(SrcSet)), ValidateRange(ValidateRangeKind.NonNegative)]
 	public int Height { get; set; } = -1;
 
 	/// <summary>
 	/// The media query for the resource's intended media.
 	/// </summary>
-	[Parameter(ParameterSetName = nameof(SrcSet), ValueFromPipelineByPropertyName = true)]
+	[Parameter(ParameterSetName = nameof(SrcSet))]
 	public string? Media { get; set; }
 
 	/// <summary>
 	/// A list of source sizes that describe the final rendered width of the image.
 	/// </summary>
-	[Parameter(ParameterSetName = nameof(SrcSet), ValueFromPipelineByPropertyName = true)]
+	[Parameter(ParameterSetName = nameof(SrcSet))]
 	public string[] Sizes { get; set; } = [];
 
 	/// <summary>
 	/// The URL of the media resource
 	/// </summary>
-	[Parameter(Mandatory = true, ParameterSetName = nameof(Src), ValueFromPipelineByPropertyName = true)]
+	[Parameter(Mandatory = true, ParameterSetName = nameof(Src))]
 	public required Uri Src { get; set; }
 
 	/// <summary>
 	/// A list of one or more image URLs and their descriptors.
 	/// </summary>
-	[Parameter(Mandatory = true, ParameterSetName = nameof(SrcSet), ValueFromPipelineByPropertyName = true)]
+	[Parameter(Mandatory = true, ParameterSetName = nameof(SrcSet))]
 	public string[] SrcSet { get; set; } = [];
 
 	/// <summary>
 	/// The media type to use, optionally including a <c>codecs</c> parameter.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Type { get; set; }
 
 	/// <summary>
 	/// The intrinsic width of the image, in CSS pixels.
 	/// </summary>
-	[Parameter(ParameterSetName = nameof(SrcSet), ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
+	[Parameter(ParameterSetName = nameof(SrcSet)), ValidateRange(ValidateRangeKind.NonNegative)]
 	public int Width { get; set; } = -1;
 
 	/// <summary>

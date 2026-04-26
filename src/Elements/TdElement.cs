@@ -11,19 +11,19 @@ public class NewTdElementCommand(): WriteElementCommand("td", isVoid: false) {
 	/// <summary>
 	/// An integer indicating how many columns the header cell spans or extends.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
+	[Parameter, ValidateRange(ValidateRangeKind.NonNegative)]
 	public int ColSpan { get; set; } = -1;
 
 	/// <summary>
 	/// A list of strings corresponding to the <c>id</c> attributes of the <c>th</c> elements that provide the headers for this header cell.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string[] Headers { get; set; } = [];
 
 	/// <summary>
 	/// An integer indicating how many rows the header cell spans or extends.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
+	[Parameter, ValidateRange(ValidateRangeKind.NonNegative)]
 	public int RowSpan { get; set; } = -1;
 
 	/// <summary>

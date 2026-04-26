@@ -9,49 +9,49 @@ public class NewAudioElementCommand(): WriteElementCommand("audio", isVoid: fals
 	/// <summary>
 	/// Value indicating whether playback should start automatically as soon as the audio signal allows.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter AutoPlay { get; set; }
 
 	/// <summary>
 	/// Value indicating whether to offer controls to allow the user to control audio playback.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter Controls { get; set; }
 
 	/// <summary>
 	/// Value indicating whether CORS must be used when fetching the resource.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("anonymous", "use-credentials")]
+	[Parameter, ValidateSet("anonymous", "use-credentials")]
 	public string? CrossOrigin { get; set; }
 
 	/// <summary>
 	/// Value indicating whether to disable the capability of remote playback in devices that are attached using wired and wireless technologies.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter DisableRemotePlayback { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the audio player will automatically seek back to the start upon reaching the end of the audio.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter Loop { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the audio will be initially silenced.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter Muted { get; set; }
 
 	/// <summary>
 	/// Value providing a hint to the browser about what the author thinks will lead to the best user experience.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("auto", "none", "metadata")]
+	[Parameter, ValidateSet("auto", "none", "metadata")]
 	public string? Preload { get; set; }
 
 	/// <summary>
 	/// The URL of the audio to embed.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public Uri? Src { get; set; }
 
 	/// <summary>

@@ -14,195 +14,195 @@ public class NewInputElementCommand(): WriteElementCommand("input", isVoid: true
 	/// Defines which file types are selectable in a file upload control.
 	/// Valid for the <c>file</c> input type only.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Accept { get; set; }
 
 	/// <summary>
 	/// A text to display on browsers that do not display images.
 	/// Valid for the <c>image</c> input type only.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Alt { get; set; }
 
 	/// <summary>
 	/// A hint for a user agent's autocomplete feature.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string[] AutoComplete { get; set; } = [];
 
 	/// <summary>
 	/// Value indicating which camera to use for capture of image or video data.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("environment", "user")]
+	[Parameter, ValidateSet("environment", "user")]
 	public string? Capture { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the checkbox is checked or the radio button is the currently selected one.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter Checked { get; set; }
 
 	/// <summary>
 	/// The field name to use for sending the element's directionality in form submission.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? DirName { get; set; }
 
 	/// <summary>
 	/// Value indicating whether to prevent the user from interacting with the element.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter Disabled { get; set; }
 
 	/// <summary>
 	/// The identifier of a <c>form</c> element to associate with the element.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Form { get; set; }
 
 	/// <summary>
 	/// The URL that processes the information submitted by the button.
 	/// Valid for the <c>image</c> and <c>submit</c> input types only.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public Uri? FormAction { get; set; }
 
 	/// <summary>
 	/// Value indicating how to encode the form data that is submitted.
 	/// Valid for the <c>image</c> and <c>submit</c> input types only.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet(MediaTypeNames.Application.FormUrlEncoded, MediaTypeNames.Multipart.FormData, MediaTypeNames.Text.Plain)]
+	[Parameter, ValidateSet(MediaTypeNames.Application.FormUrlEncoded, MediaTypeNames.Multipart.FormData, MediaTypeNames.Text.Plain)]
 	public string? FormEnctype { get; set; }
 
 	/// <summary>
 	/// The HTTP method used to submit the form.
 	/// Valid for the <c>image</c> and <c>submit</c> input types only.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("dialog", "get", "post")]
+	[Parameter, ValidateSet("dialog", "get", "post")]
 	public string? FormMethod { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the form is not to be validated when it is submitted.
 	/// Valid for the <c>image</c> and <c>submit</c> input types only.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter FormNoValidate { get; set; }
 
 	/// <summary>
 	/// The browsing context to show the response after submitting the form.
 	/// Valid for the <c>image</c> and <c>submit</c> input types only.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? FormTarget { get; set; }
 
 	/// <summary>
 	/// The intrinsic height of the image, in CSS pixels.
 	/// Valid for the <c>image</c> input type only.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
+	[Parameter, ValidateRange(ValidateRangeKind.NonNegative)]
 	public int Height { get; set; } = -1;
 
 	/// <summary>
 	/// The identifier of a <c>datalist</c> element located in the same document..
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? List { get; set; }
 
 	/// <summary>
 	/// The greatest value in the range of permitted values.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
+	[Parameter, ValidateRange(ValidateRangeKind.NonNegative)]
 	public string? Max { get; set; }
 
 	/// <summary>
 	/// The maximum string length that the user can enter.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
+	[Parameter, ValidateRange(ValidateRangeKind.NonNegative)]
 	public int MaxLength { get; set; } = -1;
 
 	/// <summary>
 	/// The lowest value in the range of permitted values.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
+	[Parameter, ValidateRange(ValidateRangeKind.NonNegative)]
 	public string? Min { get; set; }
 
 	/// <summary>
 	/// The minimum string length required that the user should enter.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
+	[Parameter, ValidateRange(ValidateRangeKind.NonNegative)]
 	public int MinLength { get; set; } = -1;
 
 	/// <summary>
 	/// Value indicating whether the user can enter comma separated email addresses in the <c>email</c> widget or can choose more than one file with the <c>file</c> input.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter Multiple { get; set; }
 
 	/// <summary>
 	/// The name of the control.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Name { get; set; }
 
 	/// <summary>
 	/// The regular expression that the <see cref="Value"/> must match in order for the value to pass constraint validation.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public Regex? Pattern { get; set; }
 
 	/// <summary>
 	/// A hint to the user of what can be entered in the control.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Placeholder { get; set; }
 
 	/// <summary>
 	/// The identifier of a popover element to control.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? PopoverTarget { get; set; }
 
 	/// <summary>
 	/// The action to be performed on a popover element being controlled via the <see cref="PopoverTarget"/> attribute.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("hide", "show", "toggle")]
+	[Parameter, ValidateSet("hide", "show", "toggle")]
 	public string? PopoverTargetAction { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the user cannot modify the value of the control.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter ReadOnly { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the user must fill in a value before submitting a form.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter Required { get; set; }
 
 	/// <summary>
 	/// Value indicating how much of the input is shown.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.Positive)]
+	[Parameter, ValidateRange(ValidateRangeKind.Positive)]
 	public int Size { get; set; }
 
 	/// <summary>
 	/// The URL of the image file to display to represent the graphical button.
 	/// Valid for the <c>image</c> input type only.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public Uri? Src { get; set; }
 
 	/// <summary>
 	/// A number that specifies the granularity that the value must adhere to, or the special value <c>any</c>.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
+	[Parameter, ValidateRange(ValidateRangeKind.NonNegative)]
 	public string? Step { get; set; }
 
 	/// <summary>
 	/// The type of control to render.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet(
+	[Parameter, ValidateSet(
 		"button", "checkbox", "color", "date", "datetime-local", "email",
 		"file", "hidden", "image", "month", "number", "password",
 		"radio", "range", "reset", "search", "submit", "tel",
@@ -213,14 +213,14 @@ public class NewInputElementCommand(): WriteElementCommand("input", isVoid: true
 	/// <summary>
 	/// The value of the control.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public object? Value { get; set; }
 
 	/// <summary>
 	/// The intrinsic width of the image, in CSS pixels.
 	/// Valid for the <c>image</c> input type only.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
+	[Parameter, ValidateRange(ValidateRangeKind.NonNegative)]
 	public int Width { get; set; } = -1;
 
 	/// <summary>

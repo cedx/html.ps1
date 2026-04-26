@@ -11,85 +11,85 @@ public class NewButtonElementCommand(): WriteElementCommand("button", isVoid: fa
 	/// <summary>
 	/// The action to be performed on an element being controlled via the <see cref="CommandFor"/> attribute.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Command { get; set; }
 
 	/// <summary>
 	/// The identifier of an element to control.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? CommandFor { get; set; }
 
 	/// <summary>
 	/// Value indicating whether to prevent the user from interacting with the element.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter Disabled { get; set; }
 
 	/// <summary>
 	/// The identifier of a <c>form</c> element to associate with the element.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Form { get; set; }
 
 	/// <summary>
 	/// The URL that processes the information submitted by the button.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public Uri? FormAction { get; set; }
 
 	/// <summary>
 	/// Value indicating how to encode the form data that is submitted.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet(MediaTypeNames.Application.FormUrlEncoded, MediaTypeNames.Multipart.FormData, MediaTypeNames.Text.Plain)]
+	[Parameter, ValidateSet(MediaTypeNames.Application.FormUrlEncoded, MediaTypeNames.Multipart.FormData, MediaTypeNames.Text.Plain)]
 	public string? FormEnctype { get; set; }
 
 	/// <summary>
 	/// The HTTP method used to submit the form.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("dialog", "get", "post")]
+	[Parameter, ValidateSet("dialog", "get", "post")]
 	public string? FormMethod { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the form is not to be validated when it is submitted.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter FormNoValidate { get; set; }
 
 	/// <summary>
 	/// The browsing context to show the response after submitting the form.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? FormTarget { get; set; }
 
 	/// <summary>
 	/// The name of the control.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Name { get; set; }
 
 	/// <summary>
 	/// The identifier of a popover element to control.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? PopoverTarget { get; set; }
 
 	/// <summary>
 	/// The action to be performed on a popover element being controlled via the <see cref="PopoverTarget"/> attribute.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("hide", "show", "toggle")]
+	[Parameter, ValidateSet("hide", "show", "toggle")]
 	public string? PopoverTargetAction { get; set; }
 
 	/// <summary>
 	/// The default behavior of the button.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("button", "reset", "submit")]
+	[Parameter, ValidateSet("button", "reset", "submit")]
 	public string? Type { get; set; }
 
 	/// <summary>
 	/// The value of the control.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public object? Value { get; set; }
 
 	/// <summary>

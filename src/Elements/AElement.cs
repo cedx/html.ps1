@@ -9,31 +9,31 @@ public class NewAElementCommand(): WriteElementCommand("a", isVoid: false) {
 	/// <summary>
 	/// The suggested filename when the browser treats the linked URL as a download.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Download { get; set; }
 
 	/// <summary>
 	/// The URL that the hyperlink points to.
 	/// </summary>
-	[Parameter(Mandatory = true, ValueFromPipelineByPropertyName = true)]
+	[Parameter(Mandatory = true)]
 	public required Uri Href { get; set; }
 
 	/// <summary>
 	/// A list of URLs. When the link is followed, the browser will send <c>POST</c> requests with the body <c>PING</c> to the URLs.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public Uri[] Ping { get; set; } = [];
 
 	/// <summary>
 	/// The relationship of the linked URL.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string[] Rel { get; set; } = [];
 
 	/// <summary>
 	/// The browsing context to show the results of navigation.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Target { get; set; }
 
 	/// <summary>

@@ -9,13 +9,13 @@ public class NewOptgroupElementCommand(): WriteElementCommand("optgroup", isVoid
 	/// <summary>
 	/// Value indicating whether none of the items in the option group is selectable.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter Disabled { get; set; }
 
 	/// <summary>
 	/// The name of the group of options.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public required string Label { get; set; }
 
 	/// <summary>

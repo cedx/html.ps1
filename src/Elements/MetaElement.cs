@@ -9,26 +9,26 @@ public class NewMetaElementCommand(): WriteElementCommand("meta", isVoid: true) 
 	/// <summary>
 	/// A charset declaration, giving the character encoding in which the document is encoded.
 	/// </summary>
-	[Parameter(Mandatory = true, ParameterSetName = nameof(Charset), ValueFromPipelineByPropertyName = true)]
+	[Parameter(Mandatory = true, ParameterSetName = nameof(Charset))]
 	public required string Charset { get; set; }
 
 	/// <summary>
 	/// Contains the value for the <c>http-equiv</c> or <c>name attribute</c>, depending on which is used.
 	/// </summary>
-	[Parameter(Mandatory = true, ParameterSetName = nameof(HttpEquiv), ValueFromPipelineByPropertyName = true)]
-	[Parameter(Mandatory = true, ParameterSetName = nameof(Name), ValueFromPipelineByPropertyName = true)]
+	[Parameter(Mandatory = true, ParameterSetName = nameof(HttpEquiv))]
+	[Parameter(Mandatory = true, ParameterSetName = nameof(Name))]
 	public override object? Content { get => base.Content; set => base.Content = value; }
 
 	/// <summary>
 	/// A pragma directive to simulate directives that could otherwise be given by an HTTP header.
 	/// </summary>
-	[Parameter(Mandatory = true, ParameterSetName = nameof(HttpEquiv), ValueFromPipelineByPropertyName = true)]
+	[Parameter(Mandatory = true, ParameterSetName = nameof(HttpEquiv))]
 	public required string HttpEquiv { get; set; }
 
 	/// <summary>
 	/// Document-level metadata that applies to the whole page.
 	/// </summary>
-	[Parameter(Mandatory = true, ParameterSetName = nameof(Name), ValueFromPipelineByPropertyName = true)]
+	[Parameter(Mandatory = true, ParameterSetName = nameof(Name))]
 	public required string Name { get; set; }
 
 	/// <summary>

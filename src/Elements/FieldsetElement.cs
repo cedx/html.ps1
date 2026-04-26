@@ -9,19 +9,19 @@ public class NewFieldsetElementCommand(): WriteElementCommand("fieldset", isVoid
 	/// <summary>
 	/// Value indicating whether all form controls that are descendants of the element, are disabled.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter Disabled { get; set; }
 
 	/// <summary>
 	/// The identifier of a <c>form</c> element to associate with the element.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Form { get; set; }
 
 	/// <summary>
 	/// The name associated with the group.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Name { get; set; }
 
 	/// <summary>

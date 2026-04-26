@@ -11,19 +11,19 @@ public class NewOlElementCommand(): WriteElementCommand("ol", isVoid: false) {
 	/// <summary>
 	/// Value indicating whether the list's items are in reverse order.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter Reversed { get; set; }
 
 	/// <summary>
 	/// An integer to start counting from for the list items.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public int? Start { get; set; }
 
 	/// <summary>
 	/// Value indicating the current ordinal value of the list item as defined by the <c>ol</c> element.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("1", "A", "a", "I", "i")]
+	[Parameter, ValidateSet("1", "A", "a", "I", "i")]
 	public string? Type { get; set; }
 
 	/// <summary>

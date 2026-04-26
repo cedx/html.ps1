@@ -21,121 +21,121 @@ public abstract class WriteElementCommand(string tagName, bool isVoid = false): 
 	/// <summary>
 	/// The custom attributes to render.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public Hashtable Attributes { get; set; } = [];
 
 	/// <summary>
 	/// Value indicating whether inputted text is automatically capitalized.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("characters", "none", "off", "on", "sentences", "words")]
+	[Parameter, ValidateSet("characters", "none", "off", "on", "sentences", "words")]
 	public string? AutoCapitalize { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the element should have input focus when the page loads.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter AutoFocus { get; set; }
 
 	/// <summary>
 	/// The CSS class names applied to the element.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string[] Class { get; set; } = [];
 
 	/// <summary>
 	/// The inner HTML of the element.
 	/// </summary>
-	[Parameter(Position = 0, ValueFromPipeline = true, ValueFromPipelineByPropertyName = true)]
+	[Parameter(Position = 0, ValueFromPipeline = true)]
 	public virtual object? Content { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the element is editable by the user.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("false", "plaintext-only", "true")]
+	[Parameter, ValidateSet("false", "plaintext-only", "true")]
 	public string? ContentEditable { get; set; }
 
 	/// <summary>
 	/// The data attributes to render.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public Hashtable DataSet { get; set; } = [];
 
 	/// <summary>
 	/// The directionality of the element's text.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("auto", "ltr", "rtl")]
+	[Parameter, ValidateSet("auto", "ltr", "rtl")]
 	public string? Dir { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the element can be dragged.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("false", "true")]
+	[Parameter, ValidateSet("false", "true")]
 	public string? Draggable { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the browser should not render the contents of the element.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter Hidden { get; set; }
 
 	/// <summary>
 	/// The element identifier.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Id { get; set; }
 
 	/// <summary>
 	/// A hint at the type of data that might be entered by the user while editing the element or its contents.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("decimal", "email", "none", "numeric", "search", "tel", "text", "url")]
+	[Parameter, ValidateSet("decimal", "email", "none", "numeric", "search", "tel", "text", "url")]
 	public string? InputMode { get; set; }
 
 	/// <summary>
 	/// The element's language.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public CultureInfo? Lang { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the element is a popover element.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("auto", "hint", "manual")]
+	[Parameter, ValidateSet("auto", "hint", "manual")]
 	public string? Popover { get; set; }
 
 	/// <summary>
 	/// The event handler attributes to render.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public Hashtable On { get; set; } = [];
 
 	/// <summary>
 	/// Value indicating whether the element is subject to spell-checking by the underlying browser/OS.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("false", "true")]
+	[Parameter, ValidateSet("false", "true")]
 	public string? SpellCheck { get; set; }
 
 	/// <summary>
 	/// The CSS styling declarations applied to the element.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public OrderedHashtable Style { get; set; } = [];
 
 	/// <summary>
 	/// Determines the relative ordering of the element for sequential focus navigation.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public int? TabIndex { get; set; }
 
 	/// <summary>
 	/// A text representing advisory information related to the element.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Title { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the element's text should be translated when the page is localized.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("no", "yes")]
+	[Parameter, ValidateSet("no", "yes")]
 	public string? Translate { get; set; }
 
 	/// <summary>

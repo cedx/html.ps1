@@ -9,49 +9,49 @@ public class NewLinkElementCommand(): WriteElementCommand("link", isVoid: true) 
 	/// <summary>
 	/// Specifies the type of content being loaded by the <c>link</c>.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? As { get; set; }
 
 	/// <summary>
 	/// Value indicating whether CORS must be used when fetching the resource.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("anonymous", "use-credentials")]
+	[Parameter, ValidateSet("anonymous", "use-credentials")]
 	public string? CrossOrigin { get; set; }
 
 	/// <summary>
 	/// The URL of the linked resource.
 	/// </summary>
-	[Parameter(Mandatory = true, ValueFromPipelineByPropertyName = true)]
+	[Parameter(Mandatory = true)]
 	public required Uri Href { get; set; }
 
 	/// <summary>
 	/// A base64-encoded cryptographic hash of the resource (file) to fetch.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Integrity { get; set; }
 
 	/// <summary>
 	/// The media that the linked resource applies to.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Media { get; set; }
 
 	/// <summary>
 	/// The relationship of the linked resource to the current document.
 	/// </summary>
-	[Parameter(Mandatory = true, ValueFromPipelineByPropertyName = true)]
+	[Parameter(Mandatory = true)]
 	public required string[] Rel { get; set; }
 
 	/// <summary>
 	/// The sizes of the icons for visual media contained in the resource.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string[] Sizes { get; set; } = [];
 
 	/// <summary>
 	/// The media type of the content linked to.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Type { get; set; }
 
 	/// <summary>

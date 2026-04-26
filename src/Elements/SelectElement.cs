@@ -11,43 +11,43 @@ public class NewSelectElementCommand(): WriteElementCommand("select", isVoid: fa
 	/// <summary>
 	/// A hint for a user agent's autocomplete feature.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string[] AutoComplete { get; set; } = [];
 
 	/// <summary>
 	/// Value indicating whether to prevent the user from interacting with the element.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter Disabled { get; set; }
 
 	/// <summary>
 	/// The identifier of a <c>form</c> element to associate with the element.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Form { get; set; }
 
 	/// <summary>
 	/// Value indicating whether multiple options can be selected in the list.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter Multiple { get; set; }
 
 	/// <summary>
 	/// The name of the control.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Name { get; set; }
 
 	/// <summary>
 	/// Value indicating whether an option with a non-empty string value must be selected.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter Required { get; set; }
 
 	/// <summary>
 	/// The number of rows in the list that should be visible at one time.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
+	[Parameter, ValidateRange(ValidateRangeKind.NonNegative)]
 	public int Size { get; set; } = -1;
 
 	/// <summary>

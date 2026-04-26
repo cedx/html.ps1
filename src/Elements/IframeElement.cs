@@ -11,31 +11,31 @@ public class NewIframeElementCommand(): WriteElementCommand("iframe", isVoid: fa
 	/// <summary>
 	/// Specifies a permissions policy thaht defines what features are available to the frame based on the origin of the request.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Allow { get; set; }
 
 	/// <summary>
 	/// The height of the frame in CSS pixels.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
+	[Parameter, ValidateRange(ValidateRangeKind.NonNegative)]
 	public int Height { get; set; } = -1;
 
 	/// <summary>
 	/// Value indicating how the browser should load the frame.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("eager", "lazy")]
+	[Parameter, ValidateSet("eager", "lazy")]
 	public string? Loading { get; set; }
 
 	/// <summary>
 	/// A targetable name for the embedded browsing context.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Name { get; set; }
 
 	/// <summary>
 	/// Value indicating which referrer to send when fetching the frame's resource.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet(
+	[Parameter, ValidateSet(
 		"no-referrer-when-downgrade", "no-referrer", "origin-when-cross-origin", "origin",
 		"same-origin", "strict-origin-when-cross-origin", "strict-origin", "unsafe-url"
 	)]
@@ -44,19 +44,19 @@ public class NewIframeElementCommand(): WriteElementCommand("iframe", isVoid: fa
 	/// <summary>
 	/// The restrictions applied to the content embedded in the frame.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string[] Sandbox { get; set; } = [];
 
 	/// <summary>
 	/// The URL of the page to embed.
 	/// </summary>
-	[Parameter(Mandatory = true, ValueFromPipelineByPropertyName = true)]
+	[Parameter(Mandatory = true)]
 	public required Uri Src { get; set; }
 
 	/// <summary>
 	/// The width of the frame in CSS pixels.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
+	[Parameter, ValidateRange(ValidateRangeKind.NonNegative)]
 	public int Width { get; set; } = -1;
 
 	/// <summary>

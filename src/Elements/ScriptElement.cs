@@ -9,37 +9,37 @@ public class NewScriptElementCommand(): WriteElementCommand("script", isVoid: fa
 	/// <summary>
 	/// Value indicating whether the script will be fetched in parallel to parsing and evaluated as soon as it is available.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter Async { get; set; }
 
 	/// <summary>
 	/// Value indicating whether CORS must be used when fetching the resource.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("anonymous", "use-credentials")]
+	[Parameter, ValidateSet("anonymous", "use-credentials")]
 	public string? CrossOrigin { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the script is meant to be executed after the document has been parsed, but before firing <c>DOMContentLoaded</c> event.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter Defer { get; set; }
 
 	/// <summary>
 	/// A base64-encoded cryptographic hash of the resource (file) to fetch.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Integrity { get; set; }
 
 	/// <summary>
 	/// The URI of an external script.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public Uri? Src { get; set; }
 
 	/// <summary>
 	/// The type of script represented.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Type { get; set; }
 
 	/// <summary>

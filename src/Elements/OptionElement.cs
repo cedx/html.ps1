@@ -9,25 +9,25 @@ public class NewOptionElementCommand(): WriteElementCommand("option", isVoid: fa
 	/// <summary>
 	/// Value indicating whether the option is not checkable.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter Disabled { get; set; }
 
 	/// <summary>
 	/// The label indicating the meaning of the option.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Label { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the option is initially selected.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter Selected { get; set; }
 
 	/// <summary>
 	/// The value to be submitted with the form.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Value { get; set; }
 
 	/// <summary>

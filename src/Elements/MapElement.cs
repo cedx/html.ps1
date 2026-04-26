@@ -9,7 +9,7 @@ public class NewMapElementCommand(): WriteElementCommand("map", isVoid: false) {
 	/// <summary>
 	/// The map name so that it can be referenced.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Name { get; set; }
 
 	/// <summary>

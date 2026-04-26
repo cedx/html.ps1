@@ -9,7 +9,7 @@ public class NewBlockquoteElementCommand(): WriteElementCommand("blockquote", is
 	/// <summary>
 	/// A URL that designates a source document or message for the information quoted.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public Uri? Cite { get; set; }
 
 	/// <summary>

@@ -9,13 +9,13 @@ public class NewBaseElementCommand(): WriteElementCommand("base", isVoid: true) 
 	/// <summary>
 	/// The base URL to be used throughout the document for relative URLs.
 	/// </summary>
-	[Parameter(Mandatory = true, ValueFromPipelineByPropertyName = true)]
+	[Parameter(Mandatory = true)]
 	public required Uri Href { get; set; }
 
 	/// <summary>
 	/// The default browsing context to show the results of navigation from elements without explicit <c>target</c> attribute.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Target { get; set; }
 
 	/// <summary>

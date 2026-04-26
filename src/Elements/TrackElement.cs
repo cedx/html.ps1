@@ -11,31 +11,31 @@ public class NewTrackElementCommand(): WriteElementCommand("track", isVoid: true
 	/// <summary>
 	/// Value indicating whether the track should be enabled unless the user's preferences indicate that another track is more appropriate.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter Default { get; set; }
 
 	/// <summary>
 	/// Value indicating how the text track is meant to be used.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("captions", "chapters", "descriptions", "metadata", "subtitles")]
+	[Parameter, ValidateSet("captions", "chapters", "descriptions", "metadata", "subtitles")]
 	public string? Kind { get; set; }
 
 	/// <summary>
 	/// A user-readable title of the text track which is used by the browser when listing available text tracks.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Label { get; set; }
 
 	/// <summary>
 	/// The address of the track (<c>.vtt</c> file).
 	/// </summary>
-	[Parameter(Mandatory = true, ValueFromPipelineByPropertyName = true)]
+	[Parameter(Mandatory = true)]
 	public required Uri Src { get; set; }
 
 	/// <summary>
 	/// The language of the track text data.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public CultureInfo? SrcLang { get; set; }
 
 	/// <summary>

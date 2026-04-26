@@ -11,25 +11,25 @@ public class NewEmbedElementCommand(): WriteElementCommand("embed", isVoid: true
 	/// <summary>
 	/// The displayed height of the resource, in CSS pixels.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
+	[Parameter, ValidateRange(ValidateRangeKind.NonNegative)]
 	public int Height { get; set; } = -1;
 
 	/// <summary>
 	/// The URL of the resource being embedded.
 	/// </summary>
-	[Parameter(Mandatory = true, ValueFromPipelineByPropertyName = true)]
+	[Parameter(Mandatory = true)]
 	public required Uri Src { get; set; }
 
 	/// <summary>
 	/// The media type to use, optionally including a <c>codecs</c> parameter.
 	/// </summary>
-	[Parameter(Mandatory = true, ValueFromPipelineByPropertyName = true)]
+	[Parameter(Mandatory = true)]
 	public required string Type { get; set; }
 
 	/// <summary>
 	/// The displayed height of the resource, in CSS pixels.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
+	[Parameter, ValidateRange(ValidateRangeKind.NonNegative)]
 	public int Width { get; set; } = -1;
 
 	/// <summary>

@@ -11,7 +11,7 @@ public class NewTimeElementCommand(): WriteElementCommand("time", isVoid: false)
 	/// <summary>
 	/// The time and/or date of the element.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public object? DateTime { get; set; }
 
 	/// <summary>

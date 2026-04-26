@@ -9,13 +9,13 @@ public class NewDelElementCommand(): WriteElementCommand("del", isVoid: false) {
 	/// <summary>
 	/// A URI for a resource that explains the change.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public Uri? Cite { get; set; }
 
 	/// <summary>
 	/// The date and time of the change.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public object? DateTime { get; set; }
 
 	/// <summary>

@@ -9,7 +9,7 @@ public class NewSlotElementCommand(): WriteElementCommand("slot", isVoid: false)
 	/// <summary>
 	/// The slot's name.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Name { get; set; }
 
 	/// <summary>

@@ -9,7 +9,7 @@ public class NewStyleElementCommand(): WriteElementCommand("style", isVoid: fals
 	/// <summary>
 	/// Defines which media the style should be applied to.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Media { get; set; }
 
 	/// <summary>

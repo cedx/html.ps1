@@ -11,13 +11,13 @@ public class NewProgressElementCommand(): WriteElementCommand("progress", isVoid
 	/// <summary>
 	/// Describes how much work the task requires.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
+	[Parameter, ValidateRange(ValidateRangeKind.NonNegative)]
 	public double? Max { get; set; }
 
 	/// <summary>
 	/// Specifies how much of the task that has been completed.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
+	[Parameter, ValidateRange(ValidateRangeKind.NonNegative)]
 	public double? Value { get; set; }
 
 	/// <summary>

@@ -9,13 +9,13 @@ public class NewDialogElementCommand(): WriteElementCommand("dialog", isVoid: fa
 	/// <summary>
 	/// Specifies the types of user actions that can be used to close the element.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("any", "closerequest", "none")]
+	[Parameter, ValidateSet("any", "closerequest", "none")]
 	public string? ClosedBy { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the dialog box is active and is available for interaction.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter Open { get; set; }
 
 	/// <summary>

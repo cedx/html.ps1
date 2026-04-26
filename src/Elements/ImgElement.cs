@@ -11,13 +11,13 @@ public class NewImgElementCommand(): WriteElementCommand("img", isVoid: true) {
 	/// <summary>
 	/// A text to display on browsers that do not display images.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? Alt { get; set; }
 
 	/// <summary>
 	/// The intrinsic height of the image, in CSS pixels.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
+	[Parameter, ValidateRange(ValidateRangeKind.NonNegative)]
 	public int Height { get; set; } = -1;
 
 	/// <summary>
@@ -29,37 +29,37 @@ public class NewImgElementCommand(): WriteElementCommand("img", isVoid: true) {
 	/// <summary>
 	/// Value indicating how the browser should load the image.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("eager", "lazy")]
+	[Parameter, ValidateSet("eager", "lazy")]
 	public string? Loading { get; set; }
 
 	/// <summary>
 	/// The intended display sizes of the image.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string[] Sizes { get; set; } = [];
 
 	/// <summary>
 	/// The image URL.
 	/// </summary>
-	[Parameter(Mandatory = true, ValueFromPipelineByPropertyName = true)]
+	[Parameter(Mandatory = true)]
 	public required Uri Src { get; set; }
 
 	/// <summary>
 	/// The possible image sources for the user agent to use.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string[] SrcSet { get; set; } = [];
 
 	/// <summary>
 	/// The partial URL (starting with <c>#</c>) of an image map associated with the element.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? UseMap { get; set; }
 
 	/// <summary>
 	/// The intrinsic width of the image, in CSS pixels.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
+	[Parameter, ValidateRange(ValidateRangeKind.NonNegative)]
 	public int Width { get; set; } = -1;
 
 	/// <summary>

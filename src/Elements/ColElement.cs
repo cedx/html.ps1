@@ -11,7 +11,7 @@ public class NewColElementCommand(): WriteElementCommand("col", isVoid: true) {
 	/// <summary>
 	/// The number of consecutive columns the element spans.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.Positive)]
+	[Parameter, ValidateRange(ValidateRangeKind.Positive)]
 	public int Span { get; set; }
 
 	/// <summary>

@@ -9,25 +9,25 @@ public class NewTemplateElementCommand(): WriteElementCommand("template", isVoid
 	/// <summary>
 	/// Value indicating whether the shadow root is clonable.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter ShadowRootClonable { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the shadow root delegates focus.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter ShadowRootDelegatesFocus { get; set; }
 
 	/// <summary>
 	/// Value indicating whether to create a shadow root for the parent element.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("closed", "open")]
+	[Parameter, ValidateSet("closed", "open")]
 	public string? ShadowRootMode { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the shadow root is serializable.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter ShadowRootSerializable { get; set; }
 
 	/// <summary>

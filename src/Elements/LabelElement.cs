@@ -9,7 +9,7 @@ public class NewLabelElementCommand(): WriteElementCommand("label", isVoid: fals
 	/// <summary>
 	/// The identifier of the labelable form control in the same document.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public string? For { get; set; }
 
 	/// <summary>

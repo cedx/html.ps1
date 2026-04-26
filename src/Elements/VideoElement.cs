@@ -11,79 +11,79 @@ public class NewVideoElementCommand(): WriteElementCommand("video", isVoid: fals
 	/// <summary>
 	/// Value indicating whether playback should start automatically as soon as the video signal allows.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter AutoPlay { get; set; }
 
 	/// <summary>
 	/// Value indicating whether to offer controls to allow the user to control video playback.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter Controls { get; set; }
 
 	/// <summary>
 	/// Value indicating whether CORS must be used when fetching the resource.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("anonymous", "use-credentials")]
+	[Parameter, ValidateSet("anonymous", "use-credentials")]
 	public string? CrossOrigin { get; set; }
 
 	/// <summary>
 	/// Value indicating whether to prevent the browser from suggesting a Picture-in-Picture context menu or to request Picture-in-Picture automatically.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter DisablePictureInPicture { get; set; }
 
 	/// <summary>
 	/// Value indicating whether to disable the capability of remote playback in devices that are attached using wired and wireless technologies.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter DisableRemotePlayback { get; set; }
 
 	/// <summary>
 	/// The height of the video's display area, in CSS pixels.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
+	[Parameter, ValidateRange(ValidateRangeKind.NonNegative)]
 	public int Height { get; set; } = -1;
 
 	/// <summary>
 	/// Value indicating whether the video player will automatically seek back to the start upon reaching the end of the video.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter Loop { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the audio will be initially silenced.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter Muted { get; set; }
 
 	/// <summary>
 	/// Value indicating whether the video is to be played "inline", that is, within the element's playback area.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public SwitchParameter PlaysInline { get; set; }
 
 	/// <summary>
 	/// The URL for an image to be shown while the video is downloading.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public Uri? Poster { get; set; }
 
 	/// <summary>
 	/// Value providing a hint to the browser about what the author thinks will lead to the best user experience.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateSet("auto", "none", "metadata")]
+	[Parameter, ValidateSet("auto", "none", "metadata")]
 	public string? Preload { get; set; }
 
 	/// <summary>
 	/// The URL of the video to embed.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true)]
+	[Parameter]
 	public Uri? Src { get; set; }
 
 	/// <summary>
 	/// The width of the video's display area, in CSS pixels.
 	/// </summary>
-	[Parameter(ValueFromPipelineByPropertyName = true), ValidateRange(ValidateRangeKind.NonNegative)]
+	[Parameter, ValidateRange(ValidateRangeKind.NonNegative)]
 	public int Width { get; set; } = -1;
 
 	/// <summary>
