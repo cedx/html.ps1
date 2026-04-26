@@ -1,69 +1,8 @@
-using namespace System.Diagnostics.CodeAnalysis
-
-<#
-.SYNOPSIS
-	Builds the .NET solution and all of its dependencies.
-#>
-function Build-DotNetSolution {
-	param (
-		# The configuration to use for generating the project.
-		[Parameter(Position = 0)]
-		[string] $Configuration
-	)
-
-	$argumentList = $Configuration ? "--configuration", $Configuration : @()
-	dotnet build @argumentList
-}
-
-<#
-.SYNOPSIS
-	Applies style preferences and static analysis recommendations to the .NET solution.
-#>
-function Format-DotNetSolution {
-	dotnet format
-}
-
-<#
-.SYNOPSIS
-	Invokes the .NET test runner.
-#>
-function Invoke-DotNetTest {
-	param (
-		# The path to the settings file to use for running the tests.
-		[ValidateScript({ Test-Path $_ -PathType Leaf }, ErrorMessage = "The specified settings file does not exist.")]
-		[string] $Settings
-	)
-
-	$argumentList = $Settings ? "--settings", $Settings : @()
-	dotnet test @argumentList
-}
-
-<#
-.SYNOPSIS
-	Invokes the PowerShell test runner.
-#>
-function Invoke-PowerShellTest {
-	param (
-		# The path to the file or directory to be tested.
-		[Parameter(Mandatory, Position = 0)]
-		[string[]] $Path,
-
-		# Value indicating whether, on completion of the tests, to exit the PowerShell session
-		# and return an exit code equal to the number of failed tests.
-		[switch] $EnableExit
-	)
-
-	Import-Module Pester
-	Invoke-Pester $Path
-	if ($EnableExit) { exit $LASTEXITCODE }
-}
-
 <#
 .SYNOPSIS
 	Creates a new Git tag.
 #>
 function New-GitTag {
-	[SuppressMessage("PSUseShouldProcessForStateChangingFunctions", "")]
 	param (
 		# The tag name.
 		[Parameter(Mandatory, Position = 0)]
@@ -76,42 +15,21 @@ function New-GitTag {
 
 <#
 .SYNOPSIS
-	Publishes the project package to the NuGet registry.
+	Publishes the project package to the PowerShell Gallery registry.
 #>
-function Publish-NuGetPackage {
-	param (
-		# Value indicating whether to not build the solution before compression.
-		[switch] $NoBuild
-	)
+function Publish-PSGalleryModule {
+	$root = Join-Path $PSScriptRoot ..
 
-	$output = "$PSScriptRoot/../var/NuGet"
-	$argumentList = "--output", $output
-	if ($NoBuild) { $argumentList += "--no-build" }
-	dotnet pack @argumentList
-	foreach ($package in Get-Item $output/*.nupkg) { dotnet nuget push $package --api-key $Env:NUGET_API_KEY --source NuGet }
-}
+	$output = "$root/var/PSModule"
+	New-Item $output -ItemType Directory | Out-Null
+	Copy-Item $root/Html.psd1 $output/Belin.Html.psd1
+	Copy-Item $root/*.md $output
+	Copy-Item $root/src $output -Recurse
 
-<#
-.SYNOPSIS
-	Installs the specified NuGet package, if any. Otherwise, installs all packages.
-#>
-function Restore-NuGetPackage {
-	param (
-		# The package to install.
-		[Parameter(Position = 0)]
-		[string] $Package
-	)
-
-	if ($Package) { dotnet package add $Package }
-	else { dotnet restore }
-}
-
-<#
-.SYNOPSIS
-	Checks whether an update is available for the NuGet packages.
-#>
-function Test-NuGetPackageUpdate {
-	dotnet package list --outdated
+	$output = "$root/var/PSGallery"
+	New-Item $output -ItemType Directory | Out-Null
+	Compress-PSResource $root/var/PSModule $output
+	foreach ($package in Get-Item $output/*.nupkg) { Publish-PSResource -ApiKey $Env:PSGALLERY_API_KEY -NupkgPath $package -Repository PSGallery }
 }
 
 <#

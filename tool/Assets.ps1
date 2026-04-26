@@ -15,11 +15,11 @@ foreach ($element in (Import-PowerShellDataFile share/HtmlElements.psd1).Element
 
 	$cmdletsToExport.Add("New-Html$($parameters.CapitalizedTag)Element")
 	$fileName = "New-$($parameters.CapitalizedTag)Element"
-	if (Test-Path "src/Elements/$fileName.cs") { continue }
+	if (Test-Path "src/Elements/$fileName.psm1") { continue }
 
 	$content = $cmdletTemplate
 	foreach ($key in $parameters.Keys) { $content = $content -replace "{$key}", $parameters.$key }
-	Set-Content "src/Generated/$fileName.g.cs" $content -NoNewline
+	Set-Content "src/Generated/$fileName.g.psm1" $content -NoNewline
 }
 
 $cmdletsToExport.Sort()
