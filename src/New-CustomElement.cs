@@ -17,10 +17,4 @@ public class NewCustomElementCommand(): WriteElementCommand("", isVoid: false) {
 	/// </summary>
 	[Parameter(Mandatory = true, Position = 0)]
 	public required string Name { get => TagName; set => TagName = value; }
-
-	/// <summary>
-	/// Value indicating whether the element to create is a void element.
-	/// </summary>
-	[Parameter]
-	public SwitchParameter Void { get => IsVoid; set => IsVoid = value; }
 }

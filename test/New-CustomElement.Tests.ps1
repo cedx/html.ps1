@@ -11,10 +11,6 @@ Describe "New-CustomElement" {
 		tag my-element | Should -BeExactly "<my-element></my-element>"
 	}
 
-	It "should handle void elements" {
-		tag my-element -Void | Should -BeExactly "<my-element>"
-	}
-
 	It 'should handle the "id" attribute' {
 		tag my-element -id foo | Should -BeExactly '<my-element id="foo"></my-element>'
 	}
