@@ -2,12 +2,12 @@
 [PowerShell](https://learn.microsoft.com/en-us/powershell) cmdlets for rendering [HTML](https://developer.mozilla.org/docs/Web/HTML) documents.
 
 ## Documentation
-- [User guide](https://github.com/cedx/html.net/tree/main/docs)
-- [Examples](https://github.com/cedx/html.net/tree/main/example)
+- [User guide](https://github.com/cedx/html.ps1/tree/main/docs)
+- [Examples](https://github.com/cedx/html.ps1/tree/main/example)
 
 ## Development
-- [Git repository](https://github.com/cedx/html.net)
-- [Submit an issue](https://github.com/cedx/html.net/issues)
+- [Git repository](https://github.com/cedx/html.ps1)
+- [Submit an issue](https://github.com/cedx/html.ps1/issues)
 
 ## License
-[HTML Renderer for PowerShell](https://github.com/cedx/html.net) is distributed under the MIT License.
+[HTML Renderer for PowerShell](https://github.com/cedx/html.ps1) is distributed under the MIT License.
