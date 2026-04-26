@@ -11,14 +11,14 @@ function New-HtmlProgressElement: NewElementCommand("progress", isVoid: false) {
 	.SYNOPSIS
 		Describes how much work the task requires.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName), ValidateRange(ValidateRangeKind.NonNegative)]
+	[ValidateRange(ValidateRangeKind.NonNegative)]
 	double? Max
 
 	<#
 	.SYNOPSIS
 		Specifies how much of the task that has been completed.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName), ValidateRange(ValidateRangeKind.NonNegative)]
+	[ValidateRange(ValidateRangeKind.NonNegative)]
 	double? Value
 
 	<#

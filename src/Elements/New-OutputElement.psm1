@@ -11,21 +11,18 @@ function New-HtmlOutputElement: NewElementCommand("output", isVoid: false) {
 	.SYNOPSIS
 		A list of other elements' identifiers, indicating that those elements contributed input values to the calculation.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string[]] $For = @(),
 
 	<#
 	.SYNOPSIS
 		The identifier of a `form` element to associate with the element.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Form
 
 	<#
 	.SYNOPSIS
 		The element's name.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Name
 
 	<#

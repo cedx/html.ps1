@@ -11,21 +11,18 @@ function New-HtmlTemplateElement: NewElementCommand("template", isVoid: false) {
 	.SYNOPSIS
 		Value indicating whether the shadow root is clonable.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $ShadowRootClonable
 
 	<#
 	.SYNOPSIS
 		Value indicating whether the shadow root delegates focus.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $ShadowRootDelegatesFocus
 
 	<#
 	.SYNOPSIS
 		Value indicating whether to create a shadow root for the parent element.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 		[ValidateSet("closed", "open")]
 	[string] $ShadowRootMode
 
@@ -33,7 +30,6 @@ function New-HtmlTemplateElement: NewElementCommand("template", isVoid: false) {
 	.SYNOPSIS
 		Value indicating whether the shadow root is serializable.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $ShadowRootSerializable
 
 	<#

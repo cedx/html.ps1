@@ -12,42 +12,36 @@ function New-HtmlButtonElement: NewElementCommand("button", isVoid: false) {
 	.SYNOPSIS
 		The action to be performed on an element being controlled via the <see cref="CommandFor"/> attribute.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Command
 
 	<#
 	.SYNOPSIS
 		The identifier of an element to control.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $CommandFor
 
 	<#
 	.SYNOPSIS
 		Value indicating whether to prevent the user from interacting with the element.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $Disabled
 
 	<#
 	.SYNOPSIS
 		The identifier of a `form` element to associate with the element.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Form
 
 	<#
 	.SYNOPSIS
 		The URL that processes the information submitted by the button.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	Uri? FormAction
 
 	<#
 	.SYNOPSIS
 		Value indicating how to encode the form data that is submitted.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 		[ValidateSet(MediaTypeNames.Application.FormUrlEncoded, MediaTypeNames.Multipart.FormData, MediaTypeNames.Text.Plain)]
 	[string] $FormEnctype
 
@@ -55,7 +49,6 @@ function New-HtmlButtonElement: NewElementCommand("button", isVoid: false) {
 	.SYNOPSIS
 		The HTTP method used to submit the form.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 		[ValidateSet("dialog", "get", "post")]
 	[string] $FormMethod
 
@@ -63,35 +56,30 @@ function New-HtmlButtonElement: NewElementCommand("button", isVoid: false) {
 	.SYNOPSIS
 		Value indicating whether the form is not to be validated when it is submitted.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $FormNoValidate
 
 	<#
 	.SYNOPSIS
 		The browsing context to show the response after submitting the form.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $FormTarget
 
 	<#
 	.SYNOPSIS
 		The name of the control.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Name
 
 	<#
 	.SYNOPSIS
 		The identifier of a popover element to control.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $PopoverTarget
 
 	<#
 	.SYNOPSIS
 		The action to be performed on a popover element being controlled via the <see cref="PopoverTarget"/> attribute.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 		[ValidateSet("hide", "show", "toggle")]
 	[string] $PopoverTargetAction
 
@@ -99,7 +87,6 @@ function New-HtmlButtonElement: NewElementCommand("button", isVoid: false) {
 	.SYNOPSIS
 		The default behavior of the button.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 		[ValidateSet("button", "reset", "submit")]
 	[string] $Type
 
@@ -107,7 +94,6 @@ function New-HtmlButtonElement: NewElementCommand("button", isVoid: false) {
 	.SYNOPSIS
 		The value of the control.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[object] $Value
 
 	<#

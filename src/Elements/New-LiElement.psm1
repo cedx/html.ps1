@@ -11,7 +11,6 @@ function New-HtmlLiElement: NewElementCommand("li", isVoid: false) {
 	.SYNOPSIS
 		The ordinal value of the list item as defined by the `ol` element.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[int] $Value
 
 	<#

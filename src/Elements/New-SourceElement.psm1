@@ -11,49 +11,48 @@ function New-HtmlSourceElement: NewElementCommand("source", isVoid: true) {
 	.SYNOPSIS
 		The intrinsic height of the image, in CSS pixels.
 	#>
-	[Parameter(ParameterSetName = nameof(SrcSet), ValueFromPipelineByPropertyName), ValidateRange(ValidateRangeKind.NonNegative)]
+	[Parameter(ParameterSetName = nameof(SrcSet)), ValidateRange(ValidateRangeKind.NonNegative)]
 	int Height = -1;
 
 	<#
 	.SYNOPSIS
 		The media query for the resource's intended media.
 	#>
-	[Parameter(ParameterSetName = nameof(SrcSet), ValueFromPipelineByPropertyName)]
+	[Parameter(ParameterSetName = nameof(SrcSet))]
 	[string] $Media
 
 	<#
 	.SYNOPSIS
 		A list of source sizes that describe the final rendered width of the image.
 	#>
-	[Parameter(ParameterSetName = nameof(SrcSet), ValueFromPipelineByPropertyName)]
+	[Parameter(ParameterSetName = nameof(SrcSet))]
 	[string[]] $Sizes = @(),
 
 	<#
 	.SYNOPSIS
 		The URL of the media resource
 	#>
-	[Parameter(Mandatory, ParameterSetName = nameof(Src), ValueFromPipelineByPropertyName)]
+	[Parameter(Mandatory, ParameterSetName = nameof(Src))]
 	required Uri Src
 
 	<#
 	.SYNOPSIS
 		A list of one or more image URLs and their descriptors.
 	#>
-	[Parameter(Mandatory, ParameterSetName = nameof(SrcSet), ValueFromPipelineByPropertyName)]
+	[Parameter(Mandatory, ParameterSetName = nameof(SrcSet))]
 	[string[]] $SrcSet = @(),
 
 	<#
 	.SYNOPSIS
 		The media type to use, optionally including a `codecs` parameter.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Type
 
 	<#
 	.SYNOPSIS
 		The intrinsic width of the image, in CSS pixels.
 	#>
-	[Parameter(ParameterSetName = nameof(SrcSet), ValueFromPipelineByPropertyName), ValidateRange(ValidateRangeKind.NonNegative)]
+	[Parameter(ParameterSetName = nameof(SrcSet)), ValidateRange(ValidateRangeKind.NonNegative)]
 	int Width = -1;
 
 	<#

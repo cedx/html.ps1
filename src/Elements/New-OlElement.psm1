@@ -11,21 +11,18 @@ function New-HtmlOlElement: NewElementCommand("ol", isVoid: false) {
 	.SYNOPSIS
 		Value indicating whether the list's items are in reverse order.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $Reversed
 
 	<#
 	.SYNOPSIS
 		An integer to start counting from for the list items.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[int] $Start
 
 	<#
 	.SYNOPSIS
 		Value indicating the current ordinal value of the list item as defined by the `ol` element.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 		[ValidateSet("1", "A", "a", "I", "i")]
 	[string] $Type
 

@@ -11,14 +11,12 @@ function New-HtmlLinkElement: NewElementCommand("link", isVoid: true) {
 	.SYNOPSIS
 		Specifies the type of content being loaded by the `link`.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $As
 
 	<#
 	.SYNOPSIS
 		Value indicating whether CORS must be used when fetching the resource.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 		[ValidateSet("anonymous", "use-credentials")]
 	[string] $CrossOrigin
 
@@ -26,42 +24,38 @@ function New-HtmlLinkElement: NewElementCommand("link", isVoid: true) {
 	.SYNOPSIS
 		The URL of the linked resource.
 	#>
-	[Parameter(Mandatory, ValueFromPipelineByPropertyName)]
+	[Parameter(Mandatory)]
 	[uri] $Href
 
 	<#
 	.SYNOPSIS
 		A base64-encoded cryptographic hash of the resource (file) to fetch.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Integrity
 
 	<#
 	.SYNOPSIS
 		The media that the linked resource applies to.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Media
 
 	<#
 	.SYNOPSIS
 		The relationship of the linked resource to the current document.
 	#>
-	[Parameter(Mandatory, ValueFromPipelineByPropertyName)]
+	[Parameter(Mandatory)]
 	required [string[]] $Rel
 
 	<#
 	.SYNOPSIS
 		The sizes of the icons for visual media contained in the resource.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string[]] $Sizes = @(),
 
 	<#
 	.SYNOPSIS
 		The media type of the content linked to.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Type
 
 	<#

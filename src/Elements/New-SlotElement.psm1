@@ -11,7 +11,6 @@ function New-HtmlSlotElement: NewElementCommand("slot", isVoid: false) {
 	.SYNOPSIS
 		The slot's name.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Name
 
 	<#

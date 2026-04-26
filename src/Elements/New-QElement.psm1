@@ -11,7 +11,6 @@ function New-HtmlQElement: NewElementCommand("q", isVoid: false) {
 	.SYNOPSIS
 		A URL that designates a source document or message for the information quoted.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	Uri? Cite
 
 	<#

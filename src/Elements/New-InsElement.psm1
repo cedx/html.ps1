@@ -11,14 +11,12 @@ function New-HtmlInsElement: NewElementCommand("ins", isVoid: false) {
 	.SYNOPSIS
 		A URI for a resource that explains the change.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	Uri? Cite
 
 	<#
 	.SYNOPSIS
 		The date and time of the change.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[object] $DateTime
 
 	<#

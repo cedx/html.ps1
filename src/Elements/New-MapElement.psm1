@@ -11,7 +11,6 @@ function New-HtmlMapElement: NewElementCommand("map", isVoid: false) {
 	.SYNOPSIS
 		The map name so that it can be referenced.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Name
 
 	<#

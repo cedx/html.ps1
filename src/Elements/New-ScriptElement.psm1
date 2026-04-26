@@ -11,14 +11,12 @@ function New-HtmlScriptElement: NewElementCommand("script", isVoid: false) {
 	.SYNOPSIS
 		Value indicating whether the script will be fetched in parallel to parsing and evaluated as soon as it is available.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $Async
 
 	<#
 	.SYNOPSIS
 		Value indicating whether CORS must be used when fetching the resource.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 		[ValidateSet("anonymous", "use-credentials")]
 	[string] $CrossOrigin
 
@@ -26,28 +24,24 @@ function New-HtmlScriptElement: NewElementCommand("script", isVoid: false) {
 	.SYNOPSIS
 		Value indicating whether the script is meant to be executed after the document has been parsed, but before firing `DOMContentLoaded` event.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $Defer
 
 	<#
 	.SYNOPSIS
 		A base64-encoded cryptographic hash of the resource (file) to fetch.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Integrity
 
 	<#
 	.SYNOPSIS
 		The URI of an external script.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	Uri? Src
 
 	<#
 	.SYNOPSIS
 		The type of script represented.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Type
 
 	<#

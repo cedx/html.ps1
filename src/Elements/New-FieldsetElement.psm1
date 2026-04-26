@@ -11,21 +11,18 @@ function New-HtmlFieldsetElement: NewElementCommand("fieldset", isVoid: false) {
 	.SYNOPSIS
 		Value indicating whether all form controls that are descendants of the element, are disabled.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $Disabled
 
 	<#
 	.SYNOPSIS
 		The identifier of a `form` element to associate with the element.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Form
 
 	<#
 	.SYNOPSIS
 		The name associated with the group.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Name
 
 	<#

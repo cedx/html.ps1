@@ -12,7 +12,6 @@ function New-HtmlTimeElement: NewElementCommand("time", isVoid: false) {
 	.SYNOPSIS
 		The time and/or date of the element.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[object] $DateTime
 
 	<#

@@ -11,28 +11,28 @@ function New-HtmlEmbedElement: NewElementCommand("embed", isVoid: true) {
 	.SYNOPSIS
 		The displayed height of the resource, in CSS pixels.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName), ValidateRange(ValidateRangeKind.NonNegative)]
+	[ValidateRange(ValidateRangeKind.NonNegative)]
 	int Height = -1;
 
 	<#
 	.SYNOPSIS
 		The URL of the resource being embedded.
 	#>
-	[Parameter(Mandatory, ValueFromPipelineByPropertyName)]
+	[Parameter(Mandatory)]
 	required Uri Src
 
 	<#
 	.SYNOPSIS
 		The media type to use, optionally including a `codecs` parameter.
 	#>
-	[Parameter(Mandatory, ValueFromPipelineByPropertyName)]
+	[Parameter(Mandatory)]
 	required string Type
 
 	<#
 	.SYNOPSIS
 		The displayed height of the resource, in CSS pixels.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName), ValidateRange(ValidateRangeKind.NonNegative)]
+	[ValidateRange(ValidateRangeKind.NonNegative)]
 	int Width = -1;
 
 	<#

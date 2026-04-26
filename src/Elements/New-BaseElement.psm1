@@ -11,14 +11,13 @@ function New-HtmlBaseElement: NewElementCommand("base", isVoid: true) {
 	.SYNOPSIS
 		The base URL to be used throughout the document for relative URLs.
 	#>
-	[Parameter(Mandatory, ValueFromPipelineByPropertyName)]
+	[Parameter(Mandatory)]
 	[uri] $Href
 
 	<#
 	.SYNOPSIS
 		The default browsing context to show the results of navigation from elements without explicit `target` attribute.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Target
 
 	<#

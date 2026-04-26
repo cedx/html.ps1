@@ -11,7 +11,7 @@ function New-HtmlColgroupElement: NewElementCommand("colgroup", isVoid: false) {
 	.SYNOPSIS
 		The number of consecutive columns the element spans.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName), ValidateRange(ValidateRangeKind.Positive)]
+	[ValidateRange(ValidateRangeKind.Positive)]
 	int Span
 
 	<#

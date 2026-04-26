@@ -11,7 +11,6 @@ function New-HtmlDialogElement: NewElementCommand("dialog", isVoid: false) {
 	.SYNOPSIS
 		Specifies the types of user actions that can be used to close the element.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 		[ValidateSet("any", "closerequest", "none")]
 	[string] $ClosedBy
 
@@ -19,7 +18,6 @@ function New-HtmlDialogElement: NewElementCommand("dialog", isVoid: false) {
 	.SYNOPSIS
 		Value indicating whether the dialog box is active and is available for interaction.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $Open
 
 	<#

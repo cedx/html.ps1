@@ -11,42 +11,36 @@ function New-HtmlMeterElement: NewElementCommand("meter", isVoid: false) {
 	.SYNOPSIS
 		The lower numeric bound of the high end of the measured range.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	double? High
 
 	<#
 	.SYNOPSIS
 		The upper numeric bound of the low end of the measured range.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	double? Low
 
 	<#
 	.SYNOPSIS
 		The upper numeric bound of the measured range.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	double? Max
 
 	<#
 	.SYNOPSIS
 		The lower numeric bound of the measured range.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	double? Min
 
 	<#
 	.SYNOPSIS
 		The optimal numeric value.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	double? Optimum
 
 	<#
 	.SYNOPSIS
 		The current numeric value.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	double? Value
 
 	<#

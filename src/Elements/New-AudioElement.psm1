@@ -11,21 +11,18 @@ function New-HtmlAudioElement: NewElementCommand("audio", isVoid: false) {
 	.SYNOPSIS
 		Value indicating whether playback should start automatically as soon as the audio signal allows.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $AutoPlay
 
 	<#
 	.SYNOPSIS
 		Value indicating whether to offer controls to allow the user to control audio playback.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $Controls
 
 	<#
 	.SYNOPSIS
 		Value indicating whether CORS must be used when fetching the resource.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 		[ValidateSet("anonymous", "use-credentials")]
 	[string] $CrossOrigin
 
@@ -33,28 +30,24 @@ function New-HtmlAudioElement: NewElementCommand("audio", isVoid: false) {
 	.SYNOPSIS
 		Value indicating whether to disable the capability of remote playback in devices that are attached using wired and wireless technologies.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $DisableRemotePlayback
 
 	<#
 	.SYNOPSIS
 		Value indicating whether the audio player will automatically seek back to the start upon reaching the end of the audio.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $Loop
 
 	<#
 	.SYNOPSIS
 		Value indicating whether the audio will be initially silenced.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $Muted
 
 	<#
 	.SYNOPSIS
 		Value providing a hint to the browser about what the author thinks will lead to the best user experience.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 		[ValidateSet("auto", "none", "metadata")]
 	[string] $Preload
 
@@ -62,7 +55,6 @@ function New-HtmlAudioElement: NewElementCommand("audio", isVoid: false) {
 	.SYNOPSIS
 		The URL of the audio to embed.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	Uri? Src
 
 	<#

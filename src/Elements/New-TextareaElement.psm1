@@ -11,14 +11,12 @@ function New-HtmlTextareaElement: NewElementCommand("textarea", isVoid: false) {
 	.SYNOPSIS
 		A hint for a user agent's autocomplete feature.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string[]] $AutoComplete = @(),
 
 	<#
 	.SYNOPSIS
 		Value indicating whether automatic spelling correction and processing of text is enabled.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 		[ValidateSet("off", "on")]
 	[string] $AutoCorrect
 
@@ -26,84 +24,76 @@ function New-HtmlTextareaElement: NewElementCommand("textarea", isVoid: false) {
 	.SYNOPSIS
 		The visible width of the text control, in average character widths.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName), ValidateRange(ValidateRangeKind.Positive)]
+	[ValidateRange(ValidateRangeKind.Positive)]
 	int Cols
 
 	<#
 	.SYNOPSIS
 		The field name to use for sending the element's directionality in form submission.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $DirName
 
 	<#
 	.SYNOPSIS
 		Value indicating whether to prevent the user from interacting with the element.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $Disabled
 
 	<#
 	.SYNOPSIS
 		The identifier of a `form` element to associate with the element.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Form
 
 	<#
 	.SYNOPSIS
 		The maximum string length that the user can enter.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName), ValidateRange(ValidateRangeKind.NonNegative)]
+	[ValidateRange(ValidateRangeKind.NonNegative)]
 	int MaxLength = -1;
 
 	<#
 	.SYNOPSIS
 		The minimum string length required that the user should enter.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName), ValidateRange(ValidateRangeKind.NonNegative)]
+	[ValidateRange(ValidateRangeKind.NonNegative)]
 	int MinLength = -1;
 
 	<#
 	.SYNOPSIS
 		The name of the control.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Name
 
 	<#
 	.SYNOPSIS
 		A hint to the user of what can be entered in the control.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Placeholder
 
 	<#
 	.SYNOPSIS
 		Value indicating whether the user cannot modify the value of the control.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $ReadOnly
 
 	<#
 	.SYNOPSIS
 		Value indicating whether the user must fill in a value before submitting a form.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $Required
 
 	<#
 	.SYNOPSIS
 		The number of visible text lines for the control.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName), ValidateRange(ValidateRangeKind.Positive)]
+	[ValidateRange(ValidateRangeKind.Positive)]
 	int Rows
 
 	<#
 	.SYNOPSIS
 		Value indicating whether the control should wrap the value for form submission.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 		[ValidateSet("hard", "soft")]
 	[string] $Wrap
 

@@ -11,28 +11,24 @@ function New-HtmlOptionElement: NewElementCommand("option", isVoid: false) {
 	.SYNOPSIS
 		Value indicating whether the option is not checkable.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $Disabled
 
 	<#
 	.SYNOPSIS
 		The label indicating the meaning of the option.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Label
 
 	<#
 	.SYNOPSIS
 		Value indicating whether the option is initially selected.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $Selected
 
 	<#
 	.SYNOPSIS
 		The value to be submitted with the form.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Value
 
 	<#

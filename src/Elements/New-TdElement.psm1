@@ -11,21 +11,20 @@ function New-HtmlTdElement: NewElementCommand("td", isVoid: false) {
 	.SYNOPSIS
 		An integer indicating how many columns the header cell spans or extends.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName), ValidateRange(ValidateRangeKind.NonNegative)]
+	[ValidateRange(ValidateRangeKind.NonNegative)]
 	int ColSpan = -1;
 
 	<#
 	.SYNOPSIS
 		A list of strings corresponding to the `id` attributes of the `th` elements that provide the headers for this header cell.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string[]] $Headers = @(),
 
 	<#
 	.SYNOPSIS
 		An integer indicating how many rows the header cell spans or extends.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName), ValidateRange(ValidateRangeKind.NonNegative)]
+	[ValidateRange(ValidateRangeKind.NonNegative)]
 	int RowSpan = -1;
 
 	<#

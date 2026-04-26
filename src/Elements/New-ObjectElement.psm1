@@ -11,42 +11,40 @@ function New-HtmlObjectElement: NewElementCommand("object", isVoid: false) {
 	.SYNOPSIS
 		The URL of the resource being embedded.
 	#>
-	[Parameter(Mandatory, ValueFromPipelineByPropertyName)]
+	[Parameter(Mandatory)]
 	required Uri Data
 
 	<#
 	.SYNOPSIS
 		The identifier of a `form` element to associate with the element.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Form
 
 	<#
 	.SYNOPSIS
 		The height of the display resource, in CSS pixels.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName), ValidateRange(ValidateRangeKind.NonNegative)]
+	[ValidateRange(ValidateRangeKind.NonNegative)]
 	int Height = -1;
 
 	<#
 	.SYNOPSIS
 		The name of valid browsing context (HTML 5), or the name of the control (HTML 4).
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Name
 
 	<#
 	.SYNOPSIS
 		The media type to use, optionally including a `codecs` parameter.
 	#>
-	[Parameter(Mandatory, ValueFromPipelineByPropertyName)]
+	[Parameter(Mandatory)]
 	required string Type
 
 	<#
 	.SYNOPSIS
 		The width of the display resource, in CSS pixels.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName), ValidateRange(ValidateRangeKind.NonNegative)]
+	[ValidateRange(ValidateRangeKind.NonNegative)]
 	int Width = -1;
 
 	<#

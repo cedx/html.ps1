@@ -11,49 +11,43 @@ function New-HtmlSelectElement: NewElementCommand("select", isVoid: false) {
 	.SYNOPSIS
 		A hint for a user agent's autocomplete feature.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string[]] $AutoComplete = @(),
 
 	<#
 	.SYNOPSIS
 		Value indicating whether to prevent the user from interacting with the element.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $Disabled
 
 	<#
 	.SYNOPSIS
 		The identifier of a `form` element to associate with the element.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Form
 
 	<#
 	.SYNOPSIS
 		Value indicating whether multiple options can be selected in the list.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $Multiple
 
 	<#
 	.SYNOPSIS
 		The name of the control.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Name
 
 	<#
 	.SYNOPSIS
 		Value indicating whether an option with a non-empty string value must be selected.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $Required
 
 	<#
 	.SYNOPSIS
 		The number of rows in the list that should be visible at one time.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName), ValidateRange(ValidateRangeKind.NonNegative)]
+	[ValidateRange(ValidateRangeKind.NonNegative)]
 	int Size = -1;
 
 	<#

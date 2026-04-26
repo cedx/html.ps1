@@ -11,49 +11,44 @@ function New-HtmlAreaElement: NewElementCommand("area", isVoid: true) {
 	.SYNOPSIS
 		A text to display on browsers that do not display images.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Alt
 
 	<#
 	.SYNOPSIS
 		The browsing context to show the results of navigation.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName), ValidateCount(3, int.MaxValue)]
+	[ValidateCount(3, int.MaxValue)]
 	double[]? Coords
 
 	<#
 	.SYNOPSIS
 		The suggested filename when the browser treats the linked URL as a download.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Download
 
 	<#
 	.SYNOPSIS
 		The hyperlink target for the area.
 	#>
-	[Parameter(Mandatory, ValueFromPipelineByPropertyName)]
+	[Parameter(Mandatory)]
 	[uri] $Href
 
 	<#
 	.SYNOPSIS
 		A list of URLs. When the link is followed, the browser will send `POST` requests with the body `PING` to the URLs.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[uri[]] $Ping = @(),
 
 	<#
 	.SYNOPSIS
 		The relationship of the linked URL.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string[]] $Rel = @(),
 
 	<#
 	.SYNOPSIS
 		The browsing context to show the results of navigation.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 		[ValidateSet("circle", "default", "poly", "rect")]
 	[string] $Shape
 
@@ -61,7 +56,6 @@ function New-HtmlAreaElement: NewElementCommand("area", isVoid: true) {
 	.SYNOPSIS
 		The browsing context to show the results of navigation.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Target
 
 	<#

@@ -11,7 +11,6 @@ function New-HtmlLabelElement: NewElementCommand("label", isVoid: false) {
 	.SYNOPSIS
 		The identifier of the labelable form control in the same document.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $For
 
 	<#

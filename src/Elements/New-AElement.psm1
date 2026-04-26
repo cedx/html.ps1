@@ -13,28 +13,27 @@ function New-HtmlAElement {
 	[CmdletBinding()]
 	[OutputType([string])]
 	param (
+		# The inner HTML of the element.
+		[Parameter(Position = 0, ValueFromPipeline)]
+		[object] $Content,
+
 		# The custom attributes to render.
-		[Parameter(ValueFromPipelineByPropertyName)]
 		[hashtable] $Attributes = @{},
 
 		# The suggested filename when the browser treats the linked URL as a download.
-		[Parameter(ValueFromPipelineByPropertyName)]
 		[string] $Download,
 
 		# The URL that the hyperlink points to.
-		[Parameter(Mandatory, ValueFromPipelineByPropertyName)]
+		[Parameter(Mandatory)]
 		[uri] $Href,
 
 		# A list of URLs. When the link is followed, the browser will send `POST` requests with the body `PING` to the URLs.
-		[Parameter(ValueFromPipelineByPropertyName)]
 		[uri[]] $Ping = @(),
 
 		# The relationship of the linked URL.
-		[Parameter(ValueFromPipelineByPropertyName)]
 		[string[]] $Rel = @(),
 
 		# The browsing context to show the results of navigation.
-		[Parameter(ValueFromPipelineByPropertyName)]
 		[string] $Target
 	)
 
@@ -46,8 +45,7 @@ function New-HtmlAElement {
 		if ($Rel) { $attributesToRender.rel = ($Rel -join " ").Trim() }
 		if ($Target) { $attributesToRender.target = $Target }
 
-		$parameters = $PSBoundParameters.Clone()
-		$MyInvocation.MyCommand.Parameters.Keys.ForEach{ $parameters.Remove($_) }
-		New-Element -Attributes $attributesToRender @parameters
+		$MyInvocation.MyCommand.Parameters.Keys.ForEach{ $PSBoundParameters.Remove($_) | Out-Null }
+		New-HtmlElement -TagName a -Attributes $attributesToRender -Content $Content @PSBoundParameters
 	}
 }

@@ -11,7 +11,7 @@ function New-HtmlDataElement: NewElementCommand("data", isVoid: false) {
 	.SYNOPSIS
 		The machine-readable translation of the content of the element.
 	#>
-	[Parameter(Mandatory, ValueFromPipelineByPropertyName)]
+	[Parameter(Mandatory)]
 	required string Value
 
 	<#

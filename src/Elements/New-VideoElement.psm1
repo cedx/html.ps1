@@ -11,21 +11,18 @@ function New-HtmlVideoElement: NewElementCommand("video", isVoid: false) {
 	.SYNOPSIS
 		Value indicating whether playback should start automatically as soon as the video signal allows.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $AutoPlay
 
 	<#
 	.SYNOPSIS
 		Value indicating whether to offer controls to allow the user to control video playback.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $Controls
 
 	<#
 	.SYNOPSIS
 		Value indicating whether CORS must be used when fetching the resource.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 		[ValidateSet("anonymous", "use-credentials")]
 	[string] $CrossOrigin
 
@@ -33,56 +30,49 @@ function New-HtmlVideoElement: NewElementCommand("video", isVoid: false) {
 	.SYNOPSIS
 		Value indicating whether to prevent the browser from suggesting a Picture-in-Picture context menu or to request Picture-in-Picture automatically.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $DisablePictureInPicture
 
 	<#
 	.SYNOPSIS
 		Value indicating whether to disable the capability of remote playback in devices that are attached using wired and wireless technologies.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $DisableRemotePlayback
 
 	<#
 	.SYNOPSIS
 		The height of the video's display area, in CSS pixels.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName), ValidateRange(ValidateRangeKind.NonNegative)]
+	[ValidateRange(ValidateRangeKind.NonNegative)]
 	int Height = -1;
 
 	<#
 	.SYNOPSIS
 		Value indicating whether the video player will automatically seek back to the start upon reaching the end of the video.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $Loop
 
 	<#
 	.SYNOPSIS
 		Value indicating whether the audio will be initially silenced.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $Muted
 
 	<#
 	.SYNOPSIS
 		Value indicating whether the video is to be played "inline", that is, within the element's playback area.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $PlaysInline
 
 	<#
 	.SYNOPSIS
 		The URL for an image to be shown while the video is downloading.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	Uri? Poster
 
 	<#
 	.SYNOPSIS
 		Value providing a hint to the browser about what the author thinks will lead to the best user experience.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 		[ValidateSet("auto", "none", "metadata")]
 	[string] $Preload
 
@@ -90,14 +80,13 @@ function New-HtmlVideoElement: NewElementCommand("video", isVoid: false) {
 	.SYNOPSIS
 		The URL of the video to embed.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	Uri? Src
 
 	<#
 	.SYNOPSIS
 		The width of the video's display area, in CSS pixels.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName), ValidateRange(ValidateRangeKind.NonNegative)]
+	[ValidateRange(ValidateRangeKind.NonNegative)]
 	int Width = -1;
 
 	<#

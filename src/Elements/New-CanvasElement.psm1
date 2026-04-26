@@ -11,14 +11,14 @@ function New-HtmlCanvasElement: NewElementCommand("canvas", isVoid: false) {
 	.SYNOPSIS
 		The height of the coordinate space in CSS pixels.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName), ValidateRange(ValidateRangeKind.NonNegative)]
+	[ValidateRange(ValidateRangeKind.NonNegative)]
 	int Height = -1;
 
 	<#
 	.SYNOPSIS
 		The width of the coordinate space in CSS pixels.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName), ValidateRange(ValidateRangeKind.NonNegative)]
+	[ValidateRange(ValidateRangeKind.NonNegative)]
 	int Width = -1;
 
 	<#

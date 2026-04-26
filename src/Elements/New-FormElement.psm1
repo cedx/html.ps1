@@ -12,14 +12,12 @@ function New-HtmlFormElement: NewElementCommand("form", isVoid: false) {
 	.SYNOPSIS
 		The URL that processes the form submission.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	Uri? Action
 
 	<#
 	.SYNOPSIS
 		Value indicating whether input elements can by default have their values automatically completed by the browser.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 		[ValidateSet("off", "on")]
 	[string] $AutoComplete
 
@@ -27,7 +25,6 @@ function New-HtmlFormElement: NewElementCommand("form", isVoid: false) {
 	.SYNOPSIS
 		The media type of the form submission.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 		[ValidateSet(MediaTypeNames.Application.FormUrlEncoded, MediaTypeNames.Multipart.FormData, MediaTypeNames.Text.Plain)]
 	[string] $Enctype
 
@@ -35,7 +32,6 @@ function New-HtmlFormElement: NewElementCommand("form", isVoid: false) {
 	.SYNOPSIS
 		The HTTP method to submit the form with.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 		[ValidateSet("dialog", "get", "post")]
 	[string] $Method
 
@@ -43,28 +39,24 @@ function New-HtmlFormElement: NewElementCommand("form", isVoid: false) {
 	.SYNOPSIS
 		The name of the form.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Name
 
 	<#
 	.SYNOPSIS
 		Value indicating whether the form shouldn't be validated when submitted.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $NoValidate
 
 	<#
 	.SYNOPSIS
 		The annotations and what kinds of links the form creates.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string[]] $Rel = @(),
 
 	<#
 	.SYNOPSIS
 		The browsing context to show the response after submitting the form.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Target
 
 	<#

@@ -11,14 +11,12 @@ function New-HtmlDetailsElement: NewElementCommand("details", isVoid: false) {
 	.SYNOPSIS
 		The group name allowing multiple `details` elements to be connected, with only one open at a time.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Name
 
 	<#
 	.SYNOPSIS
 		Value indicating whether the details are currently visible.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $Open
 
 	<#

@@ -11,7 +11,6 @@ function New-HtmlStyleElement: NewElementCommand("style", isVoid: false) {
 	.SYNOPSIS
 		Defines which media the style should be applied to.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Media
 
 	<#

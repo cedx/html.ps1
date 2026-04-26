@@ -11,14 +11,12 @@ function New-HtmlTrackElement: NewElementCommand("track", isVoid: true) {
 	.SYNOPSIS
 		Value indicating whether the track should be enabled unless the user's preferences indicate that another track is more appropriate.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $Default
 
 	<#
 	.SYNOPSIS
 		Value indicating how the text track is meant to be used.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 		[ValidateSet("captions", "chapters", "descriptions", "metadata", "subtitles")]
 	[string] $Kind
 
@@ -26,21 +24,19 @@ function New-HtmlTrackElement: NewElementCommand("track", isVoid: true) {
 	.SYNOPSIS
 		A user-readable title of the text track which is used by the browser when listing available text tracks.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[string] $Label
 
 	<#
 	.SYNOPSIS
 		The address of the track (`.vtt` file).
 	#>
-	[Parameter(Mandatory, ValueFromPipelineByPropertyName)]
+	[Parameter(Mandatory)]
 	required Uri Src
 
 	<#
 	.SYNOPSIS
 		The language of the track text data.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[cultureinfo] $SrcLang
 
 	<#

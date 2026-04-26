@@ -11,14 +11,12 @@ function New-HtmlOptgroupElement: NewElementCommand("optgroup", isVoid: false) {
 	.SYNOPSIS
 		Value indicating whether none of the items in the option group is selectable.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	[switch] $Disabled
 
 	<#
 	.SYNOPSIS
 		The name of the group of options.
 	#>
-	[Parameter(ValueFromPipelineByPropertyName)]
 	required string Label
 
 	<#
