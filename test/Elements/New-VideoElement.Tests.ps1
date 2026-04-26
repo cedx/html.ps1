@@ -23,6 +23,6 @@ Describe "New-VideoElement" {
 	}
 
 	It 'should support the "height" and "width" attributes' {
-		video -width 460 -height 200 | Should -BeIn '<video width="460" height="200"></video>', '<video height="200" width="460"></video>'
+		video -Width 460 -Height 200 | Should -BeIn '<video width="460" height="200"></video>', '<video height="200" width="460"></video>'
 	}
 }

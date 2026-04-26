@@ -8,6 +8,6 @@ Describe "New-MapElement" {
 	}
 
 	It 'should support the "name" attribute' {
-		map -name MyMap | Should -BeExactly '<map name="MyMap"></map>'
+		map -Name MyMap | Should -BeExactly '<map name="MyMap"></map>'
 	}
 }

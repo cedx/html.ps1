@@ -22,52 +22,52 @@ Describe "Write-Element" {
 	}
 
 	It 'should handle the "class" attribute' {
-		body -class btn, btn-danger | Should -BeExactly '<body class="btn btn-danger"></body>'
-		body -class "btn btn-info", btn-sm | Should -BeExactly '<body class="btn btn-info btn-sm"></body>'
+		body -Class btn, btn-danger | Should -BeExactly '<body class="btn btn-danger"></body>'
+		body -Class "btn btn-info", btn-sm | Should -BeExactly '<body class="btn btn-info btn-sm"></body>'
 	}
 
 	It 'should support the "dir" attribute' -ForEach auto, ltr, rtl {
-		html -dir $_ | Should -BeExactly "<html dir=""$_""></html>"
+		html -Dir $_ | Should -BeExactly "<html dir=""$_""></html>"
 	}
 
 	It 'should handle the "id" attribute' {
-		article -id foo | Should -BeExactly '<article id="foo"></article>'
+		article -Id foo | Should -BeExactly '<article id="foo"></article>'
 	}
 
 	It 'should support the "lang" attribute' -ForEach "fr-FR", "en-US" {
-		html -lang $_ | Should -BeExactly "<html lang=""$_""></html>"
+		html -Lang $_ | Should -BeExactly "<html lang=""$_""></html>"
 	}
 
 	It 'should handle the "style" attribute' {
 		$expected = '<code style="font-family: &quot;Segoe UI&quot;; font-size: 1rem"></code>'
-		code -style ([ordered]@{ FontFamily = '"Segoe UI"'; FontSize = "1rem" }) | Should -BeExactly $expected
+		code -Style ([ordered]@{ FontFamily = '"Segoe UI"'; FontSize = "1rem" }) | Should -BeExactly $expected
 	}
 
 	It 'should handle the "tabindex" attribute' -ForEach -1, 0 {
-		div -tabindex $_ | Should -BeExactly "<div tabindex=""$_""></div>"
+		div -TabIndex $_ | Should -BeExactly "<div tabindex=""$_""></div>"
 	}
 
 	It 'should handle the "title" attribute' -ForEach "", 'A "custom" label.' {
-		div -title $_ | Should -BeExactly ($_ ? '<div title="A &quot;custom&quot; label."></div>' : "<div></div>")
+		div -Title $_ | Should -BeExactly ($_ ? '<div title="A &quot;custom&quot; label."></div>' : "<div></div>")
 	}
 
 	It "should handle custom attributes" {
 		$expected = '<input data-foo="&quot;bar&quot;" required>', '<input required data-foo="&quot;bar&quot;">'
-		input -attributes @{ "data-foo" = '"bar"'; disabled = $false; required = $true } | Should -BeIn $expected
+		input -Attributes @{ "data-foo" = '"bar"'; disabled = $false; required = $true } | Should -BeIn $expected
 	}
 
 	It "should handle data attributes" {
 		$expected = '<button data-bs-toggle="tooltip" data-push-url></button>', '<button data-push-url data-bs-toggle="tooltip"></button>'
-		button -dataset @{ BsToggle = "tooltip"; PushUrl = $true } | Should -BeIn $expected
+		button -Data @{ BsToggle = "tooltip"; PushUrl = $true } | Should -BeIn $expected
 	}
 
 	It "should handle event handler attributes" {
 		$expected = '<button onclick="submit(event)" oncontextmenu="showMenu()"></button>', '<button oncontextmenu="showMenu()" onclick="submit(event)"></button>'
-		button -on @{ Click = "submit(event)"; ContextMenu = "showMenu()" } | Should -BeIn $expected
+		button -On @{ Click = "submit(event)"; ContextMenu = "showMenu()" } | Should -BeIn $expected
 	}
 
 	It "should handle switch parameters in attribute values" {
-		input -attributes @{ disabled = [switch] $false; required = [switch] $true } | Should -BeExactly "<input required>"
+		input -Attributes @{ disabled = [switch] $false; required = [switch] $true } | Should -BeExactly "<input required>"
 	}
 
 	It "should handle the inner content" {
@@ -75,6 +75,6 @@ Describe "Write-Element" {
 		main { div { "Foo &gt; Bar"; " "; span "Baz &lt; Qux" } } | Should -BeExactly $expected
 
 		$expected = '<head><meta charset="utf-8"></head>'
-		head { meta -charset utf-8 } | Should -BeExactly $expected
+		head { meta -Charset utf-8 } | Should -BeExactly $expected
 	}
 }

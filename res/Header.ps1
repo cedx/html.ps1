@@ -1,15 +1,15 @@
 param ([hashtable] $data)
 
 header {
-	nav -class navbar, navbar-expand-xl {
-		div -class container-fluid {
-			button -class navbar-toggler -dataset @{ BsTarget = "#menu"; BsToggle = "offcanvas" } {
-				span -class navbar-toggler-icon
+	nav -Class navbar, navbar-expand-xl {
+		div -Class container-fluid {
+			button -Class navbar-toggler -Data @{ BsTarget = "#menu"; BsToggle = "offcanvas" } {
+				span -Class navbar-toggler-icon
 			}
 
-			div -class navbar-brand, d-flex, align-items-center {
-				a -href Index.html { img -alt "" -src Favicon.ico -width 30 -height 30 }
-				div -class ms-2 $data.AppName
+			div -Class navbar-brand, d-flex, align-items-center {
+				a -Href Index.html { img -Alt "" -Src Favicon.ico -Width 30 -Height 30 }
+				div -Class ms-2 $data.AppName
 			}
 		}
 	}

@@ -24,7 +24,7 @@ Describe "New-FormElement" {
 	}
 
 	It "should allow inner content" {
-		form (button OK -type submit) | Should -BeExactly '<form><button type="submit">OK</button></form>'
-		form (input -name UserName) | Should -BeExactly '<form><input name="UserName"></form>'
+		form (button OK -Type submit) | Should -BeExactly '<form><button type="submit">OK</button></form>'
+		form (input -Name UserName) | Should -BeExactly '<form><input name="UserName"></form>'
 	}
 }

@@ -63,6 +63,6 @@ Describe "New-InputElement" {
 		@{ Type = "submit"; Value = "OK" }
 	) {
 		$expected = "<input type=""$type"" value=""$value"">", "<input value=""$value"" type=""$type"">"
-		input -type $type -value $value | Should -BeIn $expected
+		input -Type $type -value $value | Should -BeIn $expected
 	}
 }

@@ -8,6 +8,6 @@ Describe "New-SlotElement" {
 	}
 
 	It 'should support the "name" attribute' {
-		slot -name MyMap | Should -BeExactly '<slot name="MyMap"></slot>'
+		slot -Name MyMap | Should -BeExactly '<slot name="MyMap"></slot>'
 	}
 }

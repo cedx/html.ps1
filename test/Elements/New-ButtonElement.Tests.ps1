@@ -21,6 +21,6 @@ Describe "New-ButtonElement" {
 	}
 
 	It 'should support the "type" attribute' -ForEach button, reset, submit {
-		button -type $_ | Should -BeExactly "<button type=""$_""></button>"
+		button -Type $_ | Should -BeExactly "<button type=""$_""></button>"
 	}
 }

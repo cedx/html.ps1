@@ -25,6 +25,6 @@ Describe "New-TemplateElement" {
 
 	It "should allow inner content" {
 		template (b "Hello World!") | Should -BeExactly "<template><b>Hello World!</b></template>"
-		template (button OK -type submit) | Should -BeExactly '<template><button type="submit">OK</button></template>'
+		template (button OK -Type submit) | Should -BeExactly '<template><button type="submit">OK</button></template>'
 	}
 }

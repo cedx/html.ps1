@@ -8,7 +8,7 @@ Describe "New-AreaElement" {
 	}
 
 	It 'should support the "shape" and "coords" attributes' {
-		$area = area -href Index.html -shape circle -coords 100, 200, 64.7
+		$area = area -Href Index.html -shape circle -coords 100, 200, 64.7
 		$area | Should -BeLikeExactly "<area *"
 		$area | Should -BeLikeExactly '* href="Index.html"*'
 		$area | Should -BeLikeExactly '* shape="circle"*'
