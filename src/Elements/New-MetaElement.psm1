@@ -46,15 +46,15 @@ function New-HtmlMetaElement: NewElementCommand("meta", isVoid: true) {
 
 		switch (ParameterSetName) {
 			case nameof(Charset):
-				attributes["charset"] = Charset;
+				$attributesToRender.charset"] = Charset;
 				break;
 			case nameof(HttpEquiv):
-				attributes["http-equiv"] = HttpEquiv;
-				attributes["content"] = Content;
+				$attributesToRender.http-equiv"] = HttpEquiv;
+				$attributesToRender.content"] = Content;
 				break;
 			case nameof(Name):
-				attributes["name"] = Name;
-				attributes["content"] = Content;
+				$attributesToRender.name"] = Name;
+				$attributesToRender.content"] = Content;
 				break;
 		}
 	}

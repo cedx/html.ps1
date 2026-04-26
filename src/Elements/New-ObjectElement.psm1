@@ -54,11 +54,11 @@ function New-HtmlObjectElement: NewElementCommand("object", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		attributes["data"] = Data.ToString();
-		attributes["type"] = Type;
-		if (-not [string]::IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
-		if (Height >= 0) attributes["height"] = Height
-		if (-not [string]::IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
-		if (Width >= 0) attributes["width"] = Width
+		$attributesToRender.data"] = Data.ToString();
+		$attributesToRender.type"] = Type;
+		if ($Form) { $attributesToRender.form"] = Form;
+		if (Height >= 0) $attributesToRender.height"] = Height
+		if ($Name) { $attributesToRender.name"] = Name;
+		if (Width >= 0) $attributesToRender.width"] = Width
 	}
 }

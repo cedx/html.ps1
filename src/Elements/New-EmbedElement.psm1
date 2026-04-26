@@ -42,9 +42,9 @@ function New-HtmlEmbedElement: NewElementCommand("embed", isVoid: true) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		attributes["src"] = Src.ToString();
-		attributes["type"] = Type;
-		if (Height >= 0) attributes["height"] = Height
-		if (Width >= 0) attributes["width"] = Width
+		$attributesToRender.src"] = Src.ToString();
+		$attributesToRender.type"] = Type;
+		if (Height >= 0) $attributesToRender.height"] = Height
+		if (Width >= 0) $attributesToRender.width"] = Width
 	}
 }

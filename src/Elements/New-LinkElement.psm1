@@ -65,13 +65,13 @@ function New-HtmlLinkElement: NewElementCommand("link", isVoid: true) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		attributes["rel"] = string.Join(' ', Rel).Trim();
-		attributes["href"] = Href.ToString();
-		if (-not [string]::IsNullOrWhiteSpace(As)) attributes["as"] = As;
-		if (CrossOrigin is not null) attributes["crossorigin"] = CrossOrigin;
-		if (-not [string]::IsNullOrWhiteSpace(Integrity)) attributes["integrity"] = Integrity;
-		if (-not [string]::IsNullOrWhiteSpace(Media)) attributes["media"] = Media;
-		if (Sizes.Length > 0) attributes["sizes"] = string.Join(' ', Sizes).Trim();
-		if (-not [string]::IsNullOrWhiteSpace(Type)) attributes["type"] = Type;
+		$attributesToRender.rel"] = string.Join(' ', Rel).Trim();
+		$attributesToRender.href"] = Href.ToString();
+		if ($As) { $attributesToRender.as"] = As;
+		if (CrossOrigin is not null) $attributesToRender.crossorigin"] = CrossOrigin;
+		if ($Integrity) { $attributesToRender.integrity"] = Integrity;
+		if ($Media) { $attributesToRender.media"] = Media;
+		if (Sizes.Length > 0) $attributesToRender.sizes"] = string.Join(' ', Sizes).Trim();
+		if ($Type) { $attributesToRender.type"] = Type;
 	}
 }

@@ -39,9 +39,9 @@ function New-HtmlTemplateElement: NewElementCommand("template", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (ShadowRootMode is not null) attributes["shadowrootmode"] = ShadowRootMode;
-		if (ShadowRootClonable) attributes["shadowrootclonable"] = true;
-		if (ShadowRootDelegatesFocus) attributes["shadowrootdelegatesfocus"] = true;
-		if (ShadowRootSerializable) attributes["shadowrootserializable"] = true;
+		if (ShadowRootMode is not null) $attributesToRender.shadowrootmode"] = ShadowRootMode;
+		if (ShadowRootClonable) $attributesToRender.shadowrootclonable"] = true;
+		if (ShadowRootDelegatesFocus) $attributesToRender.shadowrootdelegatesfocus"] = true;
+		if (ShadowRootSerializable) $attributesToRender.shadowrootserializable"] = true;
 	}
 }

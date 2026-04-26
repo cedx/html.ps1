@@ -32,8 +32,8 @@ function New-HtmlFieldsetElement: NewElementCommand("fieldset", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (Disabled) attributes["disabled"] = true;
-		if (-not [string]::IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
-		if (-not [string]::IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
+		if (Disabled) $attributesToRender.disabled"] = true;
+		if ($Form) { $attributesToRender.form"] = Form;
+		if ($Name) { $attributesToRender.name"] = Name;
 	}
 }

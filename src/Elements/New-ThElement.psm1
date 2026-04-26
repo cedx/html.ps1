@@ -47,10 +47,10 @@ function New-HtmlThElement: NewElementCommand("th", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (-not [string]::IsNullOrWhiteSpace(Abbr)) attributes["abbr"] = Abbr;
-		if (ColSpan >= 0) attributes["colspan"] = ColSpan
-		if (Headers.Length > 0) attributes["headers"] = string.Join(' ', Headers).Trim();
-		if (RowSpan >= 0) attributes["rowspan"] = RowSpan
-		if (Scope is not null) attributes["scope"] = Scope;
+		if ($Abbr) { $attributesToRender.abbr"] = Abbr;
+		if (ColSpan >= 0) $attributesToRender.colspan"] = ColSpan
+		if (Headers.Length > 0) $attributesToRender.headers"] = string.Join(' ', Headers).Trim();
+		if (RowSpan >= 0) $attributesToRender.rowspan"] = RowSpan
+		if (Scope is not null) $attributesToRender.scope"] = Scope;
 	}
 }

@@ -20,6 +20,6 @@ function New-HtmlQElement: NewElementCommand("q", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (Cite is not null) attributes["cite"] = Cite.ToString();
+		if (Cite is not null) $attributesToRender.cite"] = Cite.ToString();
 	}
 }

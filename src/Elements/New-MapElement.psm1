@@ -20,6 +20,6 @@ function New-HtmlMapElement: NewElementCommand("map", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (-not [string]::IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
+		if ($Name) { $attributesToRender.name"] = Name;
 	}
 }

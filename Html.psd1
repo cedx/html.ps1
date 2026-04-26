@@ -15,6 +15,7 @@
 	AliasesToExport = @(
 		"doctype"
 		"a"
+		"area"
 		"tag"
 	)
 
@@ -22,10 +23,12 @@
 		"New-HtmlAElement"
 		"New-HtmlDocumentType"
 		"New-HtmlCustomElement"
+		"New-HtmlAreaElement"
 	)
 
 	NestedModules = @(
 		"src/Elements/New-AElement.psm1"
+		"src/Elements/New-AreaElement.psm1"
 		"src/New-DocumentType.psm1"
 		"src/New-CustomElement.psm1"
 	)

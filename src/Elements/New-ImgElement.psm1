@@ -73,14 +73,14 @@ function New-HtmlImgElement: NewElementCommand("img", isVoid: true) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		attributes["src"] = Src.ToString();
-		if (Alt is not null) attributes["alt"] = Alt;
-		if (Height >= 0) attributes["height"] = Height
-		if (IsMap) attributes["ismap"] = true;
-		if (Loading is not null) attributes["loading"] = Loading;
-		if (Sizes.Length > 0) attributes["sizes"] = string.Join(", ", Sizes);
-		if (SrcSet.Length > 0) attributes["srcset"] = string.Join(", ", SrcSet);
-		if (-not [string]::IsNullOrWhiteSpace(UseMap)) attributes["usemap"] = UseMap.StartsWith('#') ? UseMap : $"#{UseMap}";
-		if (Width >= 0) attributes["width"] = Width
+		$attributesToRender.src"] = Src.ToString();
+		if (Alt is not null) $attributesToRender.alt"] = Alt;
+		if (Height >= 0) $attributesToRender.height"] = Height
+		if (IsMap) $attributesToRender.ismap"] = true;
+		if (Loading is not null) $attributesToRender.loading"] = Loading;
+		if (Sizes.Length > 0) $attributesToRender.sizes"] = string.Join(", ", Sizes);
+		if (SrcSet.Length > 0) $attributesToRender.srcset"] = string.Join(", ", SrcSet);
+		if ($UseMap) { $attributesToRender.usemap"] = UseMap.StartsWith('#') ? UseMap : $"#{UseMap}";
+		if (Width >= 0) $attributesToRender.width"] = Width
 	}
 }

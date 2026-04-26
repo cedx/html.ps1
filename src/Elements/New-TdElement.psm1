@@ -34,8 +34,8 @@ function New-HtmlTdElement: NewElementCommand("td", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (ColSpan >= 0) attributes["colspan"] = ColSpan
-		if (Headers.Length > 0) attributes["headers"] = string.Join(' ', Headers).Trim();
-		if (RowSpan >= 0) attributes["rowspan"] = RowSpan
+		if (ColSpan >= 0) $attributesToRender.colspan"] = ColSpan
+		if (Headers.Length > 0) $attributesToRender.headers"] = string.Join(' ', Headers).Trim();
+		if (RowSpan >= 0) $attributesToRender.rowspan"] = RowSpan
 	}
 }

@@ -21,6 +21,6 @@ function New-HtmlColgroupElement: NewElementCommand("colgroup", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (Span > 0) attributes["span"] = Span
+		if (Span > 0) $attributesToRender.span"] = Span
 	}
 }

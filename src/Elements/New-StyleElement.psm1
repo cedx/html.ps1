@@ -20,6 +20,6 @@ function New-HtmlStyleElement: NewElementCommand("style", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (-not [string]::IsNullOrWhiteSpace(Media)) attributes["media"] = Media;
+		if ($Media) { $attributesToRender.media"] = Media;
 	}
 }

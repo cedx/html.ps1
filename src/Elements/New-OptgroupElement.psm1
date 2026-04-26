@@ -26,7 +26,7 @@ function New-HtmlOptgroupElement: NewElementCommand("optgroup", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		attributes["label"] = Label;
-		if (Disabled) attributes["disabled"] = true;
+		$attributesToRender.label"] = Label;
+		if (Disabled) $attributesToRender.disabled"] = true;
 	}
 }

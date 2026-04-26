@@ -51,11 +51,11 @@ function New-HtmlScriptElement: NewElementCommand("script", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (Src is not null) attributes["src"] = Src.ToString();
-		if (Async) attributes["async"] = true;
-		if (CrossOrigin is not null) attributes["crossorigin"] = CrossOrigin;
-		if (Defer) attributes["defer"] = true;
-		if (-not [string]::IsNullOrWhiteSpace(Integrity)) attributes["integrity"] = Integrity;
-		if (-not [string]::IsNullOrWhiteSpace(Type)) attributes["type"] = Type;
+		if (Src is not null) $attributesToRender.src"] = Src.ToString();
+		if (Async) $attributesToRender.async"] = true;
+		if (CrossOrigin is not null) $attributesToRender.crossorigin"] = CrossOrigin;
+		if (Defer) $attributesToRender.defer"] = true;
+		if ($Integrity) { $attributesToRender.integrity"] = Integrity;
+		if ($Type) { $attributesToRender.type"] = Type;
 	}
 }

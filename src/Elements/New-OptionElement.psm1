@@ -38,9 +38,9 @@ function New-HtmlOptionElement: NewElementCommand("option", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (Disabled) attributes["disabled"] = true;
-		if (-not [string]::IsNullOrWhiteSpace(Label)) attributes["label"] = Label;
-		if (Selected) attributes["selected"] = true;
-		if (Value is not null) attributes["value"] = Value;
+		if (Disabled) $attributesToRender.disabled"] = true;
+		if ($Label) { $attributesToRender.label"] = Label;
+		if (Selected) $attributesToRender.selected"] = true;
+		if (Value is not null) $attributesToRender.value"] = Value;
 	}
 }

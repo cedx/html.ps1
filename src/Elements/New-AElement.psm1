@@ -13,6 +13,10 @@ function New-HtmlAElement {
 	[CmdletBinding()]
 	[OutputType([string])]
 	param (
+		# The URL that the hyperlink points to.
+		[Parameter(Mandatory)]
+		[uri] $Href,
+
 		# The inner HTML of the element.
 		[Parameter(Position = 0, ValueFromPipeline)]
 		[object] $Content,
@@ -22,10 +26,6 @@ function New-HtmlAElement {
 
 		# The suggested filename when the browser treats the linked URL as a download.
 		[string] $Download,
-
-		# The URL that the hyperlink points to.
-		[Parameter(Mandatory)]
-		[uri] $Href,
 
 		# A list of URLs. When the link is followed, the browser will send `POST` requests with the body `PING` to the URLs.
 		[uri[]] $Ping = @(),

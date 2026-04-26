@@ -96,18 +96,18 @@ function New-HtmlVideoElement: NewElementCommand("video", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (AutoPlay) attributes["autoplay"] = true;
-		if (Controls) attributes["controls"] = true;
-		if (CrossOrigin is not null) attributes["crossorigin"] = CrossOrigin;
-		if (DisablePictureInPicture) attributes["disablepictureinpicture"] = true;
-		if (DisableRemotePlayback) attributes["disableremoteplayback"] = true;
-		if (Height >= 0) attributes["height"] = Height
-		if (Loop) attributes["loop"] = true;
-		if (Muted) attributes["muted"] = true;
-		if (PlaysInline) attributes["playsinline"] = true;
-		if (Poster is not null) attributes["poster"] = Poster.ToString();
-		if (Preload is not null) attributes["preload"] = Preload;
-		if (Src is not null) attributes["src"] = Src.ToString();
-		if (Width >= 0) attributes["width"] = Width
+		if (AutoPlay) $attributesToRender.autoplay"] = true;
+		if (Controls) $attributesToRender.controls"] = true;
+		if (CrossOrigin is not null) $attributesToRender.crossorigin"] = CrossOrigin;
+		if (DisablePictureInPicture) $attributesToRender.disablepictureinpicture"] = true;
+		if (DisableRemotePlayback) $attributesToRender.disableremoteplayback"] = true;
+		if (Height >= 0) $attributesToRender.height"] = Height
+		if (Loop) $attributesToRender.loop"] = true;
+		if (Muted) $attributesToRender.muted"] = true;
+		if (PlaysInline) $attributesToRender.playsinline"] = true;
+		if (Poster is not null) $attributesToRender.poster"] = Poster.ToString();
+		if (Preload is not null) $attributesToRender.preload"] = Preload;
+		if (Src is not null) $attributesToRender.src"] = Src.ToString();
+		if (Width >= 0) $attributesToRender.width"] = Width
 	}
 }

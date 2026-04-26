@@ -66,13 +66,13 @@ function New-HtmlFormElement: NewElementCommand("form", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (Action is not null) attributes["action"] = Action.ToString();
-		if (AutoComplete is not null) attributes["autocomplete"] = AutoComplete;
-		if (Enctype is not null) attributes["enctype"] = Enctype;
-		if (Method is not null) attributes["method"] = Method;
-		if (-not [string]::IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
-		if (NoValidate) attributes["novalidate"] = true;
-		if (Rel.Length > 0) attributes["rel"] = string.Join(' ', Rel).Trim();
-		if (-not [string]::IsNullOrWhiteSpace(Target)) attributes["target"] = Target;
+		if (Action is not null) $attributesToRender.action"] = Action.ToString();
+		if (AutoComplete is not null) $attributesToRender.autocomplete"] = AutoComplete;
+		if (Enctype is not null) $attributesToRender.enctype"] = Enctype;
+		if (Method is not null) $attributesToRender.method"] = Method;
+		if ($Name) { $attributesToRender.name"] = Name;
+		if (NoValidate) $attributesToRender.novalidate"] = true;
+		if (Rel.Length > 0) $attributesToRender.rel"] = string.Join(' ', Rel).Trim();
+		if ($Target) { $attributesToRender.target"] = Target;
 	}
 }

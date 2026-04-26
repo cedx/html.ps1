@@ -20,6 +20,6 @@ function New-HtmlLabelElement: NewElementCommand("label", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (-not [string]::IsNullOrWhiteSpace(For)) attributes["for"] = For;
+		if ($For) { $attributesToRender.for"] = For;
 	}
 }

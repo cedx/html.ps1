@@ -33,8 +33,8 @@ function New-HtmlOlElement: NewElementCommand("ol", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (Reversed) attributes["reversed"] = true;
-		if (Start is not null) attributes["start"] = Start.Value
-		if (Type is not null) attributes["type"] = Type;
+		if (Reversed) $attributesToRender.reversed"] = true;
+		if (Start is not null) $attributesToRender.start"] = Start.Value
+		if (Type is not null) $attributesToRender.type"] = Type;
 	}
 }

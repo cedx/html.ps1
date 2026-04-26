@@ -21,6 +21,6 @@ function New-HtmlDataElement: NewElementCommand("data", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		attributes["value"] = Value;
+		$attributesToRender.value"] = Value;
 	}
 }

@@ -103,19 +103,19 @@ function New-HtmlButtonElement: NewElementCommand("button", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (-not [string]::IsNullOrWhiteSpace(Command)) attributes["command"] = Command;
-		if (-not [string]::IsNullOrWhiteSpace(CommandFor)) attributes["commandfor"] = CommandFor;
-		if (Disabled) attributes["disabled"] = true;
-		if (-not [string]::IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
-		if (FormAction is not null) attributes["formaction"] = FormAction.ToString();
-		if (FormEnctype is not null) attributes["formenctype"] = FormEnctype;
-		if (FormMethod is not null) attributes["formmethod"] = FormMethod;
-		if (FormNoValidate) attributes["formnovalidate"] = true;
-		if (-not [string]::IsNullOrWhiteSpace(FormTarget)) attributes["formtarget"] = FormTarget;
-		if (-not [string]::IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
-		if (-not [string]::IsNullOrWhiteSpace(PopoverTarget)) attributes["popovertarget"] = PopoverTarget;
-		if (PopoverTargetAction is not null) attributes["popovertargetaction"] = PopoverTargetAction;
-		if (Type is not null) attributes["type"] = Type;
-		if (Value is not null) attributes["value"] = Value;
+		if ($Command) { $attributesToRender.command"] = Command;
+		if ($CommandFor) { $attributesToRender.commandfor"] = CommandFor;
+		if (Disabled) $attributesToRender.disabled"] = true;
+		if ($Form) { $attributesToRender.form"] = Form;
+		if (FormAction is not null) $attributesToRender.formaction"] = FormAction.ToString();
+		if (FormEnctype is not null) $attributesToRender.formenctype"] = FormEnctype;
+		if (FormMethod is not null) $attributesToRender.formmethod"] = FormMethod;
+		if (FormNoValidate) $attributesToRender.formnovalidate"] = true;
+		if ($FormTarget) { $attributesToRender.formtarget"] = FormTarget;
+		if ($Name) { $attributesToRender.name"] = Name;
+		if ($PopoverTarget) { $attributesToRender.popovertarget"] = PopoverTarget;
+		if (PopoverTargetAction is not null) $attributesToRender.popovertargetaction"] = PopoverTargetAction;
+		if (Type is not null) $attributesToRender.type"] = Type;
+		if (Value is not null) $attributesToRender.value"] = Value;
 	}
 }

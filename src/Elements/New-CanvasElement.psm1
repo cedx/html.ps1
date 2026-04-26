@@ -28,7 +28,7 @@ function New-HtmlCanvasElement: NewElementCommand("canvas", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (Height >= 0) attributes["height"] = Height
-		if (Width >= 0) attributes["width"] = Width
+		if (Height >= 0) $attributesToRender.height"] = Height
+		if (Width >= 0) $attributesToRender.width"] = Width
 	}
 }

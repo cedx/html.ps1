@@ -64,13 +64,13 @@ function New-HtmlAudioElement: NewElementCommand("audio", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (AutoPlay) attributes["autoplay"] = true;
-		if (Controls) attributes["controls"] = true;
-		if (CrossOrigin is not null) attributes["crossorigin"] = CrossOrigin;
-		if (DisableRemotePlayback) attributes["disableremoteplayback"] = true;
-		if (Loop) attributes["loop"] = true;
-		if (Muted) attributes["muted"] = true;
-		if (Preload is not null) attributes["preload"] = Preload;
-		if (Src is not null) attributes["src"] = Src.ToString();
+		if (AutoPlay) $attributesToRender.autoplay"] = true;
+		if (Controls) $attributesToRender.controls"] = true;
+		if (CrossOrigin is not null) $attributesToRender.crossorigin"] = CrossOrigin;
+		if (DisableRemotePlayback) $attributesToRender.disableremoteplayback"] = true;
+		if (Loop) $attributesToRender.loop"] = true;
+		if (Muted) $attributesToRender.muted"] = true;
+		if (Preload is not null) $attributesToRender.preload"] = Preload;
+		if (Src is not null) $attributesToRender.src"] = Src.ToString();
 	}
 }

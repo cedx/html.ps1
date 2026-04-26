@@ -241,37 +241,37 @@ function New-HtmlInputElement: NewElementCommand("input", isVoid: true) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (-not [string]::IsNullOrWhiteSpace(Accept)) attributes["accept"] = Accept;
-		if (Alt is not null) attributes["alt"] = Alt;
-		if (AutoComplete.Length > 0) attributes["autocomplete"] = string.Join(' ', AutoComplete).Trim();
-		if (Capture is not null) attributes["capture"] = Capture;
-		if (Checked) attributes["checked"] = true;
-		if (-not [string]::IsNullOrWhiteSpace(DirName)) attributes["dirname"] = DirName;
-		if (Disabled) attributes["disabled"] = true;
-		if (-not [string]::IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
-		if (FormAction is not null) attributes["formaction"] = FormAction.ToString();
-		if (FormEnctype is not null) attributes["formenctype"] = FormEnctype;
-		if (FormMethod is not null) attributes["formmethod"] = FormMethod;
-		if (FormNoValidate) attributes["formnovalidate"] = true;
-		if (-not [string]::IsNullOrWhiteSpace(FormTarget)) attributes["formtarget"] = FormTarget;
-		if (Height >= 0) attributes["height"] = Height
-		if (-not [string]::IsNullOrWhiteSpace(List)) attributes["list"] = List;
-		if (-not [string]::IsNullOrWhiteSpace(Max)) attributes["max"] = Max;
-		if (MaxLength >= 0) attributes["maxlength"] = MaxLength
-		if (-not [string]::IsNullOrWhiteSpace(Min)) attributes["min"] = Min;
-		if (MinLength >= 0) attributes["minlength"] = MinLength
-		if (Multiple) attributes["multiple"] = true;
-		if (-not [string]::IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
-		if (Pattern is not null) attributes["pattern"] = Pattern.ToString().Replace(@"\", @"\\");
-		if (-not [string]::IsNullOrWhiteSpace(Placeholder)) attributes["placeholder"] = Placeholder;
-		if (-not [string]::IsNullOrWhiteSpace(PopoverTarget)) attributes["popovertarget"] = PopoverTarget;
-		if (PopoverTargetAction is not null) attributes["popovertargetaction"] = PopoverTargetAction;
-		if (ReadOnly) attributes["readonly"] = true;
-		if (Required) attributes["required"] = true;
-		if (Size > 0) attributes["size"] = Size
-		if (-not [string]::IsNullOrWhiteSpace(Step)) attributes["step"] = Step;
-		if (Type is not null) attributes["type"] = Type;
-		if (Value is not null) attributes["value"] = Value;
-		if (Width >= 0) attributes["width"] = Width
+		if ($Accept) { $attributesToRender.accept"] = Accept;
+		if (Alt is not null) $attributesToRender.alt"] = Alt;
+		if (AutoComplete.Length > 0) $attributesToRender.autocomplete"] = string.Join(' ', AutoComplete).Trim();
+		if (Capture is not null) $attributesToRender.capture"] = Capture;
+		if (Checked) $attributesToRender.checked"] = true;
+		if ($DirName) { $attributesToRender.dirname"] = DirName;
+		if (Disabled) $attributesToRender.disabled"] = true;
+		if ($Form) { $attributesToRender.form"] = Form;
+		if (FormAction is not null) $attributesToRender.formaction"] = FormAction.ToString();
+		if (FormEnctype is not null) $attributesToRender.formenctype"] = FormEnctype;
+		if (FormMethod is not null) $attributesToRender.formmethod"] = FormMethod;
+		if (FormNoValidate) $attributesToRender.formnovalidate"] = true;
+		if ($FormTarget) { $attributesToRender.formtarget"] = FormTarget;
+		if (Height >= 0) $attributesToRender.height"] = Height
+		if ($List) { $attributesToRender.list"] = List;
+		if ($Max) { $attributesToRender.max"] = Max;
+		if (MaxLength >= 0) $attributesToRender.maxlength"] = MaxLength
+		if ($Min) { $attributesToRender.min"] = Min;
+		if (MinLength >= 0) $attributesToRender.minlength"] = MinLength
+		if (Multiple) $attributesToRender.multiple"] = true;
+		if ($Name) { $attributesToRender.name"] = Name;
+		if (Pattern is not null) $attributesToRender.pattern"] = Pattern.ToString().Replace(@"\", @"\\");
+		if ($Placeholder) { $attributesToRender.placeholder"] = Placeholder;
+		if ($PopoverTarget) { $attributesToRender.popovertarget"] = PopoverTarget;
+		if (PopoverTargetAction is not null) $attributesToRender.popovertargetaction"] = PopoverTargetAction;
+		if (ReadOnly) $attributesToRender.readonly"] = true;
+		if (Required) $attributesToRender.required"] = true;
+		if (Size > 0) $attributesToRender.size"] = Size
+		if ($Step) { $attributesToRender.step"] = Step;
+		if (Type is not null) $attributesToRender.type"] = Type;
+		if (Value is not null) $attributesToRender.value"] = Value;
+		if (Width >= 0) $attributesToRender.width"] = Width
 	}
 }

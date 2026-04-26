@@ -104,19 +104,19 @@ function New-HtmlTextareaElement: NewElementCommand("textarea", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (AutoComplete.Length > 0) attributes["autocomplete"] = string.Join(' ', AutoComplete).Trim();
-		if (AutoCorrect is not null) attributes["autocorrect"] = AutoCorrect;
-		if (Cols > 0) attributes["cols"] = Cols
-		if (-not [string]::IsNullOrWhiteSpace(DirName)) attributes["dirname"] = DirName;
-		if (Disabled) attributes["disabled"] = true;
-		if (-not [string]::IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
-		if (MaxLength >= 0) attributes["maxlength"] = MaxLength
-		if (MinLength >= 0) attributes["minlength"] = MinLength
-		if (-not [string]::IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
-		if (-not [string]::IsNullOrWhiteSpace(Placeholder)) attributes["placeholder"] = Placeholder;
-		if (ReadOnly) attributes["readonly"] = true;
-		if (Required) attributes["required"] = true;
-		if (Rows > 0) attributes["rows"] = Rows
-		if (Wrap is not null) attributes["wrap"] = Wrap;
+		if (AutoComplete.Length > 0) $attributesToRender.autocomplete"] = string.Join(' ', AutoComplete).Trim();
+		if (AutoCorrect is not null) $attributesToRender.autocorrect"] = AutoCorrect;
+		if (Cols > 0) $attributesToRender.cols"] = Cols
+		if ($DirName) { $attributesToRender.dirname"] = DirName;
+		if (Disabled) $attributesToRender.disabled"] = true;
+		if ($Form) { $attributesToRender.form"] = Form;
+		if (MaxLength >= 0) $attributesToRender.maxlength"] = MaxLength
+		if (MinLength >= 0) $attributesToRender.minlength"] = MinLength
+		if ($Name) { $attributesToRender.name"] = Name;
+		if ($Placeholder) { $attributesToRender.placeholder"] = Placeholder;
+		if (ReadOnly) $attributesToRender.readonly"] = true;
+		if (Required) $attributesToRender.required"] = true;
+		if (Rows > 0) $attributesToRender.rows"] = Rows
+		if (Wrap is not null) $attributesToRender.wrap"] = Wrap;
 	}
 }

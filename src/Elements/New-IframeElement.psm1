@@ -70,13 +70,13 @@ function New-HtmlIframeElement: NewElementCommand("iframe", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		attributes["src"] = Src.ToString();
-		if (-not [string]::IsNullOrWhiteSpace(Allow)) attributes["allow"] = Allow;
-		if (Height >= 0) attributes["height"] = Height
-		if (Loading is not null) attributes["loading"] = Loading;
-		if (-not [string]::IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
-		if (ReferrerPolicy is not null) attributes["referrerpolicy"] = ReferrerPolicy;
-		if (Sandbox.Length > 0) attributes["sandbox"] = string.Join(' ', Sandbox).Trim();
-		if (Width >= 0) attributes["width"] = Width
+		$attributesToRender.src"] = Src.ToString();
+		if ($Allow) { $attributesToRender.allow"] = Allow;
+		if (Height >= 0) $attributesToRender.height"] = Height
+		if (Loading is not null) $attributesToRender.loading"] = Loading;
+		if ($Name) { $attributesToRender.name"] = Name;
+		if (ReferrerPolicy is not null) $attributesToRender.referrerpolicy"] = ReferrerPolicy;
+		if (Sandbox.Length > 0) $attributesToRender.sandbox"] = string.Join(' ', Sandbox).Trim();
+		if (Width >= 0) $attributesToRender.width"] = Width
 	}
 }

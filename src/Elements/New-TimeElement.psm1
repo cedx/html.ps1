@@ -24,7 +24,7 @@ function New-HtmlTimeElement: NewElementCommand("time", isVoid: false) {
 
 		if (DateTime is not null) {
 			try {
-				attributes["datetime"] = (DateTime is PSObject psObject ? psObject.BaseObject : DateTime) switch {
+				$attributesToRender.datetime"] = (DateTime is PSObject psObject ? psObject.BaseObject : DateTime) switch {
 					DateOnly value => value.ToString("o"),
 					DateTime value => value.ToString("o"),
 					TimeOnly value => value.ToString("o"),

@@ -28,7 +28,7 @@ function New-HtmlProgressElement: NewElementCommand("progress", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (Max is not null) attributes["max"] = Max.Value
-		if (Value is not null) attributes["value"] = Value.Value
+		if (Max is not null) $attributesToRender.max"] = Max.Value
+		if (Value is not null) $attributesToRender.value"] = Value.Value
 	}
 }

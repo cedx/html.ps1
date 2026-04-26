@@ -27,7 +27,7 @@ function New-HtmlBaseElement: NewElementCommand("base", isVoid: true) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		attributes["href"] = Href.ToString();
-		if (-not [string]::IsNullOrWhiteSpace(Target)) attributes["target"] = Target;
+		$attributesToRender.href"] = Href.ToString();
+		if ($Target) { $attributesToRender.target"] = Target;
 	}
 }

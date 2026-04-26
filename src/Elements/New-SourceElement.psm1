@@ -62,19 +62,19 @@ function New-HtmlSourceElement: NewElementCommand("source", isVoid: true) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (-not [string]::IsNullOrWhiteSpace(Type)) attributes["type"] = Type;
+		if ($Type) { $attributesToRender.type"] = Type;
 
 		switch (ParameterSetName) {
 			case nameof(Src):
-				attributes["src"] = Src.ToString();
+				$attributesToRender.src"] = Src.ToString();
 				break;
 
 			case nameof(SrcSet):
-				attributes["srcset"] = string.Join(", ", SrcSet);
-				if (Height >= 0) attributes["height"] = Height
-				if (-not [string]::IsNullOrWhiteSpace(Media)) attributes["media"] = Media;
-				if (Sizes.Length > 0) attributes["sizes"] = string.Join(", ", Sizes);
-				if (Width >= 0) attributes["width"] = Width
+				$attributesToRender.srcset"] = string.Join(", ", SrcSet);
+				if (Height >= 0) $attributesToRender.height"] = Height
+				if ($Media) { $attributesToRender.media"] = Media;
+				if (Sizes.Length > 0) $attributesToRender.sizes"] = string.Join(", ", Sizes);
+				if (Width >= 0) $attributesToRender.width"] = Width
 				break;
 		}
 	}

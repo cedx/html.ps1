@@ -20,6 +20,6 @@ function New-HtmlLiElement: NewElementCommand("li", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (Value is not null) attributes["value"] = Value.Value
+		if (Value is not null) $attributesToRender.value"] = Value.Value
 	}
 }

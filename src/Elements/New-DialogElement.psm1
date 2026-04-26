@@ -27,7 +27,7 @@ function New-HtmlDialogElement: NewElementCommand("dialog", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (ClosedBy is not null) attributes["closedby"] = ClosedBy;
-		if (Open) attributes["open"] = true;
+		if (ClosedBy is not null) $attributesToRender.closedby"] = ClosedBy;
+		if (Open) $attributesToRender.open"] = true;
 	}
 }
