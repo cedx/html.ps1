@@ -17,16 +17,17 @@ Describe "New-AElement" {
 	}
 
 	It 'should support the "ping" attribute' {
-		$expected = '<a href="Index.html" ping="https://example.com/ Tracking.php"></a>', '<a ping="https://example.com/ Tracking.php" href="Index.html">Click me</a>'
+		$expected = '<a href="Index.html" ping="https://example.com/ Tracking.php"></a>', '<a ping="https://example.com/ Tracking.php" href="Index.html"></a>'
 		a -href Index.html -ping "https://example.com/", Tracking.php | Should -BeIn $expected
 	}
 
 	It 'should support the "rel" attribute' {
-		$expected = '<a href="Index.html" rel="external nofollow"></a>', '<a rel="external nofollow" href="Index.html">Click me</a>'
+		$expected = '<a href="Index.html" rel="external nofollow"></a>', '<a rel="external nofollow" href="Index.html"></a>'
 		a -href Index.html -rel external, nofollow | Should -BeIn $expected
 	}
 
 	It 'should support the "target" attribute' -ForEach "_blank", "my-iframe" {
-		a "Click me" -href Index.html -target $_ | Should -BeExactly "<a href=""Index.html"" target=""$_"">Click me</a>"
+		$expected = "<a href=""Index.html"" target=""$_"">Click me</a>", "<a target=""$_"" href=""Index.html"">Click me</a>"
+		a "Click me" -href Index.html -target $_ | Should -BeIn $expected
 	}
 }

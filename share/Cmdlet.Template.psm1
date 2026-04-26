@@ -12,11 +12,10 @@ function New-Html{CapitalizedTag}Element {
 	[OutputType([string])]
 	param (
 		# The inner HTML of the element.
-		[Parameter(Position = 0, ValueFromPipeline, ValueFromPipelineByPropertyName)]
+		[Parameter(Position = 0, ValueFromPipeline)]
 		[object] $Content,
 
 		# The custom attributes to render.
-		[Parameter(ValueFromPipelineByPropertyName)]
 		[hashtable] $Attributes = @{}
 	)
 
