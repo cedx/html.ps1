@@ -4,7 +4,7 @@ namespace Belin.Html.Elements;
 /// Creates a new <c>option</c> element.
 /// </summary>
 [Cmdlet(VerbsCommon.New, "HtmlOptionElement"), Alias("option"), OutputType(typeof(string))]
-public class NewOptionElementCommand(): NewElementCommand("option", isVoid: false) {
+public class NewOptionElementCommand(): WriteElementCommand("option", isVoid: false) {
 
 	/// <summary>
 	/// Value indicating whether the option is not checkable.

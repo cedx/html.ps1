@@ -6,7 +6,7 @@ using System.Globalization;
 /// Creates a new <c>col</c> element.
 /// </summary>
 [Cmdlet(VerbsCommon.New, "HtmlColElement"), Alias("col"), OutputType(typeof(string))]
-public class NewColElementCommand(): NewElementCommand("col", isVoid: true) {
+public class NewColElementCommand(): WriteElementCommand("col", isVoid: true) {
 
 	/// <summary>
 	/// The number of consecutive columns the element spans.

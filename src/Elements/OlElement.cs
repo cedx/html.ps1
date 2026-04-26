@@ -6,7 +6,7 @@ using System.Globalization;
 /// Creates a new <c>ol</c> element.
 /// </summary>
 [Cmdlet(VerbsCommon.New, "HtmlOlElement"), Alias("ol"), OutputType(typeof(string))]
-public class NewOlElementCommand(): NewElementCommand("ol", isVoid: false) {
+public class NewOlElementCommand(): WriteElementCommand("ol", isVoid: false) {
 
 	/// <summary>
 	/// Value indicating whether the list's items are in reverse order.

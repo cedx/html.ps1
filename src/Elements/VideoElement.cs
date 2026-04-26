@@ -6,7 +6,7 @@ using System.Globalization;
 /// Creates a new <c>video</c> element.
 /// </summary>
 [Cmdlet(VerbsCommon.New, "HtmlVideoElement"), Alias("video"), OutputType(typeof(string))]
-public class NewVideoElementCommand(): NewElementCommand("video", isVoid: false) {
+public class NewVideoElementCommand(): WriteElementCommand("video", isVoid: false) {
 
 	/// <summary>
 	/// Value indicating whether playback should start automatically as soon as the video signal allows.

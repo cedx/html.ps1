@@ -4,7 +4,7 @@ namespace Belin.Html;
 /// Creates a new custom element.
 /// </summary>
 [Cmdlet(VerbsCommon.New, "HtmlCustomElement"), Alias("tag"), OutputType(typeof(string))]
-public class NewCustomElementCommand(): NewElementCommand("", isVoid: false) {
+public class NewCustomElementCommand(): WriteElementCommand("", isVoid: false) {
 
 	/// <summary>
 	/// The inner HTML of the element.

@@ -6,7 +6,7 @@ using System.Globalization;
 /// Creates a new <c>progress</c> element.
 /// </summary>
 [Cmdlet(VerbsCommon.New, "HtmlProgressElement"), Alias("progress"), OutputType(typeof(string))]
-public class NewProgressElementCommand(): NewElementCommand("progress", isVoid: false) {
+public class NewProgressElementCommand(): WriteElementCommand("progress", isVoid: false) {
 
 	/// <summary>
 	/// Describes how much work the task requires.

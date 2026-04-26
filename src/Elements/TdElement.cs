@@ -6,7 +6,7 @@ using System.Globalization;
 /// Creates a new <c>th</c> element.
 /// </summary>
 [Cmdlet(VerbsCommon.New, "HtmlTdElement"), Alias("td"), OutputType(typeof(string))]
-public class NewTdElementCommand(): NewElementCommand("td", isVoid: false) {
+public class NewTdElementCommand(): WriteElementCommand("td", isVoid: false) {
 
 	/// <summary>
 	/// An integer indicating how many columns the header cell spans or extends.

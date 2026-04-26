@@ -6,7 +6,7 @@ using System.Globalization;
 /// Creates a new <c>source</c> element.
 /// </summary>
 [Cmdlet(VerbsCommon.New, "HtmlSourceElement", DefaultParameterSetName = nameof(Src)), Alias("source"), OutputType(typeof(string))]
-public class NewSourceElementCommand(): NewElementCommand("source", isVoid: true) {
+public class NewSourceElementCommand(): WriteElementCommand("source", isVoid: true) {
 
 	/// <summary>
 	/// The intrinsic height of the image, in CSS pixels.

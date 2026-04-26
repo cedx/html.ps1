@@ -6,7 +6,7 @@ using System.Globalization;
 /// Creates a new <c>li</c> element.
 /// </summary>
 [Cmdlet(VerbsCommon.New, "HtmlLiElement"), Alias("li"), OutputType(typeof(string))]
-public class NewLiElementCommand(): NewElementCommand("li", isVoid: false) {
+public class NewLiElementCommand(): WriteElementCommand("li", isVoid: false) {
 
 	/// <summary>
 	/// The ordinal value of the list item as defined by the <c>ol</c> element.

@@ -4,7 +4,7 @@ namespace Belin.Html.Elements;
 /// Creates a new <c>output</c> element.
 /// </summary>
 [Cmdlet(VerbsCommon.New, "HtmlOutputElement"), Alias("output"), OutputType(typeof(string))]
-public class NewOutputElementCommand(): NewElementCommand("output", isVoid: false) {
+public class NewOutputElementCommand(): WriteElementCommand("output", isVoid: false) {
 
 	/// <summary>
 	/// A list of other elements' identifiers, indicating that those elements contributed input values to the calculation.

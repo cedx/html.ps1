@@ -4,7 +4,7 @@ namespace Belin.Html.Elements;
 /// Creates a new <c>dialog</c> element.
 /// </summary>
 [Cmdlet(VerbsCommon.New, "HtmlDialogElement"), Alias("dialog"), OutputType(typeof(string))]
-public class NewDialogElementCommand(): NewElementCommand("dialog", isVoid: false) {
+public class NewDialogElementCommand(): WriteElementCommand("dialog", isVoid: false) {
 
 	/// <summary>
 	/// Specifies the types of user actions that can be used to close the element.

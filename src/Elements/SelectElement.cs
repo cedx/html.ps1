@@ -6,7 +6,7 @@ using System.Globalization;
 /// Creates a new <c>select</c> element.
 /// </summary>
 [Cmdlet(VerbsCommon.New, "HtmlSelectElement"), Alias("selectTag"), OutputType(typeof(string))]
-public class NewSelectElementCommand(): NewElementCommand("select", isVoid: false) {
+public class NewSelectElementCommand(): WriteElementCommand("select", isVoid: false) {
 
 	/// <summary>
 	/// A hint for a user agent's autocomplete feature.

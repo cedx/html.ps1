@@ -4,7 +4,7 @@ namespace Belin.Html.Elements;
 /// Creates a new <c>map</c> element.
 /// </summary>
 [Cmdlet(VerbsCommon.New, "HtmlMapElement"), Alias("map"), OutputType(typeof(string))]
-public class NewMapElementCommand(): NewElementCommand("map", isVoid: false) {
+public class NewMapElementCommand(): WriteElementCommand("map", isVoid: false) {
 
 	/// <summary>
 	/// The map name so that it can be referenced.

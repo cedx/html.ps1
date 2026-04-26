@@ -4,7 +4,7 @@ namespace Belin.Html.Elements;
 /// Creates a new <c>data</c> element.
 /// </summary>
 [Cmdlet(VerbsCommon.New, "HtmlDataElement"), Alias("dataTag"), OutputType(typeof(string))]
-public class NewDataElementCommand(): NewElementCommand("data", isVoid: false) {
+public class NewDataElementCommand(): WriteElementCommand("data", isVoid: false) {
 
 	/// <summary>
 	/// The machine-readable translation of the content of the element.

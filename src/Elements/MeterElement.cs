@@ -6,7 +6,7 @@ using System.Globalization;
 /// Creates a new <c>meter</c> element.
 /// </summary>
 [Cmdlet(VerbsCommon.New, "HtmlMeterElement"), Alias("meter"), OutputType(typeof(string))]
-public class NewMeterElementCommand(): NewElementCommand("meter", isVoid: false) {
+public class NewMeterElementCommand(): WriteElementCommand("meter", isVoid: false) {
 
 	/// <summary>
 	/// The lower numeric bound of the high end of the measured range.

@@ -6,7 +6,7 @@ using System.Globalization;
 /// Creates a new <c>object</c> element.
 /// </summary>
 [Cmdlet(VerbsCommon.New, "HtmlObjectElement"), Alias("object"), OutputType(typeof(string))]
-public class NewObjectElementCommand(): NewElementCommand("object", isVoid: false) {
+public class NewObjectElementCommand(): WriteElementCommand("object", isVoid: false) {
 
 	/// <summary>
 	/// The URL of the resource being embedded.

@@ -4,7 +4,7 @@ namespace Belin.Html.Elements;
 /// Creates a new <c>details</c> element.
 /// </summary>
 [Cmdlet(VerbsCommon.New, "HtmlDetailsElement"), Alias("details"), OutputType(typeof(string))]
-public class NewDetailsElementCommand(): NewElementCommand("details", isVoid: false) {
+public class NewDetailsElementCommand(): WriteElementCommand("details", isVoid: false) {
 
 	/// <summary>
 	/// The group name allowing multiple <c>details</c> elements to be connected, with only one open at a time.

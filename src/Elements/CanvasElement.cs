@@ -6,7 +6,7 @@ using System.Globalization;
 /// Creates a new <c>canvas</c> element.
 /// </summary>
 [Cmdlet(VerbsCommon.New, "HtmlCanvasElement"), Alias("canvas"), OutputType(typeof(string))]
-public class NewCanvasElementCommand(): NewElementCommand("canvas", isVoid: false) {
+public class NewCanvasElementCommand(): WriteElementCommand("canvas", isVoid: false) {
 
 	/// <summary>
 	/// The height of the coordinate space in CSS pixels.

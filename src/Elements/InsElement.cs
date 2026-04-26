@@ -4,7 +4,7 @@ namespace Belin.Html.Elements;
 /// Creates a new <c>ins</c> element.
 /// </summary>
 [Cmdlet(VerbsCommon.New, "HtmlInsElement"), Alias("ins"), OutputType(typeof(string))]
-public class NewInsElementCommand(): NewElementCommand("ins", isVoid: false) {
+public class NewInsElementCommand(): WriteElementCommand("ins", isVoid: false) {
 
 	/// <summary>
 	/// A URI for a resource that explains the change.
