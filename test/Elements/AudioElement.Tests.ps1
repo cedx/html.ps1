@@ -8,13 +8,13 @@ Describe "New-AudioElement" {
 	}
 
 	It 'should support the "autoplay", "controls", "loop" and "muted" attributes' {
-		audio -autoplay | Should -BeExactly "<audio autoplay></audio>"
-		audio -controls | Should -BeExactly "<audio controls></audio>"
-		audio -loop | Should -BeExactly "<audio loop></audio>"
-		audio -muted | Should -BeExactly "<audio muted></audio>"
+		audio -AutoPlay | Should -BeExactly "<audio autoplay></audio>"
+		audio -Controls | Should -BeExactly "<audio controls></audio>"
+		audio -Loop | Should -BeExactly "<audio loop></audio>"
+		audio -Muted | Should -BeExactly "<audio muted></audio>"
 	}
 
 	It 'should support the "preload" attribute' -ForEach auto, none, metadata {
-		audio -preload $_ | Should -BeExactly "<audio preload=""$_""></audio>"
+		audio -Preload $_ | Should -BeExactly "<audio preload=""$_""></audio>"
 	}
 }

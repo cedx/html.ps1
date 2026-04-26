@@ -8,10 +8,10 @@ Describe "New-OutputElement" {
 	}
 
 	It 'should support the "for" attribute' {
-		output 123 -for MyID1, MyID2 | Should -BeExactly '<output for="MyID1 MyID2">123</output>'
+		output 123 -For MyID1, MyID2 | Should -BeExactly '<output for="MyID1 MyID2">123</output>'
 	}
 
 	It 'should support the "form" attribute' {
-		output -form MyForm | Should -BeExactly '<output form="MyForm"></output>'
+		output -Form MyForm | Should -BeExactly '<output form="MyForm"></output>'
 	}
 }

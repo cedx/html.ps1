@@ -8,22 +8,22 @@ Describe "New-SelectElement" {
 	}
 
 	It 'should support the "autocomplete" attribute' -ForEach "off", "on", @("shipping", "street-address") {
-		selectTag -autocomplete $_ | Should -BeExactly "<select autocomplete=""$($_ -join " ")""></select>"
+		selectTag -AutoComplete $_ | Should -BeExactly "<select autocomplete=""$($_ -join " ")""></select>"
 	}
 
 	It 'should support the "disabled" attribute' {
-		selectTag -disabled | Should -BeExactly '<select disabled></select>'
+		selectTag -Disabled | Should -BeExactly '<select disabled></select>'
 	}
 
 	It 'should support the "multiple" attribute' {
-		selectTag -multiple | Should -BeExactly '<select multiple></select>'
+		selectTag -Multiple | Should -BeExactly '<select multiple></select>'
 	}
 
 	It 'should support the "required" attribute' {
-		selectTag -required | Should -BeExactly '<select required></select>'
+		selectTag -Required | Should -BeExactly '<select required></select>'
 	}
 
 	It 'should support the "size" attribute' -ForEach 0, 2, 5 {
-		selectTag -size $_ | Should -BeExactly "<select size=""$_""></select>"
+		selectTag -Size $_ | Should -BeExactly "<select size=""$_""></select>"
 	}
 }

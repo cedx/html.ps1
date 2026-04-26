@@ -8,21 +8,21 @@ Describe "New-VideoElement" {
 	}
 
 	It 'should support the "autoplay", "controls", "loop" and "muted" attributes' {
-		video -autoplay | Should -BeExactly "<video autoplay></video>"
-		video -controls | Should -BeExactly "<video controls></video>"
-		video -loop | Should -BeExactly "<video loop></video>"
-		video -muted | Should -BeExactly "<video muted></video>"
+		video -AutoPlay | Should -BeExactly "<video autoplay></video>"
+		video -Controls | Should -BeExactly "<video controls></video>"
+		video -Loop | Should -BeExactly "<video loop></video>"
+		video -Muted | Should -BeExactly "<video muted></video>"
 	}
 
 	It 'should support the "poster" attribute' {
-		video -poster Picture.webp | Should -BeExactly '<video poster="Picture.webp"></video>'
+		video -Poster Picture.webp | Should -BeExactly '<video poster="Picture.webp"></video>'
 	}
 
 	It 'should support the "preload" attribute' -ForEach auto, none, metadata {
-		video -preload $_ | Should -BeExactly "<video preload=""$_""></video>"
+		video -Preload $_ | Should -BeExactly "<video preload=""$_""></video>"
 	}
 
 	It 'should support the "height" and "width" attributes' {
-		video -width 460 -height 200 | Should -BeIn '<video width="460" height="200"></video>', '<video height="200" width="460"></video>'
+		video -Width 460 -Height 200 | Should -BeIn '<video width="460" height="200"></video>', '<video height="200" width="460"></video>'
 	}
 }

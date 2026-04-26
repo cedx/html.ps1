@@ -8,7 +8,7 @@ Describe "New-OptionElement" {
 	}
 
 	It 'should support the "disabled" and "selected" attributes' {
-		option -disabled | Should -BeExactly "<option disabled></option>"
+		option -Disabled | Should -BeExactly "<option disabled></option>"
 		option -selected | Should -BeExactly "<option selected></option>"
 	}
 
@@ -16,6 +16,6 @@ Describe "New-OptionElement" {
 		@{ Label = "Option #1"; Value = "" }
 		@{ Label = "Option #2"; Value = "FooBar" }
 	) {
-		option -label $label -value $value | Should -BeIn "<option label=""$label"" value=""$value""></option>", "<option value=""$value"" label=""$label""></option>"
+		option -Label $label -Value $value | Should -BeIn "<option label=""$label"" value=""$value""></option>", "<option value=""$value"" label=""$label""></option>"
 	}
 }

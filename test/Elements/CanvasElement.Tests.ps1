@@ -8,7 +8,7 @@ Describe "New-CanvasElement" {
 	}
 
 	It 'should support the "height" and "width" attributes' {
-		canvas -height 200 | Should -BeExactly '<canvas height="200"></canvas>'
-		canvas -width 460 | Should -BeExactly '<canvas width="460"></canvas>'
+		canvas -Height 200 | Should -BeExactly '<canvas height="200"></canvas>'
+		canvas -Width 460 | Should -BeExactly '<canvas width="460"></canvas>'
 	}
 }

@@ -8,23 +8,23 @@ Describe "New-TemplateElement" {
 	}
 
 	It 'should support the "shadowrootclonable" attribute' {
-		template -shadowrootclonable | Should -BeExactly '<template shadowrootclonable></template>'
+		template -ShadowRootClonable | Should -BeExactly '<template shadowrootclonable></template>'
 	}
 
 	It 'should support the "shadowrootdelegatesfocus" attribute' {
-		template -shadowrootdelegatesfocus | Should -BeExactly '<template shadowrootdelegatesfocus></template>'
+		template -ShadowRootDelegatesFocus | Should -BeExactly '<template shadowrootdelegatesfocus></template>'
 	}
 
 	It 'should support the "shadowrootmode" attribute' -ForEach closed, open {
-		template -shadowrootmode $_ | Should -BeExactly "<template shadowrootmode=""$_""></template>"
+		template -ShadowRootMode $_ | Should -BeExactly "<template shadowrootmode=""$_""></template>"
 	}
 
 	It 'should support the "shadowrootserializable" attribute' {
-		template -shadowrootserializable | Should -BeExactly '<template shadowrootserializable></template>'
+		template -ShadowRootSerializable | Should -BeExactly '<template shadowrootserializable></template>'
 	}
 
 	It "should allow inner content" {
 		template (b "Hello World!") | Should -BeExactly "<template><b>Hello World!</b></template>"
-		template (button OK -type submit) | Should -BeExactly '<template><button type="submit">OK</button></template>'
+		template (button OK -Type submit) | Should -BeExactly '<template><button type="submit">OK</button></template>'
 	}
 }

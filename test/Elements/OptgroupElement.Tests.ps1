@@ -8,10 +8,10 @@ Describe "New-OptgroupElement" {
 	}
 
 	It 'should support the "disabled" attribute' {
-		optgroup -disabled | Should -BeExactly "<optgroup disabled></optgroup>"
+		optgroup -Disabled | Should -BeExactly "<optgroup disabled></optgroup>"
 	}
 
 	It 'should support the "label" attribute' {
-		optgroup -label MyOptiongroup | Should -BeExactly '<optgroup label="MyOptiongroup"></optgroup>'
+		optgroup -Label MyOptiongroup | Should -BeExactly '<optgroup label="MyOptiongroup"></optgroup>'
 	}
 }

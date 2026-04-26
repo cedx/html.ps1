@@ -8,6 +8,6 @@ Describe "New-LabelElement" {
 	}
 
 	It 'should support the "for" attribute' {
-		label -for MyID | Should -BeExactly '<label for="MyID"></label>'
+		label -For MyID | Should -BeExactly '<label for="MyID"></label>'
 	}
 }

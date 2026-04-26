@@ -8,10 +8,10 @@ Describe "New-DetailsElement" {
 	}
 
 	It 'should support the "name" attribute' {
-		details -name MyGroup | Should -BeExactly '<details name="MyGroup"></details>'
+		details -Name MyGroup | Should -BeExactly '<details name="MyGroup"></details>'
 	}
 
 	It 'should support the "open" attribute' {
-		details -open | Should -BeExactly '<details open></details>'
+		details -Open | Should -BeExactly '<details open></details>'
 	}
 }

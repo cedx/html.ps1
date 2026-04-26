@@ -8,10 +8,10 @@ Describe "New-FieldsetElement" {
 	}
 
 	It 'should support the "disabled" attribute' {
-		fieldset -disabled | Should -BeExactly "<fieldset disabled></fieldset>"
+		fieldset -Disabled | Should -BeExactly "<fieldset disabled></fieldset>"
 	}
 
 	It 'should support the "form" attribute' {
-		fieldset -form MyForm | Should -BeExactly '<fieldset form="MyForm"></fieldset>'
+		fieldset -Form MyForm | Should -BeExactly '<fieldset form="MyForm"></fieldset>'
 	}
 }

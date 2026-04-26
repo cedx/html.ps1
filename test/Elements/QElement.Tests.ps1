@@ -8,6 +8,6 @@ Describe "New-QElement" {
 	}
 
 	It 'should support the "cite" attribute' {
-		q "Lorem Ipsum" -cite "https://example.com/" | Should -BeExactly '<q cite="https://example.com/">Lorem Ipsum</q>'
+		q "Lorem Ipsum" -Cite "https://example.com/" | Should -BeExactly '<q cite="https://example.com/">Lorem Ipsum</q>'
 	}
 }

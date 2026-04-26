@@ -8,10 +8,10 @@ Describe "New-TdElement" {
 	}
 
 	It 'should support the "colspan" and "rowspan" attributes' {
-		td -colspan 1 -rowspan 3 | Should -BeIn '<td colspan="1" rowspan="3"></td>', '<td rowspan="3" colspan="1"></td>'
+		td -ColSpan 1 -RowSpan 3 | Should -BeIn '<td colspan="1" rowspan="3"></td>', '<td rowspan="3" colspan="1"></td>'
 	}
 
 	It 'should support the "headers" attribute' {
-		td -headers tid1, tid2 | Should -BeExactly '<td headers="tid1 tid2"></td>'
+		td -Headers tid1, tid2 | Should -BeExactly '<td headers="tid1 tid2"></td>'
 	}
 }

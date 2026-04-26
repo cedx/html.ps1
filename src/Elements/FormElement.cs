@@ -24,7 +24,7 @@ public class NewFormElementCommand(): WriteElementCommand("form", isVoid: false)
 	/// The media type of the form submission.
 	/// </summary>
 	[Parameter, ValidateSet(MediaTypeNames.Application.FormUrlEncoded, MediaTypeNames.Multipart.FormData, MediaTypeNames.Text.Plain)]
-	public string? Enctype { get; set; }
+	public string? EncType { get; set; }
 
 	/// <summary>
 	/// The HTTP method to submit the form with.
@@ -64,7 +64,7 @@ public class NewFormElementCommand(): WriteElementCommand("form", isVoid: false)
 		base.RenderAttributes(attributes);
 		if (Action is not null) attributes["action"] = Action.ToString();
 		if (AutoComplete is not null) attributes["autocomplete"] = AutoComplete;
-		if (Enctype is not null) attributes["enctype"] = Enctype;
+		if (EncType is not null) attributes["enctype"] = EncType;
 		if (Method is not null) attributes["method"] = Method;
 		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
 		if (NoValidate) attributes["novalidate"] = true;
