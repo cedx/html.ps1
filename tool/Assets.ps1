@@ -1,7 +1,7 @@
 using namespace System.Collections.Generic
 
 "Deploying the assets..."
-$cmdletTemplate = Get-Content share/Cmdlet.Template.cs -Raw
+$cmdletTemplate = Get-Content share/CmdletTemplate.cs -Raw
 $cmdletsToExport = [List[string]]::new([string[]] @("New-HtmlCustomElement"))
 
 New-Item src/Generated -Force -ItemType Directory | Out-Null
@@ -13,8 +13,8 @@ foreach ($element in (Import-PowerShellDataFile share/HtmlElements.psd1).Element
 		Tag = $element.Tag
 	}
 
-	$cmdletsToExport.Add("New-Html$($parameters.CapitalizedTag)Element")
-	$fileName = "New-$($parameters.CapitalizedTag)Element"
+	$fileName = "$($parameters.CapitalizedTag)Element"
+	$cmdletsToExport.Add("New-Html$fileName")
 	if (Test-Path "src/Elements/$fileName.cs") { continue }
 
 	$content = $cmdletTemplate
