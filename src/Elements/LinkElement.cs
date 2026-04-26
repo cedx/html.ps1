@@ -61,7 +61,7 @@ public class NewLinkElementCommand(): WriteElementCommand("link", isVoid: true) 
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
 		attributes["rel"] = string.Join(' ', Rel).Trim();
-		attributes["href"] = Href.ToString();
+		attributes["href"] = Href;
 		if (!string.IsNullOrWhiteSpace(As)) attributes["as"] = As;
 		if (CrossOrigin is not null) attributes["crossorigin"] = CrossOrigin;
 		if (!string.IsNullOrWhiteSpace(Integrity)) attributes["integrity"] = Integrity;

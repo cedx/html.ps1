@@ -1,7 +1,5 @@
 namespace Belin.Html.Elements;
 
-using System.Globalization;
-
 /// <summary>
 /// Creates a new <c>img</c> element.
 /// </summary>
@@ -68,14 +66,14 @@ public class NewImgElementCommand(): WriteElementCommand("img", isVoid: true) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		attributes["src"] = Src.ToString();
+		attributes["src"] = Src;
 		if (Alt is not null) attributes["alt"] = Alt;
-		if (Height >= 0) attributes["height"] = Height.ToString(CultureInfo.InvariantCulture);
+		if (Height >= 0) attributes["height"] = Height;
 		if (IsMap) attributes["ismap"] = true;
 		if (Loading is not null) attributes["loading"] = Loading;
 		if (Sizes.Length > 0) attributes["sizes"] = string.Join(", ", Sizes);
 		if (SrcSet.Length > 0) attributes["srcset"] = string.Join(", ", SrcSet);
 		if (!string.IsNullOrWhiteSpace(UseMap)) attributes["usemap"] = UseMap.StartsWith('#') ? UseMap : $"#{UseMap}";
-		if (Width >= 0) attributes["width"] = Width.ToString(CultureInfo.InvariantCulture);
+		if (Width >= 0) attributes["width"] = Width;
 	}
 }

@@ -1,7 +1,5 @@
 namespace Belin.Html.Elements;
 
-using System.Globalization;
-
 /// <summary>
 /// Creates a new <c>object</c> element.
 /// </summary>
@@ -50,11 +48,11 @@ public class NewObjectElementCommand(): WriteElementCommand("object", isVoid: fa
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		attributes["data"] = Data.ToString();
+		attributes["data"] = Data;
 		attributes["type"] = Type;
 		if (!string.IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
-		if (Height >= 0) attributes["height"] = Height.ToString(CultureInfo.InvariantCulture);
+		if (Height >= 0) attributes["height"] = Height;
 		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
-		if (Width >= 0) attributes["width"] = Width.ToString(CultureInfo.InvariantCulture);
+		if (Width >= 0) attributes["width"] = Width;
 	}
 }

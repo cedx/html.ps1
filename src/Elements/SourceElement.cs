@@ -1,7 +1,5 @@
 namespace Belin.Html.Elements;
 
-using System.Globalization;
-
 /// <summary>
 /// Creates a new <c>source</c> element.
 /// </summary>
@@ -60,15 +58,15 @@ public class NewSourceElementCommand(): WriteElementCommand("source", isVoid: tr
 
 		switch (ParameterSetName) {
 			case nameof(Src):
-				attributes["src"] = Src.ToString();
+				attributes["src"] = Src;
 				break;
 
 			case nameof(SrcSet):
 				attributes["srcset"] = string.Join(", ", SrcSet);
-				if (Height >= 0) attributes["height"] = Height.ToString(CultureInfo.InvariantCulture);
+				if (Height >= 0) attributes["height"] = Height;
 				if (!string.IsNullOrWhiteSpace(Media)) attributes["media"] = Media;
 				if (Sizes.Length > 0) attributes["sizes"] = string.Join(", ", Sizes);
-				if (Width >= 0) attributes["width"] = Width.ToString(CultureInfo.InvariantCulture);
+				if (Width >= 0) attributes["width"] = Width;
 				break;
 		}
 	}

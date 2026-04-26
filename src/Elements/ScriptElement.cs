@@ -48,7 +48,7 @@ public class NewScriptElementCommand(): WriteElementCommand("script", isVoid: fa
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (Src is not null) attributes["src"] = Src.ToString();
+		if (Src is not null) attributes["src"] = Src;
 		if (Async) attributes["async"] = true;
 		if (CrossOrigin is not null) attributes["crossorigin"] = CrossOrigin;
 		if (Defer) attributes["defer"] = true;

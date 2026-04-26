@@ -44,7 +44,7 @@ public class NewTrackElementCommand(): WriteElementCommand("track", isVoid: true
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		attributes["src"] = Src.ToString();
+		attributes["src"] = Src;
 		if (Default) attributes["default"] = true;
 		if (Kind is not null) attributes["kind"] = Kind;
 		if (!string.IsNullOrWhiteSpace(Label)) attributes["label"] = Label;

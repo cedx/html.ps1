@@ -1,7 +1,5 @@
 namespace Belin.Html.Elements;
 
-using System.Globalization;
-
 /// <summary>
 /// Creates a new <c>progress</c> element.
 /// </summary>
@@ -26,7 +24,7 @@ public class NewProgressElementCommand(): WriteElementCommand("progress", isVoid
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (Max is not null) attributes["max"] = Max.Value.ToString(CultureInfo.InvariantCulture);
-		if (Value is not null) attributes["value"] = Value.Value.ToString(CultureInfo.InvariantCulture);
+		if (Max is not null) attributes["max"] = Max.Value;
+		if (Value is not null) attributes["value"] = Value.Value;
 	}
 }

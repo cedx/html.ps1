@@ -67,6 +67,6 @@ public class NewAudioElementCommand(): WriteElementCommand("audio", isVoid: fals
 		if (Loop) attributes["loop"] = true;
 		if (Muted) attributes["muted"] = true;
 		if (Preload is not null) attributes["preload"] = Preload;
-		if (Src is not null) attributes["src"] = Src.ToString();
+		if (Src is not null) attributes["src"] = Src;
 	}
 }

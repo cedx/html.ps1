@@ -1,7 +1,5 @@
 namespace Belin.Html.Elements;
 
-using System.Globalization;
-
 /// <summary>
 /// Creates a new <c>li</c> element.
 /// </summary>
@@ -20,6 +18,6 @@ public class NewLiElementCommand(): WriteElementCommand("li", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (Value is not null) attributes["value"] = Value.Value.ToString(CultureInfo.InvariantCulture);
+		if (Value is not null) attributes["value"] = Value.Value;
 	}
 }

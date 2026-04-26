@@ -1,7 +1,5 @@
 namespace Belin.Html.Elements;
 
-using System.Globalization;
-
 /// <summary>
 /// Creates a new <c>iframe</c> element.
 /// </summary>
@@ -65,13 +63,13 @@ public class NewIframeElementCommand(): WriteElementCommand("iframe", isVoid: fa
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		attributes["src"] = Src.ToString();
+		attributes["src"] = Src;
 		if (!string.IsNullOrWhiteSpace(Allow)) attributes["allow"] = Allow;
-		if (Height >= 0) attributes["height"] = Height.ToString(CultureInfo.InvariantCulture);
+		if (Height >= 0) attributes["height"] = Height;
 		if (Loading is not null) attributes["loading"] = Loading;
 		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
 		if (ReferrerPolicy is not null) attributes["referrerpolicy"] = ReferrerPolicy;
 		if (Sandbox.Length > 0) attributes["sandbox"] = string.Join(' ', Sandbox).Trim();
-		if (Width >= 0) attributes["width"] = Width.ToString(CultureInfo.InvariantCulture);
+		if (Width >= 0) attributes["width"] = Width;
 	}
 }

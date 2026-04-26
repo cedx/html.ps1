@@ -102,7 +102,7 @@ public class NewButtonElementCommand(): WriteElementCommand("button", isVoid: fa
 		if (!string.IsNullOrWhiteSpace(CommandFor)) attributes["commandfor"] = CommandFor;
 		if (Disabled) attributes["disabled"] = true;
 		if (!string.IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
-		if (FormAction is not null) attributes["formaction"] = FormAction.ToString();
+		if (FormAction is not null) attributes["formaction"] = FormAction;
 		if (FormEnctype is not null) attributes["formenctype"] = FormEnctype;
 		if (FormMethod is not null) attributes["formmethod"] = FormMethod;
 		if (FormNoValidate) attributes["formnovalidate"] = true;

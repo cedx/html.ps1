@@ -1,7 +1,5 @@
 namespace Belin.Html.Elements;
 
-using System.Globalization;
-
 /// <summary>
 /// Creates a new <c>meter</c> element.
 /// </summary>
@@ -50,11 +48,11 @@ public class NewMeterElementCommand(): WriteElementCommand("meter", isVoid: fals
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (High is not null) attributes["high"] = High.Value.ToString(CultureInfo.InvariantCulture);
-		if (Low is not null) attributes["low"] = Low.Value.ToString(CultureInfo.InvariantCulture);
-		if (Max is not null) attributes["max"] = Max.Value.ToString(CultureInfo.InvariantCulture);
-		if (Min is not null) attributes["min"] = Min.Value.ToString(CultureInfo.InvariantCulture);
-		if (Optimum is not null) attributes["optimum"] = Optimum.Value.ToString(CultureInfo.InvariantCulture);
-		if (Value is not null) attributes["value"] = Value.Value.ToString(CultureInfo.InvariantCulture);
+		if (High is not null) attributes["high"] = High.Value;
+		if (Low is not null) attributes["low"] = Low.Value;
+		if (Max is not null) attributes["max"] = Max.Value;
+		if (Min is not null) attributes["min"] = Min.Value;
+		if (Optimum is not null) attributes["optimum"] = Optimum.Value;
+		if (Value is not null) attributes["value"] = Value.Value;
 	}
 }

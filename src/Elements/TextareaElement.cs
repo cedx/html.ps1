@@ -1,7 +1,5 @@
 namespace Belin.Html.Elements;
 
-using System.Globalization;
-
 /// <summary>
 /// Creates a new <c>textarea</c> element.
 /// </summary>
@@ -100,17 +98,17 @@ public class NewTextareaElementCommand(): WriteElementCommand("textarea", isVoid
 		base.RenderAttributes(attributes);
 		if (AutoComplete.Length > 0) attributes["autocomplete"] = string.Join(' ', AutoComplete).Trim();
 		if (AutoCorrect is not null) attributes["autocorrect"] = AutoCorrect;
-		if (Cols > 0) attributes["cols"] = Cols.ToString(CultureInfo.InvariantCulture);
+		if (Cols > 0) attributes["cols"] = Cols;
 		if (!string.IsNullOrWhiteSpace(DirName)) attributes["dirname"] = DirName;
 		if (Disabled) attributes["disabled"] = true;
 		if (!string.IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
-		if (MaxLength >= 0) attributes["maxlength"] = MaxLength.ToString(CultureInfo.InvariantCulture);
-		if (MinLength >= 0) attributes["minlength"] = MinLength.ToString(CultureInfo.InvariantCulture);
+		if (MaxLength >= 0) attributes["maxlength"] = MaxLength;
+		if (MinLength >= 0) attributes["minlength"] = MinLength;
 		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
 		if (!string.IsNullOrWhiteSpace(Placeholder)) attributes["placeholder"] = Placeholder;
 		if (ReadOnly) attributes["readonly"] = true;
 		if (Required) attributes["required"] = true;
-		if (Rows > 0) attributes["rows"] = Rows.ToString(CultureInfo.InvariantCulture);
+		if (Rows > 0) attributes["rows"] = Rows;
 		if (Wrap is not null) attributes["wrap"] = Wrap;
 	}
 }

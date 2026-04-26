@@ -1,6 +1,5 @@
 namespace Belin.Html.Elements;
 
-using System.Globalization;
 using System.Net.Mime;
 using System.Text.RegularExpressions;
 
@@ -237,17 +236,17 @@ public class NewInputElementCommand(): WriteElementCommand("input", isVoid: true
 		if (!string.IsNullOrWhiteSpace(DirName)) attributes["dirname"] = DirName;
 		if (Disabled) attributes["disabled"] = true;
 		if (!string.IsNullOrWhiteSpace(Form)) attributes["form"] = Form;
-		if (FormAction is not null) attributes["formaction"] = FormAction.ToString();
+		if (FormAction is not null) attributes["formaction"] = FormAction;
 		if (FormEnctype is not null) attributes["formenctype"] = FormEnctype;
 		if (FormMethod is not null) attributes["formmethod"] = FormMethod;
 		if (FormNoValidate) attributes["formnovalidate"] = true;
 		if (!string.IsNullOrWhiteSpace(FormTarget)) attributes["formtarget"] = FormTarget;
-		if (Height >= 0) attributes["height"] = Height.ToString(CultureInfo.InvariantCulture);
+		if (Height >= 0) attributes["height"] = Height;
 		if (!string.IsNullOrWhiteSpace(List)) attributes["list"] = List;
 		if (!string.IsNullOrWhiteSpace(Max)) attributes["max"] = Max;
-		if (MaxLength >= 0) attributes["maxlength"] = MaxLength.ToString(CultureInfo.InvariantCulture);
+		if (MaxLength >= 0) attributes["maxlength"] = MaxLength;
 		if (!string.IsNullOrWhiteSpace(Min)) attributes["min"] = Min;
-		if (MinLength >= 0) attributes["minlength"] = MinLength.ToString(CultureInfo.InvariantCulture);
+		if (MinLength >= 0) attributes["minlength"] = MinLength;
 		if (Multiple) attributes["multiple"] = true;
 		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
 		if (Pattern is not null) attributes["pattern"] = Pattern.ToString().Replace(@"\", @"\\");
@@ -256,10 +255,10 @@ public class NewInputElementCommand(): WriteElementCommand("input", isVoid: true
 		if (PopoverTargetAction is not null) attributes["popovertargetaction"] = PopoverTargetAction;
 		if (ReadOnly) attributes["readonly"] = true;
 		if (Required) attributes["required"] = true;
-		if (Size > 0) attributes["size"] = Size.ToString(CultureInfo.InvariantCulture);
+		if (Size > 0) attributes["size"] = Size;
 		if (!string.IsNullOrWhiteSpace(Step)) attributes["step"] = Step;
 		if (Type is not null) attributes["type"] = Type;
 		if (Value is not null) attributes["value"] = Value;
-		if (Width >= 0) attributes["width"] = Width.ToString(CultureInfo.InvariantCulture);
+		if (Width >= 0) attributes["width"] = Width;
 	}
 }

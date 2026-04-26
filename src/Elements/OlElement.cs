@@ -1,7 +1,5 @@
 namespace Belin.Html.Elements;
 
-using System.Globalization;
-
 /// <summary>
 /// Creates a new <c>ol</c> element.
 /// </summary>
@@ -33,7 +31,7 @@ public class NewOlElementCommand(): WriteElementCommand("ol", isVoid: false) {
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
 		if (Reversed) attributes["reversed"] = true;
-		if (Start is not null) attributes["start"] = Start.Value.ToString(CultureInfo.InvariantCulture);
+		if (Start is not null) attributes["start"] = Start.Value;
 		if (Type is not null) attributes["type"] = Type;
 	}
 }

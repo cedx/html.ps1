@@ -1,7 +1,5 @@
 namespace Belin.Html.Elements;
 
-using System.Globalization;
-
 /// <summary>
 /// Creates a new <c>embed</c> element.
 /// </summary>
@@ -38,9 +36,9 @@ public class NewEmbedElementCommand(): WriteElementCommand("embed", isVoid: true
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		attributes["src"] = Src.ToString();
+		attributes["src"] = Src;
 		attributes["type"] = Type;
-		if (Height >= 0) attributes["height"] = Height.ToString(CultureInfo.InvariantCulture);
-		if (Width >= 0) attributes["width"] = Width.ToString(CultureInfo.InvariantCulture);
+		if (Height >= 0) attributes["height"] = Height;
+		if (Width >= 0) attributes["width"] = Width;
 	}
 }

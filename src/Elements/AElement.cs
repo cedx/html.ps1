@@ -42,9 +42,9 @@ public class NewAElementCommand(): WriteElementCommand("a", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		attributes["href"] = Href.ToString();
+		attributes["href"] = Href;
 		if (!string.IsNullOrWhiteSpace(Download)) attributes["download"] = Download;
-		if (Ping.Length > 0) attributes["ping"] = string.Join(' ', Ping.Select(url => url.ToString())).Trim();
+		if (Ping.Length > 0) attributes["ping"] = string.Join(' ', Ping).Trim();
 		if (Rel.Length > 0) attributes["rel"] = string.Join(' ', Rel).Trim();
 		if (!string.IsNullOrWhiteSpace(Target)) attributes["target"] = Target;
 	}

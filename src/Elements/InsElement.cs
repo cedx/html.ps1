@@ -24,7 +24,7 @@ public class NewInsElementCommand(): WriteElementCommand("ins", isVoid: false) {
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (Cite is not null) attributes["cite"] = Cite.ToString();
+		if (Cite is not null) attributes["cite"] = Cite;
 
 		if (DateTime is not null) {
 			try {

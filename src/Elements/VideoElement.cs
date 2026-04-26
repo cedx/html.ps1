@@ -1,7 +1,5 @@
 namespace Belin.Html.Elements;
 
-using System.Globalization;
-
 /// <summary>
 /// Creates a new <c>video</c> element.
 /// </summary>
@@ -97,13 +95,13 @@ public class NewVideoElementCommand(): WriteElementCommand("video", isVoid: fals
 		if (CrossOrigin is not null) attributes["crossorigin"] = CrossOrigin;
 		if (DisablePictureInPicture) attributes["disablepictureinpicture"] = true;
 		if (DisableRemotePlayback) attributes["disableremoteplayback"] = true;
-		if (Height >= 0) attributes["height"] = Height.ToString(CultureInfo.InvariantCulture);
+		if (Height >= 0) attributes["height"] = Height;
 		if (Loop) attributes["loop"] = true;
 		if (Muted) attributes["muted"] = true;
 		if (PlaysInline) attributes["playsinline"] = true;
-		if (Poster is not null) attributes["poster"] = Poster.ToString();
+		if (Poster is not null) attributes["poster"] = Poster;
 		if (Preload is not null) attributes["preload"] = Preload;
-		if (Src is not null) attributes["src"] = Src.ToString();
-		if (Width >= 0) attributes["width"] = Width.ToString(CultureInfo.InvariantCulture);
+		if (Src is not null) attributes["src"] = Src;
+		if (Width >= 0) attributes["width"] = Width;
 	}
 }

@@ -203,7 +203,7 @@ public abstract class WriteElementCommand(string tagName, bool isVoid = false): 
 		foreach (DictionaryEntry entry in On) attributes[$"on{entry.Key.ToString()?.ToLowerInvariant()}"] = entry.Value;
 		if (Popover is not null) attributes["popover"] = Popover;
 		if (SpellCheck is not null) attributes["spellcheck"] = SpellCheck;
-		if (TabIndex is not null) attributes["tabindex"] = TabIndex.Value.ToString(CultureInfo.InvariantCulture);
+		if (TabIndex is not null) attributes["tabindex"] = TabIndex.Value;
 		if (!string.IsNullOrWhiteSpace(Title)) attributes["title"] = Title;
 		if (Translate is not null) attributes["translate"] = Translate;
 

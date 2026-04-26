@@ -62,7 +62,7 @@ public class NewFormElementCommand(): WriteElementCommand("form", isVoid: false)
 	/// <param name="attributes">The attribute collection to populate.</param>
 	protected override void RenderAttributes(IDictionary<string, object?> attributes) {
 		base.RenderAttributes(attributes);
-		if (Action is not null) attributes["action"] = Action.ToString();
+		if (Action is not null) attributes["action"] = Action;
 		if (AutoComplete is not null) attributes["autocomplete"] = AutoComplete;
 		if (EncType is not null) attributes["enctype"] = EncType;
 		if (Method is not null) attributes["method"] = Method;

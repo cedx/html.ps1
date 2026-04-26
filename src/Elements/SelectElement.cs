@@ -1,7 +1,5 @@
 namespace Belin.Html.Elements;
 
-using System.Globalization;
-
 /// <summary>
 /// Creates a new <c>select</c> element.
 /// </summary>
@@ -62,6 +60,6 @@ public class NewSelectElementCommand(): WriteElementCommand("select", isVoid: fa
 		if (Multiple) attributes["multiple"] = true;
 		if (!string.IsNullOrWhiteSpace(Name)) attributes["name"] = Name;
 		if (Required) attributes["required"] = true;
-		if (Size >= 0) attributes["size"] = Size.ToString(CultureInfo.InvariantCulture);
+		if (Size >= 0) attributes["size"] = Size;
 	}
 }
