@@ -1,7 +1,6 @@
-namespace Belin.Html.Elements;
-
-/// <summary>
-/// Creates a new <c>{Tag}</c> element.
-/// </summary>
+<#
+.SYNOPSIS
+	Creates a new `{Tag}` element.
+#>
 [Cmdlet(VerbsCommon.New, "Html{CapitalizedTag}Element"), Alias("{Alias}"), OutputType(typeof(string))]
-public class New{CapitalizedTag}ElementCommand(): NewElementCommand("{Tag}", isVoid: {IsVoid}) {}
+function New-Html{CapitalizedTag}Element: NewElementCommand("{Tag}", isVoid: {IsVoid}) {}

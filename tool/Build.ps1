@@ -2,30 +2,24 @@ using namespace System.Collections.Generic
 
 "Deploying the assets..."
 $cmdlets = [pscustomobject]@{
-	Aliases = [List[string]]::new()
-	Functions = [List[string]]::new()
-	Modules = [List[string]]::new()
+	Aliases = [List[string]]::new([string[]] @(
+		"doctype" # New-HtmlDocumentType
+		# "layout" # Use-HtmlLayout
+		# "tag" # New-HtmlCustomElement
+	))
+	Functions = [List[string]]::new([string[]] @(
+		# "New-HtmlCustomElement"
+		"New-HtmlDocumentType"
+		# "Use-HtmlLayout"
+		# "Write-HtmlView"
+	))
+	Modules = [List[string]]::new([string[]] @(
+		# "src/New-CustomElement.psm1"
+		"src/New-DocumentType.psm1"
+		# "src/Use-Layout.psm1"
+		# "src/Write-View.psm1"
+	))
 }
-
-$cmdlets.Aliases = [List[string]]::new([string[]] @(
-	# "doctype"
-	# "layout"
-	# "tag"
-))
-
-$cmdlets.Functions = [List[string]]::new([string[]] @(
-	# "New-HtmlCustomElement"
-	# "New-HtmlDocumentType"
-	# "Use-HtmlLayout"
-	# "Write-HtmlView"
-))
-
-$cmdlets.Modules = [List[string]]::new([string[]] @(
-	# "src/New-CustomElement.psm1"
-	# "src/New-DocumentType.psm1"
-	# "src/Use-Layout.psm1"
-	# "src/Write-View.psm1"
-))
 
 # Generate the cmdlets.
 New-Item src/Generated -Force -ItemType Directory | Out-Null

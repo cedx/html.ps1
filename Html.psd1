@@ -1,5 +1,5 @@
 @{
-	# DefaultCommandPrefix = "Lcov"
+	# DefaultCommandPrefix = "Html"
 	ModuleVersion = "2.0.0"
 	PowerShellVersion = "7.6"
 
