@@ -1,3 +1,5 @@
+using namespace System.Diagnostics.CodeAnalysis
+
 <#
 .SYNOPSIS
 	Creates a new document type declaration.
@@ -10,6 +12,7 @@ function New-HtmlDocumentType {
 	[Alias("doctype")]
 	[CmdletBinding()]
 	[OutputType([string])]
+	[SuppressMessage("PSUseShouldProcessForStateChangingFunctions", "")]
 	param (
 		# The value of the document type.
 		[Parameter(Position = 0, ValueFromPipeline)]
