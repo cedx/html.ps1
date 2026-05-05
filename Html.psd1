@@ -1,5 +1,4 @@
 @{
-	# DefaultCommandPrefix = "Html"
 	ModuleVersion = "2.0.0"
 	PowerShellVersion = "7.6"
 	RootModule = "bin/Belin.Html.dll"
@@ -11,7 +10,6 @@
 	GUID = "3c16800c-921e-4c31-9fc3-00052d2f30ba"
 
 	AliasesToExport = "doctype", "layout"
-	FunctionsToExport = "New-HtmlDocumentType", "Use-HtmlLayout", "Write-HtmlView"
 	VariablesToExport = @()
 
 	CmdletsToExport = @(
@@ -128,6 +126,12 @@
 		"New-HtmlVarElement"
 		"New-HtmlVideoElement"
 		"New-HtmlWbrElement"
+	)
+
+	FunctionsToExport = @(
+		"New-HtmlDocumentType"
+		"Use-HtmlLayout"
+		"Write-HtmlView"
 	)
 
 	NestedModules = @(
