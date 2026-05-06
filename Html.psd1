@@ -10,6 +10,7 @@
 	GUID = "3c16800c-921e-4c31-9fc3-00052d2f30ba"
 
 	AliasesToExport = "doctype", "layout"
+	NestedModules = @("src/Main.psm1")
 	VariablesToExport = @()
 
 	CmdletsToExport = @(
