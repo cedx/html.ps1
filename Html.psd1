@@ -1,5 +1,5 @@
 @{
-	ModuleVersion = "2.0.0"
+	ModuleVersion = "2.1.0"
 	PowerShellVersion = "7.6"
 	RootModule = "bin/Belin.Html.dll"
 
@@ -132,12 +132,6 @@
 		"New-HtmlDocumentType"
 		"Use-HtmlLayout"
 		"Write-HtmlView"
-	)
-
-	NestedModules = @(
-		"src/New-DocumentType.psm1"
-		"src/Use-Layout.psm1"
-		"src/Write-View.psm1"
 	)
 
 	PrivateData = @{
