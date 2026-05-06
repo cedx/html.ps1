@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [2.1.0](https://github.com/cedx/html.ps1/compare/v2.0.0...v2.1.0)
+- Merged the nested [PowerShell](https://learn.microsoft.com/en-us/powershell) modules into a single main module.
+
 ## Version [2.0.0](https://github.com/cedx/html.ps1/compare/v1.2.0...v2.0.0)
 - Breaking change: removed the `ValueFromPipelineByPropertyName` attribute from all cmdlet parameters.
 - Breaking change: removed the `-Void` parameter from the `New-CustomElement` cmdlet.
